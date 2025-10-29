@@ -1,0 +1,271 @@
+# =================================================================
+# AWKWARD LEGACY - .dockerignore
+# =================================================================
+# Description: Fichiers et répertoires à exclure lors du build Docker
+# Date: 17 Octobre 2025
+# =================================================================
+
+# =================================================================
+# GIT
+# =================================================================
+.git
+.gitignore
+.gitmodules
+.gitattributes
+
+# =================================================================
+# DOCUMENTATION ET MÉTA-FICHIERS
+# =================================================================
+*.md
+!README.md
+LICENSE
+CHANGELOG
+AUTHORS
+CONTRIBUTORS
+TODO.txt
+docs/
+*.pdf
+*.doc
+*.docx
+
+# =================================================================
+# ENVIRONNEMENT ET CONFIGURATION LOCALE
+# =================================================================
+.env
+.env.*
+!.env.example
+.envrc
+*.local
+config.local.yml
+secrets/
+credentials/
+
+# =================================================================
+# DÉVELOPPEMENT
+# =================================================================
+.vscode/
+.idea/
+.sublime-*
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+
+# =================================================================
+# PYTHON
+# =================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+develop-eggs/
+.eggs/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.manifest
+*.spec
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# =================================================================
+# OCAML
+# =================================================================
+_build/
+*.cmi
+*.cmo
+*.cmx
+*.cma
+*.cmxa
+*.o
+*.a
+*.native
+*.byte
+.merlin
+dune-project
+
+# =================================================================
+# TESTS ET CI/CD
+# =================================================================
+tests/
+test/
+spec/
+coverage/
+.coverage.*
+.tox/
+.nox/
+.github/
+.gitlab/
+.travis.yml
+.circleci/
+appveyor.yml
+Jenkinsfile
+azure-pipelines.yml
+
+# =================================================================
+# LOGS ET DONNÉES TEMPORAIRES
+# =================================================================
+*.log
+logs/
+*.tmp
+tmp/
+temp/
+cache/
+.cache/
+*.pid
+*.seed
+*.pid.lock
+
+# =================================================================
+# BACKUPS ET ARCHIVES
+# =================================================================
+*.backup
+*.bak
+*.old
+*.orig
+*.save
+*.tar
+*.tar.gz
+*.tar.bz2
+*.zip
+*.rar
+*.7z
+backups/
+
+# =================================================================
+# DATABASES (développement local)
+# =================================================================
+*.db
+*.sqlite
+*.sqlite3
+*.gwb
+data/
+db/
+database/
+
+# =================================================================
+# NODE.JS (si applicable)
+# =================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.npm/
+
+# =================================================================
+# DOCKER (éviter la récursion)
+# =================================================================
+Dockerfile*
+docker-compose*.yml
+!Dockerfile
+!docker-compose.yml
+.dockerignore
+
+# =================================================================
+# OUTILS DE BUILD
+# =================================================================
+Makefile.local
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+# =================================================================
+# SYSTÈME D'EXPLOITATION
+# =================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# =================================================================
+# ÉDITEURS ET IDE
+# =================================================================
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.iml
+.idea/
+*.ipr
+*.iws
+/out/
+.vscode/
+*.code-workspace
+
+# =================================================================
+# FICHIERS SPÉCIFIQUES AU PROJET
+# =================================================================
+jour*_rapport.md
+todo_actions.md
+private/
+sensitive/
+*.key
+*.pem
+*.crt
+*.cert
+*.pfx
+
+# =================================================================
+# EXCLUSIONS SPÉCIFIQUES (à conserver dans l'image)
+# =================================================================
+# Garder ces fichiers/répertoires dans l'image Docker:
+!LegacyProject/modernProject/
+!LegacyProject/requirements.txt
+!LegacyProject/Makefile
+!geneweb/
+!scripts/deploy.sh
+!scripts/backup.sh
+!scripts/restore.sh

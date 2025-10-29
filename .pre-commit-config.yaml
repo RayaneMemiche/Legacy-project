@@ -1,0 +1,367 @@
+# =================================================================
+# AWKWARD LEGACY - Configuration Pre-Commit
+# =================================================================
+# Description: Hooks pre-commit pour assurer la qualité du code
+# Version: 1.0
+# Date: 17 Octobre 2025
+# =================================================================
+# Installation:
+#   pip install pre-commit
+#   pre-commit install
+#   pre-commit install --hook-type commit-msg  # Pour commitizen
+# =================================================================
+
+# Version minimale de pre-commit requise
+minimum_pre_commit_version: '2.20.0'
+
+# Ne pas permettre de commit sur ces branches
+fail_fast: false
+
+# Configuration par défaut pour tous les hooks
+default_language_version:
+  python: python3.9
+
+# Étapes du cycle de vie où les hooks s'exécutent
+default_stages: [commit, push]
+
+# Exclure ces fichiers/répertoires
+exclude: |
+  (?x)^(
+    .*\.egg-info/.*|
+    \.git/.*|
+    \.tox/.*|
+    \.venv/.*|
+    \.mypy_cache/.*|
+    \.pytest_cache/.*|
+    __pycache__/.*|
+    build/.*|
+    dist/.*|
+    docs/_build/.*|
+    geneweb/.*|
+    .*\.gwb$|
+    .*\.db$|
+    migrations/.*
+  )$
+
+# Repositories et hooks
+repos:
+  # =================================================================
+  # FORMATTERS - Formatage automatique du code
+  # =================================================================
+
+  # Black - Formatage Python
+  - repo: https://github.com/psf/black
+    rev: 23.10.0
+    hooks:
+      - id: black
+        name: Black - Python formatter
+        language_version: python3.9
+        args: ['--line-length=120', '--target-version=py39']
+        exclude: ^(migrations|geneweb)/
+
+  # isort - Tri des imports Python
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort - Sort imports
+        args: ['--profile=black', '--line-length=120']
+        exclude: ^(migrations|geneweb)/
+
+  # Prettier - Formatage YAML, JSON, Markdown, etc.
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.3
+    hooks:
+      - id: prettier
+        name: Prettier - Format YAML/JSON/MD
+        types_or: [yaml, json, markdown]
+        args: ['--print-width=120', '--tab-width=2']
+        exclude: ^(docs/|\.github/|geneweb/)
+
+  # =================================================================
+  # LINTERS - Analyse statique du code
+  # =================================================================
+
+  # Pylint - Linter Python complet
+  - repo: local
+    hooks:
+      - id: pylint
+        name: Pylint - Python linter
+        entry: pylint
+        language: system
+        types: [python]
+        args: ['--rcfile=.pylintrc', '--score=no']
+        exclude: ^(tests/|migrations/|geneweb/|setup\.py)
+        require_serial: true
+
+  # Flake8 - Linter Python léger
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        name: Flake8 - Python style checker
+        additional_dependencies:
+          - flake8-docstrings
+          - flake8-bugbear
+          - flake8-comprehensions
+          - flake8-simplify
+          - flake8-quotes
+          - flake8-annotations
+        args: ['--max-line-length=120', '--ignore=E203,W503,D100,D104']
+        exclude: ^(migrations|geneweb)/
+
+  # MyPy - Type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.6.0
+    hooks:
+      - id: mypy
+        name: MyPy - Type checker
+        additional_dependencies:
+          - types-requests
+          - types-PyYAML
+          - types-python-dateutil
+        args: ['--ignore-missing-imports', '--follow-imports=silent']
+        exclude: ^(tests/|migrations/|geneweb/)
+
+  # Bandit - Security linter
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        name: Bandit - Security linter
+        args: ['-ll', '--skip=B101,B601']  # Skip assert_used and shell injection tests
+        exclude: ^(tests/|geneweb/)
+
+  # =================================================================
+  # SECURITY - Détection de problèmes de sécurité
+  # =================================================================
+
+  # Detect secrets
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        name: Detect secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: ^(\.secrets\.baseline|.*\.lock|package-lock\.json)$
+
+  # Safety - Check des dépendances Python
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.3.2
+    hooks:
+      - id: python-safety-dependencies-check
+        name: Safety - Check Python dependencies
+        files: requirements.*\.txt$
+
+  # =================================================================
+  # FILE CHECKS - Vérifications des fichiers
+  # =================================================================
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      # Vérifications générales
+      - id: check-added-large-files
+        name: Check large files
+        args: ['--maxkb=1000']
+        exclude: ^(.*\.(db|gwb|sql|dump)|docs/images/)$
+
+      - id: check-case-conflict
+        name: Check case conflicts
+
+      - id: check-merge-conflict
+        name: Check merge conflicts
+
+      - id: check-symlinks
+        name: Check symlinks
+
+      - id: destroyed-symlinks
+        name: Check destroyed symlinks
+
+      # Format des fichiers
+      - id: check-json
+        name: Check JSON syntax
+        exclude: ^(\.vscode/|tsconfig.*\.json)$
+
+      - id: check-yaml
+        name: Check YAML syntax
+        args: ['--allow-multiple-documents']
+        exclude: ^(docker-compose.*\.yml|\.github/)$
+
+      - id: check-xml
+        name: Check XML syntax
+
+      - id: check-toml
+        name: Check TOML syntax
+
+      # Python specific
+      - id: check-ast
+        name: Check Python syntax
+
+      - id: check-builtin-literals
+        name: Check builtin literals
+
+      - id: check-docstring-first
+        name: Check docstring position
+
+      - id: debug-statements
+        name: Check for debug statements
+
+      - id: fix-byte-order-marker
+        name: Fix byte order marker
+
+      # Fin de fichiers
+      - id: end-of-file-fixer
+        name: Fix end of file
+        exclude: ^(.*\.(svg|png|jpg|jpeg|gif|ico))$
+
+      - id: trailing-whitespace
+        name: Trim trailing whitespace
+        args: ['--markdown-linebreak-ext=md']
+
+      - id: mixed-line-ending
+        name: Fix mixed line endings
+        args: ['--fix=lf']
+
+      # Sécurité basique
+      - id: detect-private-key
+        name: Detect private keys
+
+      # Autres
+      - id: check-executables-have-shebangs
+        name: Check executables have shebangs
+
+      - id: check-shebang-scripts-are-executable
+        name: Check shebang scripts are executable
+
+  # =================================================================
+  # DOCUMENTATION - Vérification de la documentation
+  # =================================================================
+
+  # Markdown lint
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.37.0
+    hooks:
+      - id: markdownlint
+        name: Markdownlint
+        args: ['--fix', '--disable', 'MD013', 'MD033']  # Disable line length and HTML
+        exclude: ^(CHANGELOG\.md|docs/)
+
+  # Spell check
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        name: Codespell - Spell checker
+        args: [
+          '--skip=*.js,*.css,*.svg,*.json,*.lock,*.gwb,*.db',
+          '--ignore-words-list=awkward,geneweb,gedcom,ocaml,auth,JWT'
+        ]
+        exclude: ^(\.git/|\.venv/|node_modules/|geneweb/)
+
+  # =================================================================
+  # GIT - Vérifications Git
+  # =================================================================
+
+  # Commitizen - Conventional commits
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.12.0
+    hooks:
+      - id: commitizen
+        name: Commitizen - Check commit message
+        stages: [commit-msg]
+        args: ['--no-raise']
+
+  # Gitlint - Lint commit messages
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
+        name: Gitlint - Lint commit message
+        stages: [commit-msg]
+        args: ['--ignore=B6']  # Ignore body-is-missing
+
+  # =================================================================
+  # SHELL - Shell scripts
+  # =================================================================
+
+  # Shellcheck
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.6
+    hooks:
+      - id: shellcheck
+        name: Shellcheck - Bash linter
+        args: ['--severity=warning']
+        exclude: ^(\.git/)
+
+  # Beautysh - Shell formatter
+  - repo: https://github.com/lovesegfault/beautysh
+    rev: v6.2.1
+    hooks:
+      - id: beautysh
+        name: Beautysh - Bash formatter
+        args: ['--indent-size=2', '--force-function-style=fnpar']
+
+  # =================================================================
+  # DOCKER - Docker files
+  # =================================================================
+
+  # Dockerfile linter
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+      - id: hadolint-docker
+        name: Hadolint - Dockerfile linter
+        entry: hadolint/hadolint:v2.12.0 hadolint
+        language: docker_image
+        types: [dockerfile]
+
+  # =================================================================
+  # CUSTOM HOOKS - Hooks personnalisés
+  # =================================================================
+
+  - repo: local
+    hooks:
+      # Vérifier qu'il n'y a pas de secrets dans .env
+      - id: check-env-file
+        name: Check .env file
+        entry: bash -c 'if [ -f .env ]; then echo "ERROR: .env file should not be committed"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      # Vérifier les TODOs
+      - id: check-todos
+        name: Check TODOs format
+        entry: bash -c 'grep -rn "TODO\|FIXME\|HACK" --include="*.py" . | grep -v "# TODO:" | grep -v "# FIXME:" | grep -v "# HACK:" && echo "TODOs must be properly formatted" && exit 1 || exit 0'
+        language: system
+        pass_filenames: false
+        exclude: ^(\.pre-commit-config\.yaml)$
+
+      # Vérifier la version Python
+      - id: python-version-check
+        name: Check Python version
+        entry: python -c "import sys; exit(0 if sys.version_info >= (3, 9) else 1)"
+        language: system
+        pass_filenames: false
+
+      # Vérifier les requirements
+      - id: requirements-txt-fixer
+        name: Fix requirements.txt
+        entry: bash -c 'if [ -f requirements.txt ]; then sort requirements.txt | uniq > requirements.txt.tmp && mv requirements.txt.tmp requirements.txt; fi'
+        language: system
+        pass_filenames: false
+        files: requirements.*\.txt$
+
+      # Générer la documentation des API si modifiées
+      - id: generate-api-docs
+        name: Generate API documentation
+        entry: bash -c 'echo "Skipping API doc generation (implement if needed)"'
+        language: system
+        pass_filenames: false
+        files: ^LegacyProject/modernProject/lib/.*\.py$
+
+# =================================================================
+# Configuration locale (non committée)
+# =================================================================
+# Créer un fichier .pre-commit-config.local.yaml pour des hooks
+# supplémentaires spécifiques à votre environnement local

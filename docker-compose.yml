@@ -1,0 +1,429 @@
+# =================================================================
+# AWKWARD LEGACY - Docker Compose Configuration
+# =================================================================
+# Description: Configuration Docker Compose pour l'orchestration des services
+# Version: 3.8
+# Date: 17 Octobre 2025
+# =================================================================
+
+version: '3.8'
+
+# =================================================================
+# SERVICES
+# =================================================================
+
+services:
+  # -----------------------------------------------------------------
+  # Service Principal: Application Web
+  # -----------------------------------------------------------------
+  web:
+    build:
+      context: .
+      dockerfile: LegacyProject/Dockerfile
+      cache_from:
+        - awkward-legacy:latest
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+    image: awkward-legacy:latest
+    container_name: awkward-legacy-web
+    hostname: awkward-web
+
+    # Configuration réseau
+    ports:
+      - "${PORT:-8080}:8080"
+
+    # Volumes pour persistance et logs
+    volumes:
+      - data:/data
+      - logs:/var/log/awkward
+      - ./LegacyProject:/app/LegacyProject:ro  # Code en lecture seule (dev only)
+      - cache:/data/cache
+      - uploads:/data/uploads
+
+    # Variables d'environnement
+    env_file:
+      - .env
+    environment:
+      - DATABASE_PATH=/data/db
+      - LOG_FILE=/var/log/awkward/app.log
+      - PYTHONPATH=/app/LegacyProject/modernProject
+      - CACHE_DIR=/data/cache
+      - UPLOAD_DIR=/data/uploads
+      - REDIS_URL=redis://redis:6379/0
+      - PROMETHEUS_ENABLED=true
+
+    # Politique de redémarrage
+    restart: unless-stopped
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+    # Ressources limitées
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+    # Dépendances
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+    # Labels pour monitoring et reverse-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.awkward.rule=Host(`awkward-legacy.com`)"
+      - "traefik.http.routers.awkward.tls=true"
+      - "prometheus.io/scrape=true"
+      - "prometheus.io/port=8080"
+      - "prometheus.io/path=/metrics"
+
+    networks:
+      - awkward-net
+
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "service=web,env=${APP_ENV:-production}"
+
+  # -----------------------------------------------------------------
+  # Nginx: Reverse Proxy et Serveur Static
+  # -----------------------------------------------------------------
+  nginx:
+    image: nginx:1.21-alpine
+    container_name: awkward-legacy-nginx
+    hostname: awkward-nginx
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - static:/usr/share/nginx/html/static:ro
+      - logs:/var/log/nginx
+      # Let's Encrypt certificates
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+    depends_on:
+      - web
+
+    networks:
+      - awkward-net
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # -----------------------------------------------------------------
+  # Redis: Cache et Sessions
+  # -----------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: awkward-legacy-redis
+    hostname: awkward-redis
+
+    # Commande avec configuration sécurisée
+    command: >
+      redis-server
+      --appendonly yes
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --requirepass ${REDIS_PASSWORD:-changeme}
+
+    volumes:
+      - redis-data:/data
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+    networks:
+      - awkward-net
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+  # -----------------------------------------------------------------
+  # PostgreSQL: Base de données relationnelle (optionnel)
+  # -----------------------------------------------------------------
+  postgres:
+    image: postgres:14-alpine
+    container_name: awkward-legacy-postgres
+    hostname: awkward-postgres
+
+    environment:
+      - POSTGRES_DB=${DB_NAME:-awkward_legacy}
+      - POSTGRES_USER=${DB_USER:-awkward}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-changeme}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --locale=C.UTF-8
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-awkward}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+    networks:
+      - awkward-net
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # -----------------------------------------------------------------
+  # Prometheus: Monitoring des métriques
+  # -----------------------------------------------------------------
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: awkward-legacy-prometheus
+    hostname: awkward-prometheus
+
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+
+    ports:
+      - "9090:9090"
+
+    restart: unless-stopped
+
+    networks:
+      - awkward-net
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # -----------------------------------------------------------------
+  # Grafana: Dashboard de visualisation
+  # -----------------------------------------------------------------
+  grafana:
+    image: grafana/grafana:latest
+    container_name: awkward-legacy-grafana
+    hostname: awkward-grafana
+
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-changeme}
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+
+    ports:
+      - "3000:3000"
+
+    restart: unless-stopped
+
+    depends_on:
+      - prometheus
+
+    networks:
+      - awkward-net
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # -----------------------------------------------------------------
+  # Backup Service: Sauvegarde automatique
+  # -----------------------------------------------------------------
+  backup:
+    image: alpine:latest
+    container_name: awkward-legacy-backup
+
+    volumes:
+      - data:/data:ro
+      - ./backups:/backups
+      - ./scripts:/scripts:ro
+
+    command: >
+      sh -c "
+      apk add --no-cache bash tar gzip openssl aws-cli &&
+      while true; do
+        echo 'Running backup...' &&
+        /scripts/backup.sh &&
+        echo 'Backup completed. Sleeping for 24 hours...' &&
+        sleep 86400
+      done
+      "
+
+    environment:
+      - BACKUP_ENCRYPTION_KEY=${BACKUP_ENCRYPTION_KEY:-changeme}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-}
+      - AWS_S3_BUCKET=${AWS_S3_BUCKET:-}
+
+    restart: unless-stopped
+
+    networks:
+      - awkward-net
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+  # -----------------------------------------------------------------
+  # Certbot: Renouvellement automatique SSL
+  # -----------------------------------------------------------------
+  certbot:
+    image: certbot/certbot:latest
+    container_name: awkward-legacy-certbot
+
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
+    # Renouvellement tous les 12h (ne renouvelle que si nécessaire)
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+    restart: unless-stopped
+
+    networks:
+      - awkward-net
+
+# =================================================================
+# RÉSEAUX
+# =================================================================
+
+networks:
+  awkward-net:
+    name: awkward-legacy-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# =================================================================
+# VOLUMES
+# =================================================================
+
+volumes:
+  # Données de l'application
+  data:
+    name: awkward-legacy-data
+    driver: local
+
+  # Logs
+  logs:
+    name: awkward-legacy-logs
+    driver: local
+
+  # Cache
+  cache:
+    name: awkward-legacy-cache
+    driver: local
+
+  # Uploads
+  uploads:
+    name: awkward-legacy-uploads
+    driver: local
+
+  # Static files
+  static:
+    name: awkward-legacy-static
+    driver: local
+
+  # Redis data
+  redis-data:
+    name: awkward-legacy-redis
+    driver: local
+
+  # PostgreSQL data
+  postgres-data:
+    name: awkward-legacy-postgres
+    driver: local
+
+  # Prometheus data
+  prometheus-data:
+    name: awkward-legacy-prometheus
+    driver: local
+
+  # Grafana data
+  grafana-data:
+    name: awkward-legacy-grafana
+    driver: local
+
+# =================================================================
+# USAGE:
+# =================================================================
+# Démarrer tous les services:
+#   docker-compose up -d
+#
+# Démarrer en mode développement:
+#   docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+#
+# Voir les logs:
+#   docker-compose logs -f
+#
+# Arrêter les services:
+#   docker-compose down
+#
+# Arrêter et supprimer les volumes:
+#   docker-compose down -v
+#
+# Rebuild après changement:
+#   docker-compose build --no-cache
+#
+# Mise à l'échelle:
+#   docker-compose up -d --scale web=3
+# =================================================================

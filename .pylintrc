@@ -1,0 +1,538 @@
+# =================================================================
+# AWKWARD LEGACY - Configuration Pylint
+# =================================================================
+# Description: Configuration Pylint pour assurer la qualité du code Python
+# Version: 1.0
+# Date: 17 Octobre 2025
+# Standard: PEP 8 + Standards spécifiques au projet
+# =================================================================
+
+[MASTER]
+
+# Profil de configuration
+profile=no
+
+# Threads parallèles pour l'analyse (0 = auto-detect)
+jobs=0
+
+# Fichiers ou répertoires à ignorer
+ignore=CVS,.git,__pycache__,.venv,venv,env,migrations,tests,docs
+
+# Patterns de fichiers à ignorer
+ignore-patterns=test_.*\.py,conftest\.py,setup\.py
+
+# Python code à exécuter avant le linting
+init-hook='import sys; sys.path.append("./LegacyProject/modernProject")'
+
+# Utiliser le cache pour accélérer les analyses suivantes
+persistent=yes
+
+# Charger des plugins
+load-plugins=
+    pylint.extensions.docparams,
+    pylint.extensions.docstyle,
+    pylint.extensions.mccabe,
+    pylint.extensions.check_elif,
+    pylint.extensions.bad_builtin,
+    pylint.extensions.code_style,
+    pylint.extensions.comparison_placement,
+    pylint.extensions.for_any_all,
+    pylint.extensions.consider_refactoring_into_while_condition,
+    pylint.extensions.typing
+
+# Extensions de fichiers Python
+extension-pkg-whitelist=pydantic,numpy,pandas,cv2,lxml
+
+# Score minimum requis (désactivé si négatif)
+fail-under=8.0
+
+# Retourner un code d'erreur non-zéro si des messages sont générés
+fail-on=E,F
+
+[MESSAGES CONTROL]
+
+# Activer uniquement les catégories de messages spécifiées
+# enable=
+
+# Désactiver les messages spécifiés
+disable=
+    # Informatifs (peuvent être trop verbeux)
+    raw-checker-failed,
+    bad-inline-option,
+    locally-disabled,
+    file-ignored,
+    suppressed-message,
+    useless-suppression,
+    deprecated-pragma,
+    use-symbolic-message-instead,
+
+    # Conventions discutables
+    missing-module-docstring,  # Géré par projet
+    missing-class-docstring,   # Géré au cas par cas
+    missing-function-docstring, # Pour les fonctions triviales
+
+    # Trop restrictifs
+    too-few-public-methods,    # Classes de données OK
+    too-many-arguments,        # Parfois nécessaire
+    too-many-locals,           # Dans les fonctions complexes
+    too-many-branches,         # Logique métier complexe
+    too-many-statements,       # Initialisation complexe
+
+    # Imports (géré par isort)
+    wrong-import-order,
+    ungrouped-imports,
+
+    # Compatibilité
+    useless-object-inheritance, # Python 2/3 compat
+
+    # Faux positifs fréquents
+    duplicate-code,            # Entre tests
+
+    # Temporaires (à réactiver progressivement)
+    fixme,                     # TODO et FIXME autorisés
+
+    # Design patterns valides
+    protected-access,          # Accès _private parfois nécessaire
+
+    # Type hints (géré par mypy)
+    unsubscriptable-object,
+
+    # Django/Flask specific (si applicable)
+    no-member,                 # Méthodes dynamiques
+
+[REPORTS]
+
+# Format de sortie
+output-format=colorized
+
+# Template pour les messages
+msg-template={path}:{line}:{column}: [{msg_id}({symbol}), {obj}] {msg}
+
+# Inclure les IDs de messages dans la sortie
+include-ids=yes
+
+# Inclure les noms symboliques des messages
+symbols=yes
+
+# Rapports détaillés
+reports=yes
+
+# Évaluation Python du score
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+
+# Score affiché
+score=yes
+
+# Commentaires activés
+comment=yes
+
+[REFACTORING]
+
+# Nombre maximum de branches pour une fonction/méthode
+max-nested-blocks=5
+
+# Liste des décorateurs qui changent la signature
+never-returning-functions=sys.exit,argparse.parse_error
+
+[BASIC]
+
+# Styles de nommage
+argument-naming-style=snake_case
+attr-naming-style=snake_case
+class-attribute-naming-style=any
+class-const-naming-style=UPPER_CASE
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+function-naming-style=snake_case
+inlinevar-naming-style=any
+method-naming-style=snake_case
+module-naming-style=snake_case
+property-naming-style=snake_case
+variable-naming-style=snake_case
+
+# Regex pour les noms valides
+argument-rgx=[a-z_][a-z0-9_]{0,30}$
+attr-rgx=[a-z_][a-z0-9_]{0,30}$
+class-rgx=[A-Z_][a-zA-Z0-9]+$
+const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__))$
+function-rgx=[a-z_][a-z0-9_]{2,30}$
+method-rgx=[a-z_][a-z0-9_]{2,30}$|test_[a-z0-9_]+$
+module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
+variable-rgx=[a-z_][a-z0-9_]{0,30}$
+
+# Noms valides courts (exceptions)
+good-names=
+    i,j,k,n,m,  # Indices de boucle
+    x,y,z,      # Coordonnées
+    e,ex,       # Exceptions
+    f,fp,       # Fichiers
+    db,         # Database
+    id,         # Identifiant
+    pk,         # Primary key
+    qs,         # QuerySet
+    df,         # DataFrame
+    dt,         # DateTime
+    tz,         # TimeZone
+    ws,         # WebSocket
+    ip,         # IP address
+    ok,         # Boolean
+    _,          # Throwaways
+
+# Noms à éviter
+bad-names=
+    foo,
+    bar,
+    baz,
+    toto,
+    tata,
+    tutu,
+    temp,
+    tmp,
+    test,
+    data
+
+# Regex pour les propriétés
+property-classes=abc.abstractproperty
+
+# Longueur minimale/maximale des noms
+min-name-length=1
+max-name-length=40
+
+# Autoriser les docstrings d'une ligne
+single-line-class-stmt=no
+single-line-if-stmt=no
+
+[FORMAT]
+
+# Longueur maximale des lignes
+max-line-length=120
+
+# Ignorer les longues lignes avec URLs ou paths
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$|^\s*['"]['"]?\s*[\w/\\:.-]+\s*['"]?['"]\s*$
+
+# Autoriser les lignes vides simples dans les fonctions
+single-line-if-stmt=no
+
+# Nombre max de lignes vides consécutives
+max-consecutive-blank-lines=2
+
+# Nombre de lignes dans un module
+max-module-lines=2000
+
+# String utilisé pour l'indentation
+indent-string='    '
+
+# Nombre d'espaces pour l'indentation
+indent-after-paren=4
+
+# Espaces attendus pour une indentation suspendue
+expected-line-ending-format=LF
+
+[LOGGING]
+
+# Format des modules de logging
+logging-modules=logging
+
+# Format des appels de logging
+logging-format-style=new
+
+[MISCELLANEOUS]
+
+# Regex pour les notes dans le code
+notes=FIXME,XXX,TODO,HACK,WARNING,NOTE,OPTIMIZE,REFACTOR
+
+# Lister les tags de fixme
+notes-rgx=(FIXME|XXX|TODO|HACK|WARNING|NOTE|OPTIMIZE|REFACTOR)
+
+[SIMILARITIES]
+
+# Ignorer les commentaires lors de la recherche de duplications
+ignore-comments=yes
+
+# Ignorer les docstrings lors de la recherche de duplications
+ignore-docstrings=yes
+
+# Ignorer les imports lors de la recherche de duplications
+ignore-imports=yes
+
+# Ignorer les signatures de fonction
+ignore-signatures=yes
+
+# Nombre minimum de lignes similaires
+min-similarity-lines=10
+
+[SPELLING]
+
+# Dictionnaire à utiliser
+spelling-dict=en_US
+
+# Liste de mots à ignorer
+spelling-ignore-words=
+    awkward,
+    geneweb,
+    gedcom,
+    ocaml,
+    datetime,
+    timestamp,
+    username,
+    userid,
+    auth,
+    config,
+    admin,
+    async,
+    middleware,
+    backend,
+    frontend,
+    api,
+    json,
+    jwt,
+    csrf,
+    cors,
+    uuid,
+    url,
+    uri,
+    sql,
+    nosql,
+    regex,
+    env,
+    dev,
+    prod
+
+# Mots personnalisés du projet
+spelling-private-dict-file=.pylintdict
+
+# Stocker les mots inconnus
+spelling-store-unknown-words=no
+
+# Limite du nombre de suggestions
+max-spelling-suggestions=4
+
+[TYPECHECK]
+
+# Classes dynamiques à ignorer
+ignored-classes=
+    optparse.Values,
+    thread._local,
+    _thread._local,
+    argparse.Namespace,
+    sqlalchemy.orm.scoping.scoped_session
+
+# Modules générant des membres dynamiques
+generated-members=
+    REQUEST,
+    acl_users,
+    aq_parent,
+    objects,
+    DoesNotExist,
+    can_read,
+    can_write,
+    get_url,
+    size,
+    content,
+    status_code,
+    create,
+    build,
+    fields,
+    tag,
+    runtime,
+    cache,
+    cookies,
+    headers,
+    json,
+    data,
+    files,
+    post,
+    query
+
+# Décorateurs qui créent des proxies
+decorator-functools-wraps=
+    functools.wraps,
+    django.utils.decorators.method_decorator
+
+# Ignorer les erreurs d'accès sur les packages optionnels
+ignored-modules=cv2,numpy,pandas,torch,tensorflow
+
+# Montrer les indices d'inférence de type
+show-type-hints=yes
+
+# Context managers additionnels
+contextmanager-decorators=contextlib.contextmanager
+
+# Membres à ignorer
+ignored-members=objects,DoesNotExist,id,pk,_meta,get_or_create,clean
+
+# Ignorer les fichiers __init__.py sans contenu
+ignore-empty-init=yes
+
+# Support pour l'inférence de type
+enable-type-checker=yes
+
+[VARIABLES]
+
+# Callbacks additionnels
+callbacks=cb_,_cb,callback_,on_,handle_
+
+# Regex pour les variables dummy
+dummy-variables-rgx=_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_
+
+# Arguments ignorés dans les fonctions
+ignored-argument-names=_.*|^ignored_|^unused_|args|kwargs
+
+# Variable utilisée avant l'assignation
+init-import=no
+
+# Autoriser les variables globales
+allow-global-unused-variables=yes
+
+# Regex des noms de variables globales autorisées
+allowed-redefined-builtins=id,type,help,format
+
+[CLASSES]
+
+# Classes définissant __init__
+defining-attr-methods=
+    __init__,
+    __new__,
+    __post_init__,
+    setUp,
+    setup_method,
+    setup_class
+
+# Méthodes valides pour les classes
+valid-classmethod-first-arg=cls
+
+# Méthodes valides pour les métaclasses
+valid-metaclass-classmethod-first-arg=cls
+
+# Classes nécessitant des méthodes spéciales
+special-methods-require-params=yes
+
+# Méthodes d'exclusion pour le comptage des méthodes publiques
+exclude-protected=
+    _asdict,
+    _fields,
+    _replace,
+    _source,
+    _make,
+    _get_current_object
+
+[DESIGN]
+
+# Nombre maximum d'arguments
+max-args=10
+
+# Arguments ignorés dans le comptage
+ignored-argument-names=_.*|^ignored_|^unused_|self|cls|args|kwargs
+
+# Nombre maximum de variables locales
+max-locals=20
+
+# Nombre maximum de return/yield
+max-returns=10
+
+# Nombre maximum de branches
+max-branches=15
+
+# Nombre maximum de statements
+max-statements=100
+
+# Nombre maximum de parents
+max-parents=7
+
+# Nombre maximum d'attributs
+max-attributes=20
+
+# Nombre minimum de méthodes publiques
+min-public-methods=0
+
+# Nombre maximum de méthodes publiques
+max-public-methods=30
+
+# Nombre maximum d'attributs publics
+max-public-attributes=20
+
+# Nombre maximum de booléens
+max-bool-expr=5
+
+# Profondeur maximum de nested blocks
+max-nested-depth=5
+
+[IMPORTS]
+
+# Packages obsolètes
+deprecated-modules=optparse,tkinter.tix
+
+# Graphe des dépendances
+import-graph=
+ext-import-graph=
+int-import-graph=
+
+# Forcer l'import depuis le niveau racine
+known-standard-library=
+known-third-party=pytest,requests,django,flask,sqlalchemy,pydantic,numpy,pandas
+known-first-party=modernProject
+
+# Analyse des imports circulaires
+analyse-fallback-blocks=no
+
+# Style d'import
+allow-any-import-level=no
+allow-wildcard-with-all=yes
+
+[EXCEPTIONS]
+
+# Exceptions qui ne nécessitent pas de raise
+overgeneral-exceptions=
+    BaseException,
+    Exception
+
+# Exceptions personnalisées du projet
+custom-exceptions=
+    SecurityError,
+    ValidationError,
+    AuthenticationError,
+    PermissionError,
+    ConfigurationError
+
+[DOCUMENTATION]
+
+# Vérifier la documentation
+accept-no-param-doc=no
+accept-no-raise-doc=no
+accept-no-return-doc=no
+accept-no-yields-doc=no
+
+# Style de documentation
+default-docstring-type=google
+
+[EXTENSIONS]
+
+# Complexité cyclomatique maximale
+max-complexity=15
+
+# Maximum de cognitive complexity
+max-cognitive-complexity=20
+
+# Maximum de returns dans un générateur
+max-returns-in-generator=3
+
+# Maximum de if imbriqués
+max-nested-if=5
+
+[NOTES]
+
+# Tags autorisés dans le code
+# TODO: À faire
+# FIXME: Correction urgente nécessaire
+# HACK: Solution temporaire
+# WARNING: Attention, point sensible
+# NOTE: Information importante
+# OPTIMIZE: Optimisation possible
+# REFACTOR: Refactoring nécessaire
+
+# =================================================================
+# Règles spécifiques au projet AWKWARD LEGACY
+# =================================================================
+
+# Ces règles sont adaptées aux besoins spécifiques du projet
+# et peuvent être ajustées selon l'évolution des standards de l'équipe
