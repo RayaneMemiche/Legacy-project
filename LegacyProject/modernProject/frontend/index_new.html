@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWKWARD LEGACY - Généalogie Professionnelle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .person-card {
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .tree-node {
+            background: white;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tree-node:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,.2);
+            transform: scale(1.05);
+        }
+
+        .relationship-badge {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .component-badge {
+            background-color: var(--success-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .toast-custom {
+            min-width: 300px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-diagram-3-fill"></i> AWKWARD LEGACY
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="home">
+                            <i class="bi bi-house-door"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="persons">
+                            <i class="bi bi-person-plus"></i> Gestion des Personnes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="search">
+                            <i class="bi bi-search"></i> Recherche Avancée
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-dna"></i> Analyses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-page="consanguinity">
+                                <i class="bi bi-share"></i> Consanguinité
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" data-page="lineages">
+                                <i class="bi bi-diagram-3"></i> Lignées
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" data-page="relationships">
+                                <i class="bi bi-people"></i> Relations
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="tree">
+                            <i class="bi bi-diagram-2"></i> Arbre Généalogique
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="stats">
+                            <i class="bi bi-bar-chart"></i> Statistiques
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-arrow-down-up"></i> GEDCOM
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-page="import">
+                                <i class="bi bi-upload"></i> Importer
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" data-page="export">
+                                <i class="bi bi-download"></i> Exporter
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i> <span id="username">Invité</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" id="loginBtn">Connexion</a></li>
+                            <li><a class="dropdown-item" href="#" id="registerBtn">Inscription</a></li>
+                            <li><hr class="dropdown-divider d-none" id="userDivider"></li>
+                            <li><a class="dropdown-item d-none" href="#" id="profileBtn">Mon Profil</a></li>
+                            <li><a class="dropdown-item d-none" href="#" id="logoutBtn">Déconnexion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Toast Container -->
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <h1 class="display-4 mb-3">
+                            <i class="bi bi-diagram-3-fill text-primary"></i>
+                            AWKWARD LEGACY
+                        </h1>
+                        <p class="lead text-muted">
+                            Système professionnel de gestion généalogique
+                        </p>
+                        <p class="text-muted">
+                            Basé sur GeneWeb • API REST moderne • Analyses avancées
+                        </p>
+                    </div>
+
+                    <!-- Quick Search -->
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-search"></i> Recherche Rapide
+                            </h5>
+                            <form id="quickSearchForm">
+                                <div class="input-group input-group-lg">
+                                    <input type="text" class="form-control" id="quickSearchInput"
+                                           placeholder="Nom, prénom, lieu...">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="bi bi-search"></i> Rechercher
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="row mb-4" id="quickStats">
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="stat-card text-center">
+                                <i class="bi bi-people-fill" style="font-size: 2rem;"></i>
+                                <div class="stat-number" id="statPersons">0</div>
+                                <div>Personnes</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="stat-card text-center">
+                                <i class="bi bi-heart-fill" style="font-size: 2rem;"></i>
+                                <div class="stat-number" id="statFamilies">0</div>
+                                <div>Familles</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="stat-card text-center">
+                                <i class="bi bi-diagram-3-fill" style="font-size: 2rem;"></i>
+                                <div class="stat-number" id="statGenerations">0</div>
+                                <div>Générations</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="stat-card text-center">
+                                <i class="bi bi-calendar-event-fill" style="font-size: 2rem;"></i>
+                                <div class="stat-number" id="statYearRange">-</div>
+                                <div>Période</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature Cards -->
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-dna text-primary" style="font-size: 3rem;"></i>
+                                    <h5 class="card-title mt-3">Consanguinité</h5>
+                                    <p class="card-text">
+                                        Calculez les coefficients de parenté et identifiez les relations familiales.
+                                    </p>
+                                    <button class="btn btn-outline-primary" data-page="consanguinity">
+                                        Analyser <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-diagram-3 text-success" style="font-size: 3rem;"></i>
+                                    <h5 class="card-title mt-3">Lignées</h5>
+                                    <p class="card-text">
+                                        Identifiez les composantes connexes et analysez les lignées distinctes.
+                                    </p>
+                                    <button class="btn btn-outline-success" data-page="lineages">
+                                        Explorer <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-arrow-down-up text-warning" style="font-size: 3rem;"></i>
+                                    <h5 class="card-title mt-3">GEDCOM</h5>
+                                    <p class="card-text">
+                                        Importez et exportez vos données au format GEDCOM standard.
+                                    </p>
+                                    <button class="btn btn-outline-warning" data-page="import">
+                                        Importer <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-search text-info" style="font-size: 3rem;"></i>
+                                    <h5 class="card-title mt-3">Recherche Avancée</h5>
+                                    <p class="card-text">
+                                        Recherche multi-critères avec filtres dates, lieux et relations.
+                                    </p>
+                                    <button class="btn btn-outline-info" data-page="search">
+                                        Rechercher <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-bar-chart text-danger" style="font-size: 3rem;"></i>
+                                    <h5 class="card-title mt-3">Statistiques</h5>
+                                    <p class="card-text">
+                                        Analytics détaillées: distributions, top noms, chronologie.
+                                    </p>
+                                    <button class="btn btn-outline-danger" data-page="stats">
+                                        Voir <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-diagram-2 text-secondary" style="font-size: 3rem;"></i>
+                                    <h5 class="card-title mt-3">Arbre Généalogique</h5>
+                                    <p class="card-text">
+                                        Visualisez les relations familiales sous forme d'arbre interactif.
+                                    </p>
+                                    <button class="btn btn-outline-secondary" data-page="tree">
+                                        Afficher <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card shadow-sm mt-4">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-clock-history"></i> Activité Récente
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group list-group-flush" id="recentActivity">
+                                <div class="text-center text-muted py-3">
+                                    <i class="bi bi-inbox" style="font-size: 2rem;"></i>
+                                    <p class="mt-2">Aucune activité récente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other pages will be dynamically loaded -->
+        <div id="personsPage" class="page"></div>
+        <div id="searchPage" class="page"></div>
+        <div id="consanguinityPage" class="page"></div>
+        <div id="lineagesPage" class="page"></div>
+        <div id="treePage" class="page"></div>
+        <div id="statsPage" class="page"></div>
+        <div id="importPage" class="page"></div>
+        <div id="exportPage" class="page"></div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Chargement...</span>
+        </div>
+        <p class="mt-2">Chargement...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="app_complete.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+{
+  "api": {
+    "baseURL": "http://localhost:8000/api",
+    "timeout": 10000,
+    "retryAttempts": 3,
+    "retryDelay": 1000
+  },
+  "auth": {
+    "tokenKey": "authToken",
+    "refreshTokenKey": "refreshToken",
+    "tokenExpiry": 3600,
+    "rememberMeDuration": 604800
+  },
+  "ui": {
+    "defaultLanguage": "fr",
+    "dateFormat": "DD/MM/YYYY",
+    "timeFormat": "HH:mm",
+    "itemsPerPage": 20,
+    "maxSearchResults": 100
+  },
+  "tree": {
+    "defaultGenerations": 4,
+    "maxGenerations": 10,
+    "nodeWidth": 150,
+    "nodeHeight": 80,
+    "horizontalSpacing": 200,
+    "verticalSpacing": 100
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 300,
+    "maxSize": 50
+  },
+  "features": {
+    "enableRegistration": true,
+    "enablePasswordReset": true,
+    "enableDataExport": true,
+    "enableRGPDCompliance": true,
+    "enableOfflineMode": false,
+    "enableAdvancedSearch": true,
+    "enableTreeVisualization": true,
+    "enableStatistics": true,
+    "enableActivityFeed": true
+  },
+  "security": {
+    "passwordMinLength": 8,
+    "passwordRequireUppercase": true,
+    "passwordRequireLowercase": true,
+    "passwordRequireNumbers": true,
+    "passwordRequireSpecialChars": true,
+    "maxLoginAttempts": 5,
+    "lockoutDuration": 900,
+    "sessionTimeout": 1800
+  },
+  "endpoints": {
+    "auth": {
+      "login": "/auth/login",
+      "logout": "/auth/logout",
+      "register": "/auth/register",
+      "refresh": "/auth/refresh",
+      "verify": "/auth/verify",
+      "resetPassword": "/auth/reset-password",
+      "changePassword": "/auth/change-password",
+      "me": "/auth/me"
+    },
+    "persons": {
+      "list": "/persons",
+      "detail": "/persons/{id}",
+      "create": "/persons",
+      "update": "/persons/{id}",
+      "delete": "/persons/{id}",
+      "search": "/persons/search",
+      "ancestors": "/persons/{id}/ancestors",
+      "descendants": "/persons/{id}/descendants"
+    },
+    "families": {
+      "list": "/families",
+      "detail": "/families/{id}",
+      "create": "/families",
+      "update": "/families/{id}",
+      "delete": "/families/{id}",
+      "members": "/families/{id}/members"
+    },
+    "tree": {
+      "generate": "/tree/{personId}",
+      "export": "/tree/{personId}/export"
+    },
+    "statistics": {
+      "global": "/statistics",
+      "persons": "/statistics/persons",
+      "families": "/statistics/families",
+      "timeline": "/statistics/timeline"
+    },
+    "activity": {
+      "recent": "/activity/recent",
+      "user": "/activity/user/{userId}",
+      "logs": "/activity/logs"
+    },
+    "rgpd": {
+      "export": "/rgpd/export",
+      "delete": "/rgpd/delete",
+      "consent": "/rgpd/consent",
+      "preferences": "/rgpd/preferences"
+    }
+  },
+  "messages": {
+    "errors": {
+      "networkError": "Erreur de connexion au serveur",
+      "authenticationFailed": "Échec de l'authentification",
+      "sessionExpired": "Votre session a expiré",
+      "accessDenied": "Accès refusé",
+      "notFound": "Ressource non trouvée",
+      "serverError": "Erreur serveur",
+      "validationError": "Erreur de validation",
+      "unknownError": "Une erreur inconnue s'est produite"
+    },
+    "success": {
+      "loginSuccess": "Connexion réussie",
+      "logoutSuccess": "Déconnexion réussie",
+      "registrationSuccess": "Inscription réussie",
+      "updateSuccess": "Mise à jour réussie",
+      "deleteSuccess": "Suppression réussie",
+      "exportSuccess": "Export réussi"
+    },
+    "info": {
+      "loading": "Chargement en cours...",
+      "searching": "Recherche en cours...",
+      "noResults": "Aucun résultat trouvé",
+      "sessionExpiring": "Votre session va bientôt expirer"
+    },
+    "confirm": {
+      "delete": "Êtes-vous sûr de vouloir supprimer?",
+      "logout": "Êtes-vous sûr de vouloir vous déconnecter?",
+      "unsavedChanges": "Vous avez des modifications non sauvegardées"
+    }
+  },
+  "development": {
+    "debugMode": true,
+    "logLevel": "debug",
+    "mockData": false,
+    "apiDelay": 0
+  },
+  "production": {
+    "debugMode": false,
+    "logLevel": "error",
+    "mockData": false,
+    "apiDelay": 0,
+    "enableAnalytics": true,
+    "analyticsId": "UA-XXXXXXXXX"
+  }
+}

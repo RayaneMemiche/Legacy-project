@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeneWeb - Démo Classique</title>
+    <style>
+        /* Style vintage GeneWeb */
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f5f5dc;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #8b7355;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #d2b48c;
+            font-weight: bold;
+        }
+
+        /* Header vintage */
+        .header {
+            background-color: #8b7355;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Navigation vintage */
+        .nav {
+            background-color: #d2b48c;
+            padding: 10px;
+            border-bottom: 2px solid #8b7355;
+        }
+
+        .nav a {
+            color: #000;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin-right: 10px;
+            background-color: #f5f5dc;
+            border: 1px solid #8b7355;
+            display: inline-block;
+        }
+
+        .nav a:hover {
+            background-color: #fff;
+        }
+
+        /* Contenu */
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            background-color: #fff;
+            border: 2px solid #8b7355;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-box input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            border: 1px solid #8b7355;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .search-box input[type="submit"] {
+            padding: 5px 15px;
+            background-color: #d2b48c;
+            border: 1px solid #8b7355;
+            cursor: pointer;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .person-card {
+            background-color: #fff;
+            border: 2px solid #8b7355;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .person-card h3 {
+            color: #8b7355;
+            margin-top: 0;
+        }
+
+        .person-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .person-list li {
+            padding: 5px 0;
+            border-bottom: 1px dotted #d2b48c;
+        }
+
+        .person-list li:last-child {
+            border-bottom: none;
+        }
+
+        .footer {
+            background-color: #8b7355;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            font-size: 12px;
+        }
+
+        .tree-view {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .tree-node {
+            display: inline-block;
+            border: 1px solid #8b7355;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #fff;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>GeneWeb - Version Classique</h1>
+        <p style="margin: 5px 0;">Logiciel de généalogie par INRIA</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="#welcome">Bienvenue</a>
+        <a href="#search">Recherche</a>
+        <a href="#persons">Personnes</a>
+        <a href="#families">Familles</a>
+        <a href="#stats">Statistiques</a>
+        <a href="#help">Aide</a>
+    </div>
+
+    <!-- Warning Box -->
+    <div class="warning-box">
+        <strong>⚠️ DÉMO INTERFACE VINTAGE</strong><br>
+        Ceci est une simulation de l'interface classique GeneWeb pour comparaison.<br>
+        <a href="comparison.html" style="color: #0066cc;">Voir la comparaison complète</a> |
+        <a href="index.html" style="color: #0066cc;">Aller vers la version moderne</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Section Welcome -->
+        <div id="welcome">
+            <h2>Bienvenue dans GeneWeb</h2>
+            <p>
+                GeneWeb est un logiciel de généalogie avec interface Web, développé par l'INRIA depuis 1998.
+                Cette interface représente le style classique de GeneWeb.
+            </p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box" id="search">
+            <h3>Recherche de personne</h3>
+            <form onsubmit="return false;">
+                <label>Nom: </label>
+                <input type="text" name="surname" value="">
+                <label>Prénom: </label>
+                <input type="text" name="firstname" value="">
+                <input type="submit" value="Chercher">
+            </form>
+        </div>
+
+        <!-- Persons List -->
+        <div class="person-card" id="persons">
+            <h3>Liste des personnes</h3>
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Naissance</th>
+                    <th>Décès</th>
+                </tr>
+                <tr>
+                    <td>MARTIN</td>
+                    <td>Jean</td>
+                    <td>1950</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>BERNARD</td>
+                    <td>Marie</td>
+                    <td>1948</td>
+                    <td>2020</td>
+                </tr>
+                <tr>
+                    <td>MARTIN</td>
+                    <td>Pierre</td>
+                    <td>1975</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>MARTIN</td>
+                    <td>Sophie</td>
+                    <td>1978</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>DUBOIS</td>
+                    <td>Jacques</td>
+                    <td>1920</td>
+                    <td>1995</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Person Detail Example -->
+        <div class="person-card">
+            <h3>Détails de: MARTIN Jean (né en 1950)</h3>
+            <p><strong>Nom complet:</strong> Jean MARTIN</p>
+            <p><strong>Date de naissance:</strong> 15 mai 1950</p>
+            <p><strong>Lieu de naissance:</strong> Paris, France</p>
+            <p><strong>Conjoint:</strong> Marie BERNARD</p>
+            <p><strong>Enfants:</strong></p>
+            <ul class="person-list">
+                <li>Pierre MARTIN (né en 1975)</li>
+                <li>Sophie MARTIN (née en 1978)</li>
+            </ul>
+        </div>
+
+        <!-- Tree View (Simple) -->
+        <div class="person-card" style="text-align: center;">
+            <h3>Arbre généalogique simplifié</h3>
+            <div class="tree-view">
+                <div>
+                    <div class="tree-node">Jean MARTIN<br>(1950-)</div>
+                    <div class="tree-node">Marie BERNARD<br>(1948-2020)</div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div class="tree-node">Pierre MARTIN<br>(1975-)</div>
+                    <div class="tree-node">Sophie MARTIN<br>(1978-)</div>
+                </div>
+            </div>
+            <p style="margin-top: 20px; color: #666;">
+                <em>Note: L'arbre complet n'est pas affiché dans cette démo</em>
+            </p>
+        </div>
+
+        <!-- Families -->
+        <div class="person-card" id="families">
+            <h3>Familles</h3>
+            <table>
+                <tr>
+                    <th>Père</th>
+                    <th>Mère</th>
+                    <th>Mariage</th>
+                    <th>Enfants</th>
+                </tr>
+                <tr>
+                    <td>Jean MARTIN</td>
+                    <td>Marie BERNARD</td>
+                    <td>1972</td>
+                    <td>2</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Statistics -->
+        <div class="person-card" id="stats">
+            <h3>Statistiques de la base</h3>
+            <table>
+                <tr>
+                    <td>Nombre de personnes:</td>
+                    <td><strong>5</strong></td>
+                </tr>
+                <tr>
+                    <td>Nombre de familles:</td>
+                    <td><strong>1</strong></td>
+                </tr>
+                <tr>
+                    <td>Nombre de générations:</td>
+                    <td><strong>2</strong></td>
+                </tr>
+                <tr>
+                    <td>Période couverte:</td>
+                    <td><strong>1920-2020</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Limitations Box -->
+        <div style="background-color: #f8d7da; border: 2px solid #f5c6cb; padding: 15px; margin-top: 20px;">
+            <h4 style="margin-top: 0; color: #721c24;">Limitations de cette interface classique:</h4>
+            <ul>
+                <li>❌ Interface non responsive (pas adaptée aux mobiles)</li>
+                <li>❌ Pas d'API REST moderne</li>
+                <li>❌ Design vintage des années 90-2000</li>
+                <li>❌ Pas de graphiques interactifs</li>
+                <li>❌ Sécurité limitée (pas de JWT)</li>
+                <li>❌ Pas de mode sombre</li>
+                <li>❌ Recherche basique uniquement</li>
+            </ul>
+            <p style="text-align: center; margin-top: 15px;">
+                <strong>
+                    <a href="index.html" style="color: #004085;">→ Découvrir la version moderne AWKWARD LEGACY</a>
+                </strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer" id="help">
+        GeneWeb Version 7.0 - Copyright © INRIA 1998-2023<br>
+        Interface Web de généalogie - Développé en OCaml
+    </div>
+
+    <script>
+        // Message au chargement
+        console.log("GeneWeb Classic Interface - Demo Version");
+        console.log("Cette interface simule le style classique de GeneWeb");
+        console.log("Visitez http://localhost:3000 pour la version moderne");
+    </script>
+</body>
+</html>

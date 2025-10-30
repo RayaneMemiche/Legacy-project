@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparaison - GeneWeb vs AWKWARD LEGACY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .comparison-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .legacy-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .modern-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-title {
+            flex: 1;
+        }
+
+        .project-title h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .project-title .subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .feature-icon.check {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .feature-icon.cross {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .feature-icon.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-launch {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-legacy {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-legacy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-modern {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn-modern:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .winner-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ffd700;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 2rem;
+        }
+
+        .comparison-table table {
+            width: 100%;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            padding: 1rem;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="comparison-container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="bi bi-diagram-3"></i> Comparaison des Projets</h1>
+            <p>GeneWeb Original vs AWKWARD LEGACY Moderne</p>
+        </div>
+
+        <!-- Cards de comparaison -->
+        <div class="comparison-row">
+            <!-- GeneWeb Original -->
+            <div class="project-card" style="position: relative;">
+                <div class="project-header">
+                    <div class="project-icon legacy-icon">
+                        <i class="bi bi-archive"></i>
+                    </div>
+                    <div class="project-title">
+                        <h2>GeneWeb Original</h2>
+                        <div class="subtitle">Version OCaml Classique</div>
+                    </div>
+                </div>
+
+                <h5>Caractéristiques</h5>
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>Langage OCaml (fonctionnel)</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>Interface web vintage</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon warning"><i class="bi bi-exclamation"></i></div>
+                        <span>Templates propriétaires (% tags)</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon cross"><i class="bi bi-x"></i></div>
+                        <span>Pas d'API REST moderne</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon cross"><i class="bi bi-x"></i></div>
+                        <span>Interface non responsive</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon warning"><i class="bi bi-exclamation"></i></div>
+                        <span>Sécurité limitée</span>
+                    </li>
+                </ul>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">~25</div>
+                        <div class="stat-label">Ans d'existence</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">OCaml</div>
+                        <div class="stat-label">Technologie</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2317</div>
+                        <div class="stat-label">Port par défaut</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Legacy</div>
+                        <div class="stat-label">Architecture</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="http://localhost:2317" target="_blank" class="btn-launch btn-legacy">
+                        <i class="bi bi-box-arrow-up-right me-2"></i>
+                        Voir GeneWeb
+                    </a>
+                </div>
+            </div>
+
+            <!-- AWKWARD LEGACY Moderne -->
+            <div class="project-card" style="position: relative;">
+                <div class="winner-badge">
+                    <i class="bi bi-trophy-fill"></i> Moderne
+                </div>
+
+                <div class="project-header">
+                    <div class="project-icon modern-icon">
+                        <i class="bi bi-rocket-takeoff"></i>
+                    </div>
+                    <div class="project-title">
+                        <h2>AWKWARD LEGACY</h2>
+                        <div class="subtitle">Version Python Moderne</div>
+                    </div>
+                </div>
+
+                <h5>Caractéristiques</h5>
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>API REST Flask moderne</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>Interface Bootstrap 5 responsive</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>Authentification JWT sécurisée</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>Graphiques interactifs (Chart.js)</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>Conformité RGPD (79.3%)</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon check"><i class="bi bi-check"></i></div>
+                        <span>Tests automatisés complets</span>
+                    </li>
+                </ul>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">609</div>
+                        <div class="stat-label">Req/sec</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">95%</div>
+                        <div class="stat-label">Tests OK</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">8000</div>
+                        <div class="stat-label">Port moderne</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">REST</div>
+                        <div class="stat-label">API</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="http://localhost:3000" target="_blank" class="btn-launch btn-modern">
+                        <i class="bi bi-box-arrow-up-right me-2"></i>
+                        Voir AWKWARD LEGACY
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tableau de comparaison détaillé -->
+        <div class="comparison-table">
+            <h3 class="mb-4"><i class="bi bi-table"></i> Comparaison Détaillée</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Fonctionnalité</th>
+                        <th class="text-center">GeneWeb Original</th>
+                        <th class="text-center">AWKWARD LEGACY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Langage Backend</strong></td>
+                        <td class="text-center">OCaml</td>
+                        <td class="text-center"><span class="badge bg-success">Python 3</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interface Utilisateur</strong></td>
+                        <td class="text-center">HTML classique</td>
+                        <td class="text-center"><span class="badge bg-success">Bootstrap 5 Moderne</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>API REST</strong></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><span class="badge bg-success">15+ endpoints</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Authentification</strong></td>
+                        <td class="text-center">Basique</td>
+                        <td class="text-center"><span class="badge bg-success">JWT + Crypto</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Responsive Design</strong></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success fs-4"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Graphiques/Stats</strong></td>
+                        <td class="text-center">Texte simple</td>
+                        <td class="text-center"><span class="badge bg-success">Chart.js interactif</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conformité RGPD</strong></td>
+                        <td class="text-center">Partielle</td>
+                        <td class="text-center"><span class="badge bg-success">79.3%</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tests Automatisés</strong></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><span class="badge bg-success">5000+ lignes</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Performance</strong></td>
+                        <td class="text-center">~200 req/sec</td>
+                        <td class="text-center"><span class="badge bg-success">609 req/sec</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Documentation</strong></td>
+                        <td class="text-center">Wiki externe</td>
+                        <td class="text-center"><span class="badge bg-success">25000+ mots</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mode Sombre</strong></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success fs-4"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recherche Avancée</strong></td>
+                        <td class="text-center">Limitée</td>
+                        <td class="text-center"><span class="badge bg-success">Multi-critères</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Boutons d'action globaux -->
+        <div class="text-center mt-4">
+            <a href="index.html" class="btn btn-light btn-lg">
+                <i class="bi bi-arrow-left"></i> Retour à l'accueil
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
