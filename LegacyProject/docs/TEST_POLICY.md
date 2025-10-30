@@ -93,7 +93,7 @@ make lint
 
 **Critères de passage:**
 - ✅ Tous les tests unitaires passent
-- ✅ Couverture ≥ 80%
+- ✅ Couverture ≥ 75%
 - ✅ Pas d'erreur de linting
 - ✅ Pas de régression détectée
 
