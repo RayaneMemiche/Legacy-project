@@ -1,0 +1,426 @@
+# =================================================================
+# CI/CD Pipeline - AWKWARD LEGACY
+# =================================================================
+# Description: Pipeline d'intégration et déploiement continu
+# Triggers: Push sur main/rayane, Pull Requests
+# =================================================================
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, rayane, develop ]
+  pull_request:
+    branches: [ main, rayane ]
+  workflow_dispatch:  # Permet déclenchement manuel
+
+# Variables d'environnement globales
+env:
+  PYTHON_VERSION: '3.12'
+  NODE_VERSION: '18'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+# =================================================================
+# JOBS
+# =================================================================
+
+jobs:
+  # ---------------------------------------------------------------
+  # Job 1: Lint & Code Quality
+  # ---------------------------------------------------------------
+  lint:
+    name: 🔍 Lint & Code Quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Pour analyse complète
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint flake8 black isort mypy bandit
+
+      - name: 🎨 Check code formatting (Black)
+        run: |
+          black --check lib/ tests/ || echo "::warning::Code not formatted with Black"
+
+      - name: 📐 Check import sorting (isort)
+        run: |
+          isort --check-only lib/ tests/ || echo "::warning::Imports not sorted"
+
+      - name: 🔬 Lint with Pylint
+        run: |
+          pylint lib/ --rcfile=.pylintrc --exit-zero --output-format=colorized || true
+
+      - name: 🔍 Lint with Flake8
+        run: |
+          flake8 lib/ tests/ --max-line-length=100 --extend-ignore=E203,W503 || true
+
+      - name: 🔐 Security scan with Bandit
+        run: |
+          bandit -r lib/ -ll -f json -o bandit-report.json || true
+          bandit -r lib/ -ll || echo "::warning::Security issues found"
+
+      - name: 📊 Upload Bandit report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bandit-report
+          path: bandit-report.json
+
+  # ---------------------------------------------------------------
+  # Job 2: Unit Tests
+  # ---------------------------------------------------------------
+  test-unit:
+    name: 🧪 Unit Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12']
+      fail-fast: false
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🧪 Run unit tests with coverage
+        run: |
+          pytest tests/test_*.py \
+            --cov=lib \
+            --cov-report=xml \
+            --cov-report=html \
+            --cov-report=term \
+            --junit-xml=junit-${{ matrix.python-version }}.xml \
+            -v \
+            --tb=short
+
+      - name: 📊 Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+          flags: unittests-${{ matrix.python-version }}
+          name: coverage-${{ matrix.python-version }}
+          fail_ci_if_error: false
+
+      - name: 📦 Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.python-version }}
+          path: junit-${{ matrix.python-version }}.xml
+
+      - name: 📊 Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-html-${{ matrix.python-version }}
+          path: htmlcov/
+
+  # ---------------------------------------------------------------
+  # Job 3: Integration Tests
+  # ---------------------------------------------------------------
+  test-integration:
+    name: 🔗 Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [lint]
+
+    services:
+      redis:
+        image: redis:7-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+      postgres:
+        image: postgres:14-alpine
+        env:
+          POSTGRES_DB: awkward_test
+          POSTGRES_USER: awkward
+          POSTGRES_PASSWORD: test_password
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔗 Run integration tests
+        env:
+          DATABASE_URL: postgresql://awkward:test_password@localhost:5432/awkward_test
+          REDIS_URL: redis://localhost:6379/0
+        run: |
+          pytest tests/integration/ \
+            -v \
+            --tb=short \
+            --junit-xml=junit-integration.xml
+
+      - name: 📦 Upload integration test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: integration-test-results
+          path: junit-integration.xml
+
+  # ---------------------------------------------------------------
+  # Job 4: Security Scan
+  # ---------------------------------------------------------------
+  security:
+    name: 🔐 Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install safety pip-audit
+
+      - name: 🔍 Check for known vulnerabilities (Safety)
+        run: |
+          safety check --json --output safety-report.json || true
+          safety check || echo "::warning::Vulnerabilities found in dependencies"
+
+      - name: 🔍 Audit dependencies (pip-audit)
+        run: |
+          pip-audit --desc || echo "::warning::Vulnerable packages found"
+
+      - name: 📊 Upload Safety report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: safety-report
+          path: safety-report.json
+
+  # ---------------------------------------------------------------
+  # Job 5: Build Docker Image
+  # ---------------------------------------------------------------
+  build-docker:
+    name: 🐳 Build Docker Image
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: [test-unit, test-integration]
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔑 Log in to Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🏷️ Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: 🏗️ Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./LegacyProject/modernProject/Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
+
+      - name: 🔍 Scan image for vulnerabilities (Trivy)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: 📊 Upload Trivy results
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # ---------------------------------------------------------------
+  # Job 6: Deploy to Staging (Auto)
+  # ---------------------------------------------------------------
+  deploy-staging:
+    name: 🚀 Deploy to Staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [build-docker, security]
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+
+    environment:
+      name: staging
+      url: https://staging.awkward-legacy.com
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🚀 Deploy to staging server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          script: |
+            cd /opt/awkward-legacy
+            docker-compose pull
+            docker-compose up -d --force-recreate
+            docker-compose ps
+
+      - name: ✅ Health check
+        run: |
+          sleep 30
+          curl -f https://staging.awkward-legacy.com/health || exit 1
+
+  # ---------------------------------------------------------------
+  # Job 7: Deploy to Production (Manual)
+  # ---------------------------------------------------------------
+  deploy-production:
+    name: 🌟 Deploy to Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [build-docker, security]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    environment:
+      name: production
+      url: https://awkward-legacy.com
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🚀 Deploy to production server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.PRODUCTION_HOST }}
+          username: ${{ secrets.PRODUCTION_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          script: |
+            cd /opt/awkward-legacy
+            docker-compose pull
+            docker-compose up -d --force-recreate --no-deps web
+            docker-compose ps
+
+      - name: ✅ Health check
+        run: |
+          sleep 30
+          curl -f https://awkward-legacy.com/health || exit 1
+
+      - name: 🔔 Notify deployment
+        uses: 8398a7/action-slack@v3
+        if: always()
+        with:
+          status: ${{ job.status }}
+          text: '🚀 Production deployment ${{ job.status }}'
+          webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+
+  # ---------------------------------------------------------------
+  # Job 8: Generate Release Notes
+  # ---------------------------------------------------------------
+  release-notes:
+    name: 📝 Generate Release Notes
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [deploy-production]
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📝 Generate changelog
+        uses: orhun/git-cliff-action@v3
+        with:
+          config: cliff.toml
+          args: --verbose
+        env:
+          OUTPUT: CHANGELOG.md
+
+      - name: 🚀 Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+
+# =================================================================
+# Notifications et reporting
+# =================================================================
+# Les résultats sont visibles dans:
+# - GitHub Actions UI
+# - Codecov dashboard
+# - Container Registry
+# =================================================================

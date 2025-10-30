@@ -1,5 +1,5 @@
 import pytest
-from lib.calendar import (
+from lib.gwcalendar import (
     sdn_of_gregorian, gregorian_of_sdn,
     sdn_of_julian, julian_of_sdn,
     sdn_of_french, french_of_sdn,
