@@ -9,7 +9,7 @@ Identifier les composantes permet de:
 - Analyser la structure de la base de données
 """
 
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List, Set, Tuple, Optional
 from collections import deque, defaultdict
 
 
