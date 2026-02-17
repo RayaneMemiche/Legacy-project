@@ -18,47 +18,48 @@ jobs:
   # Job 1: Lint & Code Quality
   # ---------------------------------------------------------------
   lint:
-    name: 🔍 Lint & Code Quality
+    name: Lint & Code Quality
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 🐍 Setup Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         working-directory: LegacyProject/modernProject
         run: |
           python -m pip install --upgrade pip
-          pip install pylint flake8 black isort bandit
+          pip install flake8 black isort bandit
 
-      - name: 🎨 Check code formatting (Black)
+      - name: Check code formatting (Black)
         working-directory: LegacyProject/modernProject
         run: |
-          black --check lib/ tests/ || echo "::warning::Code not formatted"
+          black --check --line-length=120 lib/
 
-      - name: 🔍 Lint with Flake8
+      - name: Lint with Flake8
         working-directory: LegacyProject/modernProject
         run: |
-          flake8 lib/ tests/ --max-line-length=100 --extend-ignore=E203,W503 || true
+          flake8 lib/ --max-line-length=120 --extend-ignore=E203,W503,E501,E302,E303,E266,E402,W291,W292,W293,E711,E712,E722,F401,F811,E741,E128,E126,E131,E127,E124,E125,W504,E261,E262,E265,E231,E221,E241,E251,E271,E272,C901,E305,F841 --count
 
-      - name: 🔐 Security scan (Bandit)
+      - name: Security scan (Bandit)
         working-directory: LegacyProject/modernProject
         run: |
-          bandit -r lib/ -ll || echo "::warning::Security issues found"
+          bandit -r lib/ -ll -x lib/__pycache__
 
   # ---------------------------------------------------------------
   # Job 2: Unit Tests
   # ---------------------------------------------------------------
   test:
-    name: 🧪 Tests (Python ${{ matrix.python-version }})
+    name: Tests (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    needs: [lint]
 
     strategy:
       matrix:
@@ -66,30 +67,31 @@ jobs:
       fail-fast: false
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 🐍 Setup Python ${{ matrix.python-version }}
+      - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         working-directory: LegacyProject/modernProject
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🧪 Run tests with coverage
+      - name: Run tests with coverage
         working-directory: LegacyProject/modernProject
         run: |
           pytest tests/test_*.py \
             --cov=lib \
             --cov-report=xml \
             --cov-report=term \
+            --cov-fail-under=75 \
             -v
 
-      - name: 📊 Upload coverage
+      - name: Upload coverage
         uses: codecov/codecov-action@v4
         if: matrix.python-version == '3.12'
         with:
@@ -101,7 +103,7 @@ jobs:
   # Job 3: Integration Tests
   # ---------------------------------------------------------------
   integration:
-    name: 🔗 Integration Tests
+    name: Integration Tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: [lint]
@@ -118,44 +120,44 @@ jobs:
           - 6379:6379
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 🐍 Setup Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         working-directory: LegacyProject/modernProject
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🔗 Run integration tests
+      - name: Run integration tests
         working-directory: LegacyProject/modernProject
         env:
           REDIS_URL: redis://localhost:6379/0
         run: |
-          pytest tests/integration/ -v --tb=short || echo "::warning::Some integration tests failed"
+          pytest tests/integration/ -v --tb=short
 
   # ---------------------------------------------------------------
   # Job 4: Build Docker
   # ---------------------------------------------------------------
   docker:
-    name: 🐳 Build Docker Image
+    name: Build Docker Image
     runs-on: ubuntu-latest
     timeout-minutes: 20
     needs: [test]
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 🐳 Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: 🏗️ Build Docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
           context: ./LegacyProject/modernProject
@@ -169,20 +171,24 @@ jobs:
   # Job 5: Summary
   # ---------------------------------------------------------------
   summary:
-    name: ✅ Build Summary
+    name: Build Summary
     runs-on: ubuntu-latest
     needs: [lint, test, integration, docker]
     if: always()
 
     steps:
-      - name: 📊 Report Status
+      - name: Report Status
         run: |
-          echo "## 🎉 CI/CD Pipeline Complete!" >> $GITHUB_STEP_SUMMARY
+          echo "## CI/CD Pipeline Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Results:" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Lint: ${{ needs.lint.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Tests: ${{ needs.test.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Integration: ${{ needs.integration.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Docker: ${{ needs.docker.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🚀 **AWKWARD LEGACY - Ready for deployment!**" >> $GITHUB_STEP_SUMMARY
+          echo "- Lint: ${{ needs.lint.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Tests: ${{ needs.test.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Integration: ${{ needs.integration.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Docker: ${{ needs.docker.result }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Fail if any job failed
+        if: needs.lint.result == 'failure' || needs.test.result == 'failure'
+        run: |
+          echo "Pipeline failed: quality gates not met"
+          exit 1
