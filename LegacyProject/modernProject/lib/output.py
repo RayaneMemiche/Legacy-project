@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Union
 from lib.config import Config
 from lib.adef import SafeString, EscapedString, EncodedString
 
@@ -15,7 +15,7 @@ def print_sstring(conf: Config, s: str) -> None:
     conf.output_conf.body(s)
 
 
-def print_string(conf: Config, s: SafeString | EscapedString | EncodedString) -> None:
+def print_string(conf: Config, s: Union[SafeString, EscapedString, EncodedString]) -> None:
     conf.output_conf.body(str(s))
 
 

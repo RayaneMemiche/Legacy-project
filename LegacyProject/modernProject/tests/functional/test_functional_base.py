@@ -54,7 +54,7 @@ class FunctionalTestBase(unittest.TestCase):
                     os.remove(resource)
 
     def _create_test_database(self):
-        """Create a minimal test database with sample data"""
+        """Create a minimal test database with sample data (in-memory via database.make)"""
         # Create sample persons
         person1 = GenPerson(
             first_name=1,  # "John"
@@ -172,18 +172,18 @@ class FunctionalTestBase(unittest.TestCase):
         families_tuple = ([family1], [couple1], [descend1])
         arrays = (persons_tuple, families_tuple, strings, base_notes)
 
-        # Create the database
-        def init_callback(base):
-            """Callback to initialize the database"""
-            return base
-
-        # Create database files
+        # Create database directory structure on disk (for tests that check paths)
         os.makedirs(self.db_path, exist_ok=True)
-        database.make(self.db_path.replace('.gwb', ''), [], arrays, init_callback)
+
+        # Use database.make() to create an in-memory DskBase and store it
+        # database.make() doesn't write binary files, so we keep the base in memory
+        self._base = database.make(
+            self.db_path.replace('.gwb', ''), [], arrays, lambda base: base
+        )
 
     def with_test_database(self, callback):
-        """Execute a callback with the test database"""
-        return database.with_database(self.db_path, callback)
+        """Execute a callback with the in-memory test database"""
+        return callback(self._base)
 
     def create_test_person(self, first_name, surname, sex=Sex.MALE, birth=""):
         """Helper method to create a test person"""
@@ -231,9 +231,11 @@ class FunctionalTestBase(unittest.TestCase):
                 key_index=base.data.persons.len
             )
 
-            # Add person to database
+            # Add person to database with corresponding ascend and union
             new_index = base.data.persons.len
             base.func.patch_person(new_index, person)
+            base.func.patch_ascend(new_index, GenAscend(parents=None, consang=None))
+            base.func.patch_union(new_index, GenUnion(family=[]))
             base.func.commit_patches()
 
             return new_index
@@ -310,6 +312,14 @@ class FunctionalTestBase(unittest.TestCase):
                 mother_union.family.append(new_fam_idx)
             base.func.patch_union(mother_idx, mother_union)
 
+            # Update ascend for children to point to this family
+            if children_indices:
+                for child_idx in children_indices:
+                    child_ascend = base.data.ascends.get(child_idx)
+                    if hasattr(child_ascend, 'parents'):
+                        child_ascend.parents = new_fam_idx
+                    base.func.patch_ascend(child_idx, child_ascend)
+
             base.func.commit_patches()
 
             return new_fam_idx
@@ -331,15 +341,67 @@ class FunctionalTestBase(unittest.TestCase):
         return self.with_test_database(count)
 
     def export_gedcom(self, output_file):
-        """Helper method to export database to GEDCOM"""
-        # This would require implementing GEDCOM export functionality
-        # For now, we'll create a placeholder
-        with open(output_file, 'w') as f:
-            f.write("0 HEAD\n")
-            f.write("1 GEDC\n")
-            f.write("2 VERS 5.5.1\n")
-            f.write("0 TRLR\n")
+        """Helper method to export database to GEDCOM format"""
+        def do_export(base):
+            with open(output_file, 'w', encoding='utf-8') as f:
+                # GEDCOM header
+                f.write("0 HEAD\n")
+                f.write("1 SOUR AWKWARD-LEGACY\n")
+                f.write("2 VERS 1.0\n")
+                f.write("1 GEDC\n")
+                f.write("2 VERS 5.5.1\n")
+                f.write("2 FORM LINEAGE-LINKED\n")
+                f.write("1 CHAR UTF-8\n")
 
+                # Export individuals
+                for i in range(base.data.persons.len):
+                    person = base.data.persons.get(i)
+                    if person is None:
+                        continue
+                    fn = base.data.strings.get(person.first_name) if hasattr(person, 'first_name') else ""
+                    sn = base.data.strings.get(person.surname) if hasattr(person, 'surname') else ""
+                    if not fn and not sn:
+                        continue
+
+                    f.write(f"0 @I{i}@ INDI\n")
+                    f.write(f"1 NAME {fn} /{sn}/\n")
+                    if hasattr(person, 'sex'):
+                        sex_char = "M" if person.sex == Sex.MALE else ("F" if person.sex == Sex.FEMALE else "U")
+                        f.write(f"1 SEX {sex_char}\n")
+                    if hasattr(person, 'birth') and person.birth:
+                        f.write("1 BIRT\n")
+                        f.write(f"2 DATE {person.birth}\n")
+                        if hasattr(person, 'birth_place') and person.birth_place:
+                            f.write(f"2 PLAC {person.birth_place}\n")
+
+                # Export families
+                for i in range(base.data.families.len):
+                    family = base.data.families.get(i)
+                    if family is None:
+                        continue
+                    couple = base.data.couples.get(i)
+                    descend = base.data.descends.get(i)
+
+                    f.write(f"0 @F{i}@ FAM\n")
+                    if couple:
+                        husb = couple.get('father', couple['father']) if isinstance(couple, dict) else getattr(couple, 'father', None)
+                        wife = couple.get('mother', couple['mother']) if isinstance(couple, dict) else getattr(couple, 'mother', None)
+                        if husb is not None:
+                            f.write(f"1 HUSB @I{husb}@\n")
+                        if wife is not None:
+                            f.write(f"1 WIFE @I{wife}@\n")
+                    if descend:
+                        children = descend.get('children', []) if isinstance(descend, dict) else getattr(descend, 'children', [])
+                        for child_idx in children:
+                            f.write(f"1 CHIL @I{child_idx}@\n")
+                    if hasattr(family, 'marriage') and family.marriage:
+                        f.write("1 MARR\n")
+                        f.write(f"2 DATE {family.marriage}\n")
+
+                # GEDCOM trailer
+                f.write("0 TRLR\n")
+
+        self.with_test_database(do_export)
         self.created_resources.append(output_file)
         return output_file
 

@@ -1,5 +1,0 @@
-(library
- (name sosa_gw)
- (public_name geneweb-sosa)
- (implements geneweb-lib.sosa.mli)
-)

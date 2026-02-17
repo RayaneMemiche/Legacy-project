@@ -1097,7 +1097,20 @@ def make(bname: str, particles: List[str], arrays: Tuple[Any, Any, Any, BaseNote
         return None
 
     def make_persons_of_name(s: str) -> List[int]:
-        return []
+        results = []
+        s_lower = s.lower()
+        for i in range(len(persons)):
+            p = persons[i]
+            if p is None:
+                continue
+            p_fn_idx = p.first_name if hasattr(p, 'first_name') else (p['first_name'] if isinstance(p, dict) else 0)
+            p_sn_idx = p.surname if hasattr(p, 'surname') else (p['surname'] if isinstance(p, dict) else 0)
+            p_fn = strings[p_fn_idx] if p_fn_idx < len(strings) else ""
+            p_sn = strings[p_sn_idx] if p_sn_idx < len(strings) else ""
+            full_name = f"{p_fn} {p_sn}".lower()
+            if s_lower in full_name or full_name in s_lower:
+                results.append(i)
+        return results
 
     def make_strings_of_sname(s: str) -> List[int]:
         return []
@@ -1120,29 +1133,47 @@ def make(bname: str, particles: List[str], arrays: Tuple[Any, Any, Any, BaseNote
         next=make_next
     )
 
+    def _extend_list(lst, i):
+        """Extend a list to accommodate index i"""
+        while len(lst) <= i:
+            lst.append(None)
+
     def make_patch_person(i: int, p: DskPerson) -> None:
+        _extend_list(persons, i)
         persons[i] = p
+        base_data.persons.len = len(persons)
 
     def make_patch_ascend(i: int, a: DskAscend) -> None:
+        _extend_list(ascends, i)
         ascends[i] = a
+        base_data.ascends.len = len(ascends)
 
     def make_patch_union(i: int, u: DskUnion) -> None:
+        _extend_list(unions, i)
         unions[i] = u
+        base_data.unions.len = len(unions)
 
     def make_patch_family(i: int, f: DskFamily) -> None:
+        _extend_list(families, i)
         families[i] = f
+        base_data.families.len = len(families)
 
     def make_patch_couple(i: int, c: DskCouple) -> None:
+        _extend_list(couples, i)
         couples[i] = c
+        base_data.couples.len = len(couples)
 
     def make_patch_descend(i: int, d: DskDescend) -> None:
+        _extend_list(descends, i)
         descends[i] = d
+        base_data.descends.len = len(descends)
 
     def make_patch_name(s: str, ip: int) -> None:
         pass
 
     def make_insert_string(s: str) -> int:
         strings.append(s)
+        base_data.strings.len = len(strings)
         return len(strings) - 1
 
     def make_commit_patches() -> None:

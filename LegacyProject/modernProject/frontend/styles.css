@@ -498,7 +498,28 @@ canvas {
     border: 0;
 }
 
-/* Focus Styles */
+/* Skip Links (WCAG 2.4.1) */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    z-index: 10000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 var(--border-radius) 0;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--warning-color);
+    outline-offset: 2px;
+}
+
+/* Focus Styles (WCAG 2.4.7) */
 *:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
@@ -507,6 +528,82 @@ canvas {
 button:focus,
 a:focus {
     outline-offset: 4px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .page {
+        animation: none;
+    }
+
+    .feature-card:hover,
+    .btn:hover,
+    .stat-card:hover,
+    .tree-node:hover {
+        transform: none;
+    }
+}
+
+/* High Contrast Mode (WCAG 1.4.11) */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ee;
+        --secondary-color: #555555;
+        --success-color: #006600;
+        --warning-color: #cc6600;
+        --danger-color: #cc0000;
+    }
+
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    .card {
+        border: 2px solid black;
+        box-shadow: none;
+    }
+
+    .btn {
+        border: 2px solid currentColor;
+    }
+
+    .navbar {
+        border-bottom: 3px solid white;
+    }
+
+    .stat-card {
+        background: black;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .form-control,
+    .form-select {
+        border: 2px solid black;
+    }
+
+    a {
+        text-decoration: underline;
+    }
 }
 
 /* Custom Tooltip */
