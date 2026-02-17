@@ -1,8 +1,8 @@
-# ✅ GeneWeb Original - LANCÉ !
+#  GeneWeb Original - LANCÉ !
 
-## 🎉 GeneWeb est Opérationnel !
+##  GeneWeb est Opérationnel !
 
-### 📍 **Accès à GeneWeb**
+###  **Accès à GeneWeb**
 
 **URL Principale:**
 ```
@@ -16,7 +16,7 @@ http://localhost:2317/demo
 
 ---
 
-## 👥 **Données de Test**
+##  **Données de Test**
 
 La base contient les mêmes personnes que AWKWARD LEGACY pour comparaison :
 
@@ -27,12 +27,12 @@ La base contient les mêmes personnes que AWKWARD LEGACY pour comparaison :
 5. **Jacques DUBOIS** (né en 1920 à Marseille, décédé en 1995)
 
 **Famille:**
-- Jean MARTIN ⚭ Marie BERNARD (mariage en 1972)
+- Jean MARTIN  Marie BERNARD (mariage en 1972)
   - Enfants: Pierre et Sophie
 
 ---
 
-## 🔄 **Comparaison des Deux Projets**
+##  **Comparaison des Deux Projets**
 
 ### Maintenant Tu Peux Comparer:
 
@@ -45,7 +45,7 @@ La base contient les mêmes personnes que AWKWARD LEGACY pour comparaison :
 
 ---
 
-## 🧪 **Test Fonctionnel**
+##  **Test Fonctionnel**
 
 ### 1. **Page d'Accueil**
 ```
@@ -86,41 +86,41 @@ AWKWARD: http://localhost:3000
 
 ---
 
-## 📊 **Points de Comparaison**
+##  **Points de Comparaison**
 
 ### Interface
 
 **GeneWeb (2317):**
-- ⚙️ Interface années 2000
-- 📄 Tables HTML brutes
-- 🖱️ Navigation par liens
-- ❌ Pas responsive
-- ⚪ Couleurs basiques
+-  Interface années 2000
+-  Tables HTML brutes
+-  Navigation par liens
+-  Pas responsive
+-  Couleurs basiques
 
 **AWKWARD LEGACY (3000):**
-- ✨ Interface moderne 2025
-- 🎨 Design Bootstrap 5
-- 🔄 Navigation SPA fluide
-- ✅ Responsive mobile
-- 🌈 Design coloré et moderne
+-  Interface moderne 2025
+-  Design Bootstrap 5
+-  Navigation SPA fluide
+-  Responsive mobile
+-  Design coloré et moderne
 
 ### Fonctionnalités
 
 **GeneWeb:**
-- ✅ Recherche de base
-- ✅ Arbres généalogiques
-- ✅ Fiches personnes
-- ❌ Pas d'API REST
-- ❌ Pas de graphiques
-- ❌ Pas d'authentification moderne
+-  Recherche de base
+-  Arbres généalogiques
+-  Fiches personnes
+-  Pas d'API REST
+-  Pas de graphiques
+-  Pas d'authentification moderne
 
 **AWKWARD LEGACY:**
-- ✅ Recherche avancée multi-critères
-- ✅ Arbres interactifs
-- ✅ Fiches personnes modernes
-- ✅ **API REST (15+ endpoints)**
-- ✅ **Graphiques Chart.js**
-- ✅ **Authentification JWT**
+-  Recherche avancée multi-critères
+-  Arbres interactifs
+-  Fiches personnes modernes
+-  **API REST (15+ endpoints)**
+-  **Graphiques Chart.js**
+-  **Authentification JWT**
 
 ### Performance
 
@@ -134,7 +134,7 @@ AWKWARD: http://localhost:3000
 
 ---
 
-## 🎯 **Pour la Défense**
+##  **Pour la Défense**
 
 ### Ouvrir les Deux Côte à Côte
 
@@ -164,14 +164,14 @@ http://localhost:3000/comparison.html
    - Statistiques
 
 4. **Points à souligner:**
-   - ✅ Même données dans les deux
-   - ✅ Interface modernisée
-   - ✅ Performance supérieure
-   - ✅ Fonctionnalités additionnelles (API, JWT, RGPD)
+   -  Même données dans les deux
+   -  Interface modernisée
+   -  Performance supérieure
+   -  Fonctionnalités additionnelles (API, JWT, RGPD)
 
 ---
 
-## 🛑 **Arrêter les Serveurs**
+##  **Arrêter les Serveurs**
 
 ### Arrêter GeneWeb
 ```bash
@@ -195,7 +195,7 @@ kill -9 <PID>
 
 ---
 
-## 📝 **Notes**
+##  **Notes**
 
 - GeneWeb tourne sur le **port 2317** (port par défaut)
 - AWKWARD LEGACY tourne sur **port 3000** (frontend) et **8000** (API)
@@ -204,25 +204,25 @@ kill -9 <PID>
 
 ---
 
-## ✅ **Status Actuel**
+##  **Status Actuel**
 
 | Service | Status | URL |
 |---------|--------|-----|
-| **GeneWeb** | ✅ RUNNING | http://localhost:2317/demo |
-| **AWKWARD Backend** | ✅ RUNNING | http://localhost:8000 |
-| **AWKWARD Frontend** | ✅ RUNNING | http://localhost:3000 |
+| **GeneWeb** |  RUNNING | http://localhost:2317/demo |
+| **AWKWARD Backend** |  RUNNING | http://localhost:8000 |
+| **AWKWARD Frontend** |  RUNNING | http://localhost:3000 |
 
-**🎉 Les deux projets sont maintenant lancés et prêts à être comparés !**
+** Les deux projets sont maintenant lancés et prêts à être comparés !**
 
 ---
 
-## 🚀 **Prêt pour la Défense !**
+##  **Prêt pour la Défense !**
 
 Tu as maintenant:
-1. ✅ GeneWeb original fonctionnel
-2. ✅ AWKWARD LEGACY moderne fonctionnel
-3. ✅ Mêmes données dans les deux
-4. ✅ Documentation de comparaison
-5. ✅ Page web de comparaison
+1.  GeneWeb original fonctionnel
+2.  AWKWARD LEGACY moderne fonctionnel
+3.  Mêmes données dans les deux
+4.  Documentation de comparaison
+5.  Page web de comparaison
 
 **Tout est prêt pour montrer l'évolution du projet vintage vers le moderne !**

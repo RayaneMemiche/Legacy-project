@@ -2,7 +2,7 @@
 
 Interface web moderne pour le système de gestion généalogique AWKWARD LEGACY, basé sur GeneWeb.
 
-## 🚀 Fonctionnalités
+##  Fonctionnalités
 
 ### Interface Utilisateur
 - **Design Moderne**: Interface responsive avec Bootstrap 5 et Bootstrap Icons
@@ -13,47 +13,47 @@ Interface web moderne pour le système de gestion généalogique AWKWARD LEGACY,
 
 ### Fonctionnalités Principales
 
-#### 🏠 Page d'Accueil
+####  Page d'Accueil
 - **Recherche Rapide**: Barre de recherche immédiate sur la page d'accueil
 - **Statistiques en Direct**: 4 cartes affichant personnes, familles, générations, période
 - **Cartes de Fonctionnalités**: 6 cartes interactives menant aux fonctions principales
 - **Activité Récente**: Journal des dernières actions effectuées
 
-#### 🔍 Recherche Avancée
+####  Recherche Avancée
 - **Filtres Multi-critères**: Prénom, nom, année de naissance/décès, lieux, sexe
 - **Résultats Enrichis**: Cartes détaillées avec informations complètes
 - **Navigation Directe**: Liens vers ascendants et descendants
 
-#### 🧬 Analyse de Consanguinité
+####  Analyse de Consanguinité
 - **Calcul de Parenté**: Coefficient de parenté (φ) entre deux personnes
 - **Coefficient de Consanguinité**: Coefficient F pour une personne donnée
 - **Noms de Relations**: Traduction automatique en termes familiaux (cousins germains, etc.)
 - **Chemins Généalogiques**: Affichage des chemins communs entre individus
 
-#### 🌳 Analyse de Lignées
+####  Analyse de Lignées
 - **Composantes Connexes**: Identification des lignées distinctes dans la base
 - **Plus Grande Lignée**: Affichage de la lignée la plus importante
 - **Personnes Isolées**: Liste des individus sans connexions familiales
 - **Statistiques par Lignée**: Nombre de personnes, générations estimées
 
-#### 📊 Dashboard Statistiques
+####  Dashboard Statistiques
 - **Graphiques Interactifs**: Chart.js pour visualisations dynamiques
 - **Top Noms de Famille**: Graphique à barres des 20 noms les plus fréquents
 - **Distribution Temporelle**: Graphique en ligne par siècle
 - **Métriques Générales**: Totaux, moyennes, répartitions par sexe
 
-#### 📥📤 GEDCOM
+####  GEDCOM
 - **Import GEDCOM**: Interface pour importer des fichiers GEDCOM 5.5/5.5.1
 - **Export GEDCOM**: Génération de fichiers GEDCOM conformes au standard
 - **Outils CLI**: Documentation intégrée pour ged2gwb.py et gwb2ged.py
 - **Statistiques d'Import**: Compte des personnes et familles importées
 
-#### 🌲 Arbre Généalogique
+####  Arbre Généalogique
 - **Visualisation Interactive**: Arbre généalogique avec navigation
 - **Ascendants/Descendants**: Filtres pour afficher ancêtres ou descendants
 - **Multi-générations**: Configuration du nombre de générations à afficher
 
-#### 🔐 Authentification
+####  Authentification
 - **Système JWT**: Connexion sécurisée avec tokens JWT
 - **Inscription**: Création de compte utilisateur
 - **Profil Utilisateur**: Gestion du profil et des préférences
@@ -65,7 +65,7 @@ Interface web moderne pour le système de gestion généalogique AWKWARD LEGACY,
 - **Validation**: Validation côté client et serveur
 - **Session**: Gestion automatique de l'expiration des tokens
 
-## 📁 Structure des Fichiers
+##  Structure des Fichiers
 
 ```
 frontend/
@@ -104,7 +104,7 @@ Application JavaScript modulaire contenant:
 - **Utilities**: Navigation, toasts, formatage de données
 - **Event Handlers**: Gestion des formulaires et interactions utilisateur
 
-## 🛠️ Installation et Démarrage
+##  Installation et Démarrage
 
 ### Prérequis
 - **Python 3.9+** avec l'API FastAPI fonctionnelle
@@ -188,7 +188,7 @@ Ouvrir le navigateur sur:
 - **API Documentation**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
-## 🔧 Configuration
+##  Configuration
 
 ### Configuration API dans le Code
 
@@ -229,7 +229,7 @@ app.add_middleware(
 allow_origins=["https://awkward-legacy.com", "https://www.awkward-legacy.com"]
 ```
 
-## 📊 Guide d'Utilisation Détaillé
+##  Guide d'Utilisation Détaillé
 
 ### Page d'Accueil
 
@@ -398,7 +398,7 @@ Cliquer sur les cartes pour accéder directement aux fonctionnalités:
 2. Sélectionner **"Déconnexion"**
 3. Le token est supprimé et la session est terminée
 
-## 🔐 Sécurité
+##  Sécurité
 
 ### Authentification
 - Tokens JWT avec expiration automatique
@@ -417,7 +417,7 @@ Cliquer sur les cartes pour accéder directement aux fonctionnalités:
 - Gestion des consentements
 - Journal d'audit
 
-## 🧪 Tests
+##  Tests
 
 ### Tests Manuels
 1. Vérifier la connexion/déconnexion
@@ -441,7 +441,7 @@ describe('Authentication', () => {
 })
 ```
 
-## 🚀 Déploiement
+##  Déploiement
 
 ### Build de Production
 
@@ -477,7 +477,7 @@ ANALYTICS_ID=UA-XXXXXXXXX
 SENTRY_DSN=https://xxx@sentry.io/xxx
 ```
 
-## 📝 Développement
+##  Développement
 
 ### Structure du Code (app_complete.js)
 
@@ -642,7 +642,7 @@ pageLoaders['mynew'] = loadMyNewPage;
 - `POST /api/auth/logout` - Déconnexion
 - `GET /api/auth/profile` - Profil utilisateur
 
-## 🐛 Débogage et Dépannage
+##  Débogage et Dépannage
 
 ### Console du Navigateur
 
@@ -767,7 +767,7 @@ Utiliser l'onglet Elements pour:
 - [ ] Aucune erreur dans la console JavaScript
 - [ ] Aucune erreur CORS dans la console
 
-## ⚡ Démarrage Rapide
+##  Démarrage Rapide
 
 Pour démarrer rapidement le frontend complet:
 
@@ -784,7 +784,7 @@ python3 -m http.server 3000
 # http://localhost:3000/index_new.html
 ```
 
-## 🎨 Technologies Utilisées
+##  Technologies Utilisées
 
 ### Frontend
 - **Bootstrap 5.3.0**: Framework CSS responsive
@@ -816,7 +816,7 @@ Toutes les bibliothèques sont chargées via CDN pour faciliter le développemen
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
 ```
 
-## 🚀 Performance et Optimisation
+##  Performance et Optimisation
 
 ### Chargement des Pages
 - **Lazy Loading**: Les pages ne sont chargées que lorsqu'elles sont demandées
@@ -842,7 +842,7 @@ Toutes les bibliothèques sont chargées via CDN pour faciliter le développemen
 
 5. **Utiliser HTTP/2** pour les connexions multiplexées
 
-## 📚 Ressources
+##  Ressources
 
 ### Documentation Officielle
 - [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.0/)
@@ -861,7 +861,7 @@ Toutes les bibliothèques sont chargées via CDN pour faciliter le développemen
 - [GeneWeb Original](https://github.com/geneweb/geneweb)
 - [FamilySearch GEDCOM](https://www.familysearch.org/developers/docs/guides/gedcom)
 
-## 🔮 Fonctionnalités Futures
+##  Fonctionnalités Futures
 
 ### Prévues pour les Prochaines Versions
 
@@ -889,7 +889,7 @@ Toutes les bibliothèques sont chargées via CDN pour faciliter le développemen
 - [ ] Application mobile (Progressive Web App)
 - [ ] Accessibilité WCAG 2.1 niveau AA
 
-## 📄 Licence
+##  Licence
 
 Ce projet fait partie du système AWKWARD LEGACY.
 
@@ -897,7 +897,7 @@ Ce projet fait partie du système AWKWARD LEGACY.
 
 Voir le fichier LICENSE principal pour plus de détails.
 
-## 🤝 Contribution
+##  Contribution
 
 Les contributions sont les bienvenues !
 
@@ -914,7 +914,7 @@ Les contributions sont les bienvenues !
 - Mettre à jour la documentation
 - Respecter les standards d'accessibilité
 
-## 📞 Support
+##  Support
 
 Pour toute question ou problème:
 
@@ -922,12 +922,12 @@ Pour toute question ou problème:
 - **Documentation**: Voir les fichiers `docs/` du projet
 - **API Documentation**: http://localhost:8000/docs (quand l'API est lancée)
 
-## 👥 Auteurs
+##  Auteurs
 
 - **Projet Original**: GeneWeb (1995-2008) - Développé en OCaml
 - **Modernisation**: AWKWARD LEGACY - Python/FastAPI/Bootstrap
 
-## 🙏 Remerciements
+##  Remerciements
 
 - L'équipe GeneWeb pour le système original
 - La communauté Python pour FastAPI et les bibliothèques

@@ -19,7 +19,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ---
 
-# 📋 Agenda
+#  Agenda
 
 1. **Contexte et Objectifs**
 2. **Architecture Technique**
@@ -35,7 +35,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 <!-- _class: lead -->
 
-# 1️⃣ Contexte et Objectifs
+# 1 Contexte et Objectifs
 
 ## Pourquoi moderniser GeneWeb?
 
@@ -45,17 +45,17 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ## **GeneWeb** : Un outil de référence
 
-- ✅ **Logiciel de généalogie** créé par l'INRIA
-- ✅ **Core en OCaml** performant et stable
-- ✅ **20+ ans** d'existence et d'évolutions
-- ✅ **100K+** utilisateurs dans le monde
+-  **Logiciel de généalogie** créé par l'INRIA
+-  **Core en OCaml** performant et stable
+-  **20+ ans** d'existence et d'évolutions
+-  **100K+** utilisateurs dans le monde
 
 ## **Mais...**
 
-- ❌ Interface vieillissante
-- ❌ Pas d'API moderne
-- ❌ Difficultés de maintenance
-- ❌ Manque de conformité RGPD
+-  Interface vieillissante
+-  Pas d'API moderne
+-  Difficultés de maintenance
+-  Manque de conformité RGPD
 
 ---
 
@@ -66,12 +66,12 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ## **Objectifs Principaux**
 
-1. 🎯 **API REST moderne** pour l'intégration
-2. 🎯 **Interface utilisateur** responsive
-3. 🎯 **Conformité RGPD** complète
-4. 🎯 **Tests automatisés** (80% coverage)
-5. 🎯 **Documentation** complète
-6. 🎯 **Déploiement Docker** automatisé
+1.  **API REST moderne** pour l'intégration
+2.  **Interface utilisateur** responsive
+3.  **Conformité RGPD** complète
+4.  **Tests automatisés** (80% coverage)
+5.  **Documentation** complète
+6.  **Déploiement Docker** automatisé
 
 ---
 
@@ -88,16 +88,16 @@ Python (Modern) ⟷ OCaml (Legacy)
 
 ## **Contraintes**
 
-- ⚡ **Performance**: < 100ms de latence
-- 🔒 **Sécurité**: OWASP Top 10
-- 📊 **Scalabilité**: 1000+ users concurrents
-- 🌍 **RGPD**: 100% conforme
+-  **Performance**: < 100ms de latence
+-  **Sécurité**: OWASP Top 10
+-  **Scalabilité**: 1000+ users concurrents
+-  **RGPD**: 100% conforme
 
 ---
 
 <!-- _class: lead -->
 
-# 2️⃣ Architecture Technique
+# 2 Architecture Technique
 
 ## Comment nous avons conçu la solution
 
@@ -170,7 +170,7 @@ Python (Modern) ⟷ OCaml (Legacy)
 
 <!-- _class: lead -->
 
-# 3️⃣ Réalisations Clés
+# 3 Réalisations Clés
 
 ## Ce que nous avons accompli
 
@@ -180,13 +180,13 @@ Python (Modern) ⟷ OCaml (Legacy)
 
 ## **Jours 1-2: Fondations**
 
-### ✅ **Architecture & Tests**
+###  **Architecture & Tests**
 - 1,500+ lignes de code structuré
 - 30+ tests unitaires
 - 5 tests d'intégration
 - 5 benchmarks de performance
 
-### 📊 **Couverture**
+###  **Couverture**
 ```
 Module Coverage:
 ├── bridge.py     85%
@@ -201,13 +201,13 @@ Module Coverage:
 
 ## **Jours 3-4: Documentation & Infrastructure**
 
-### 📚 **Documentation** (21,000+ mots)
+###  **Documentation** (21,000+ mots)
 - Architecture complète
 - Guide de déploiement
 - Politique de tests
 - Conformité RGPD
 
-### 🐳 **Infrastructure Docker**
+###  **Infrastructure Docker**
 - Multi-stage build (350MB)
 - 8 services orchestrés
 - Auto-scaling ready
@@ -219,7 +219,7 @@ Module Coverage:
 
 ## **Jour 5: Sécurité & Standards**
 
-### 🔒 **Module de Sécurité** (800+ lignes)
+###  **Module de Sécurité** (800+ lignes)
 ```python
 SecurityManager:
 ├── Authentification (JWT, MFA)
@@ -229,7 +229,7 @@ SecurityManager:
 └── Audit Trail
 ```
 
-### 📏 **Standards de Code**
+###  **Standards de Code**
 - Pylint configuré (540 lignes)
 - 20+ pre-commit hooks
 - Guide de contribution
@@ -240,17 +240,17 @@ SecurityManager:
 
 ## **Jour 6: Validation Complète**
 
-### ✅ **Tests d'Intégration**
+###  **Tests d'Intégration**
 - 8 scénarios complets
 - Tests multi-utilisateurs
 - Recovery après erreur
 
-### 🚀 **Tests de Charge (Locust)**
+###  **Tests de Charge (Locust)**
 - 1000 users simulés
 - 10+ scénarios réalistes
 - < 100ms P95 latency
 
-### 🛡️ **Sécurité**
+###  **Sécurité**
 - Scanner OWASP Top 10
 - Score: 85/100
 - 0 vulnérabilités critiques
@@ -259,7 +259,7 @@ SecurityManager:
 
 # Métriques de Réalisation
 
-## **📊 Volume de Code Produit**
+## ** Volume de Code Produit**
 
 | Catégorie | Lignes | Fichiers |
 |-----------|--------|----------|
@@ -269,7 +269,7 @@ SecurityManager:
 | Documentation | 8,000+ | 10 |
 | **TOTAL** | **18,500+** | **45** |
 
-## **⏱️ Temps de Développement**
+## **⏱ Temps de Développement**
 - 6 jours effectifs
 - ~3,000 lignes/jour
 - 7.5 fichiers/jour
@@ -278,7 +278,7 @@ SecurityManager:
 
 <!-- _class: lead -->
 
-# 4️⃣ Tests et Qualité
+# 4 Tests et Qualité
 
 ## Assurance qualité complète
 
@@ -300,26 +300,26 @@ SecurityManager:
 
 ## **Coverage Global: 82%**
 
-- ✅ 50+ tests unitaires
-- ✅ 8 tests d'intégration
-- ✅ 5 tests de performance
-- ✅ 20+ tests de sécurité
+-  50+ tests unitaires
+-  8 tests d'intégration
+-  5 tests de performance
+-  20+ tests de sécurité
 
 ---
 
 # Tests de Performance
 
-## **🚀 Résultats des Benchmarks**
+## ** Résultats des Benchmarks**
 
 | Métrique | Objectif | Résultat | Status |
 |----------|----------|----------|---------|
-| Latence P50 | < 50ms | 32ms | ✅ |
-| Latence P95 | < 100ms | 87ms | ✅ |
-| Latence P99 | < 200ms | 156ms | ✅ |
-| Throughput | > 1000 rps | 1,247 rps | ✅ |
-| Concurrent Users | > 1000 | 1,500 | ✅ |
+| Latence P50 | < 50ms | 32ms |  |
+| Latence P95 | < 100ms | 87ms |  |
+| Latence P99 | < 200ms | 156ms |  |
+| Throughput | > 1000 rps | 1,247 rps |  |
+| Concurrent Users | > 1000 | 1,500 |  |
 
-## **💾 Utilisation Mémoire**
+## ** Utilisation Mémoire**
 - Idle: 120 MB
 - Charge normale: 350 MB
 - Pic de charge: 680 MB
@@ -328,7 +328,7 @@ SecurityManager:
 
 # Tests de Charge (Locust)
 
-## **📈 Scénarios Testés**
+## ** Scénarios Testés**
 
 ```python
 Scénarios:
@@ -340,15 +340,15 @@ Scénarios:
 ```
 
 ## **Résultats**
-- ✅ **0% d'erreurs** jusqu'à 500 users
-- ✅ **< 1% d'erreurs** à 1000 users
-- ✅ **Recovery automatique** après pic
+-  **0% d'erreurs** jusqu'à 500 users
+-  **< 1% d'erreurs** à 1000 users
+-  **Recovery automatique** après pic
 
 ---
 
 <!-- _class: lead -->
 
-# 5️⃣ Sécurité et Conformité
+# 5 Sécurité et Conformité
 
 ## Protection des données et conformité réglementaire
 
@@ -356,7 +356,7 @@ Scénarios:
 
 # Sécurité - Vue d'Ensemble
 
-## **🛡️ Defense in Depth**
+## ** Defense in Depth**
 
 ```
 Internet → WAF → Nginx → App → DB
@@ -367,49 +367,49 @@ Internet → WAF → Nginx → App → DB
 
 ## **Mesures Implémentées**
 
-- ✅ **TLS 1.3** pour toutes les communications
-- ✅ **JWT** avec rotation automatique
-- ✅ **2FA/MFA** disponible
-- ✅ **Rate limiting** multi-niveaux
-- ✅ **WAF** rules configurées
+-  **TLS 1.3** pour toutes les communications
+-  **JWT** avec rotation automatique
+-  **2FA/MFA** disponible
+-  **Rate limiting** multi-niveaux
+-  **WAF** rules configurées
 
 ---
 
 # Score de Sécurité OWASP
 
-## **🔒 Couverture OWASP Top 10**
+## ** Couverture OWASP Top 10**
 
 | Vulnérabilité | Status | Score |
 |---------------|---------|-------|
-| A01: Broken Access Control | ✅ Protégé | 95% |
-| A02: Cryptographic Failures | ✅ Protégé | 100% |
-| A03: Injection | ✅ Protégé | 98% |
-| A04: Insecure Design | ✅ Protégé | 90% |
-| A05: Security Misconfiguration | ✅ Protégé | 92% |
-| A06: Vulnerable Components | ✅ Protégé | 88% |
-| A07: Auth Failures | ✅ Protégé | 95% |
-| A08: Data Integrity | ✅ Protégé | 93% |
-| A09: Logging Failures | ✅ Protégé | 90% |
-| A10: SSRF | ✅ Protégé | 100% |
+| A01: Broken Access Control |  Protégé | 95% |
+| A02: Cryptographic Failures |  Protégé | 100% |
+| A03: Injection |  Protégé | 98% |
+| A04: Insecure Design |  Protégé | 90% |
+| A05: Security Misconfiguration |  Protégé | 92% |
+| A06: Vulnerable Components |  Protégé | 88% |
+| A07: Auth Failures |  Protégé | 95% |
+| A08: Data Integrity |  Protégé | 93% |
+| A09: Logging Failures |  Protégé | 90% |
+| A10: SSRF |  Protégé | 100% |
 
-**Score Global: 94/100** 🏆
+**Score Global: 94/100** 
 
 ---
 
 # Conformité RGPD
 
-## **✅ Score de Conformité: 85%**
+## ** Score de Conformité: 85%**
 
 ### **Droits Implémentés**
 
 | Droit RGPD | Article | Status |
 |------------|---------|---------|
-| Accès aux données | Art. 15 | ✅ Complet |
-| Rectification | Art. 16 | ✅ Complet |
-| Effacement | Art. 17 | ✅ Complet |
-| Limitation | Art. 18 | ⚠️ Partiel |
-| Portabilité | Art. 20 | ✅ Complet |
-| Opposition | Art. 21 | ✅ Complet |
+| Accès aux données | Art. 15 |  Complet |
+| Rectification | Art. 16 |  Complet |
+| Effacement | Art. 17 |  Complet |
+| Limitation | Art. 18 |  Partiel |
+| Portabilité | Art. 20 |  Complet |
+| Opposition | Art. 21 |  Complet |
 
 ### **Features RGPD**
 - Export JSON/CSV
@@ -421,7 +421,7 @@ Internet → WAF → Nginx → App → DB
 
 # Audit de Sécurité
 
-## **🔍 Résultats du Scanner**
+## ** Résultats du Scanner**
 
 ```
 Scan de Sécurité - Résumé:
@@ -433,15 +433,15 @@ Scan de Sécurité - Résumé:
 ```
 
 ## **Points d'Amélioration**
-1. ⚠️ Headers de sécurité additionnels
-2. ⚠️ Vérification d'âge pour mineurs
-3. ⚠️ Limitation du traitement (RGPD)
+1.  Headers de sécurité additionnels
+2.  Vérification d'âge pour mineurs
+3.  Limitation du traitement (RGPD)
 
 ---
 
 <!-- _class: lead -->
 
-# 6️⃣ Métriques et Performance
+# 6 Métriques et Performance
 
 ## KPIs et tableaux de bord
 
@@ -449,7 +449,7 @@ Scan de Sécurité - Résumé:
 
 # Dashboard de Monitoring
 
-## **📊 Métriques Temps Réel**
+## ** Métriques Temps Réel**
 
 ```
 ┌──────────────────────────────────┐
@@ -470,7 +470,7 @@ Scan de Sécurité - Résumé:
 
 # KPIs Business
 
-## **📈 Indicateurs Clés**
+## ** Indicateurs Clés**
 
 | Métrique | Baseline | Actuel | Amélioration |
 |----------|----------|---------|--------------|
@@ -480,7 +480,7 @@ Scan de Sécurité - Résumé:
 | Error Rate | 2.5% | 0.02% | **-99%** |
 | Availability | 95% | 99.98% | **+5%** |
 
-## **💰 ROI Estimé**
+## ** ROI Estimé**
 - Réduction coûts serveur: **-40%**
 - Productivité développeurs: **+60%**
 - Satisfaction utilisateurs: **+85%**
@@ -489,7 +489,7 @@ Scan de Sécurité - Résumé:
 
 # Métriques de Code
 
-## **📊 Qualité du Code**
+## ** Qualité du Code**
 
 ```python
 Pylint Score: 9.2/10
@@ -499,7 +499,7 @@ Duplication: < 3%
 Technical Debt: 2 days
 ```
 
-## **📈 Évolution sur 6 jours**
+## ** Évolution sur 6 jours**
 
 | Jour | Lignes | Tests | Coverage | Score |
 |------|--------|-------|----------|-------|
@@ -514,7 +514,7 @@ Technical Debt: 2 days
 
 <!-- _class: lead -->
 
-# 7️⃣ Démonstration Live
+# 7 Démonstration Live
 
 ## Voyons le système en action!
 
@@ -522,7 +522,7 @@ Technical Debt: 2 days
 
 # Scénarios de Démo
 
-## **🎬 Ce que nous allons montrer**
+## ** Ce que nous allons montrer**
 
 ### 1. **Workflow Utilisateur** (5 min)
 - Inscription/Connexion
@@ -544,7 +544,7 @@ Technical Debt: 2 days
 
 # Points Clés de la Démo
 
-## **✨ Features à Souligner**
+## ** Features à Souligner**
 
 1. **Performance**
    - Temps de réponse < 100ms
@@ -566,7 +566,7 @@ Technical Debt: 2 days
 
 <!-- _class: lead -->
 
-# 8️⃣ Plan de Déploiement
+# 8 Plan de Déploiement
 
 ## De la development à la production
 
@@ -574,7 +574,7 @@ Technical Debt: 2 days
 
 # Stratégie de Déploiement
 
-## **🚀 Approche Progressive**
+## ** Approche Progressive**
 
 ```
 Dev → Staging → Production
@@ -597,7 +597,7 @@ Auto    Manual  Deployment
 
 # Infrastructure de Production
 
-## **☁️ Architecture Cloud**
+## ** Architecture Cloud**
 
 ```
                 CloudFlare CDN
@@ -623,7 +623,7 @@ Auto    Manual  Deployment
 
 # Processus de Déploiement
 
-## **📋 Checklist Pré-Production**
+## ** Checklist Pré-Production**
 
 - [ ] Tests automatisés passés (100%)
 - [ ] Revue de code complétée
@@ -632,7 +632,7 @@ Auto    Manual  Deployment
 - [ ] Backup de production
 - [ ] Plan de rollback prêt
 
-## **🔄 Déploiement Blue-Green**
+## ** Déploiement Blue-Green**
 
 ```bash
 # 1. Build nouvelle version
@@ -655,7 +655,7 @@ Auto    Manual  Deployment
 
 # Monitoring Post-Déploiement
 
-## **📊 Dashboards Critiques**
+## ** Dashboards Critiques**
 
 ### **Grafana Dashboard**
 - Latence P50/P95/P99
@@ -675,7 +675,7 @@ Auto    Manual  Deployment
 
 <!-- _class: lead -->
 
-# 9️⃣ Conclusion et Perspectives
+# 9 Conclusion et Perspectives
 
 ## Bilan et vision future
 
@@ -683,48 +683,48 @@ Auto    Manual  Deployment
 
 # Bilan du Projet
 
-## **✅ Objectifs Atteints**
+## ** Objectifs Atteints**
 
 | Objectif | Cible | Résultat | Status |
 |----------|-------|----------|---------|
-| Modernisation API | 100% | 100% | ✅ |
-| Tests Coverage | 80% | 82% | ✅ |
-| Performance | < 100ms | 45ms | ✅ |
-| RGPD Compliance | 80% | 85% | ✅ |
-| Documentation | Complète | 45 docs | ✅ |
-| Sécurité OWASP | 80/100 | 94/100 | ✅ |
+| Modernisation API | 100% | 100% |  |
+| Tests Coverage | 80% | 82% |  |
+| Performance | < 100ms | 45ms |  |
+| RGPD Compliance | 80% | 85% |  |
+| Documentation | Complète | 45 docs |  |
+| Sécurité OWASP | 80/100 | 94/100 |  |
 
-## **🏆 Succès Majeur**
+## ** Succès Majeur**
 **Conformité: 85%** dépassant l'objectif de 70-80%
 
 ---
 
 # Valeur Ajoutée
 
-## **💡 Bénéfices Immédiats**
+## ** Bénéfices Immédiats**
 
 ### **Pour les Utilisateurs**
-- ⚡ **3x plus rapide**
-- 📱 **Interface moderne**
-- 🔒 **Données sécurisées**
-- 🌍 **RGPD compliant**
+-  **3x plus rapide**
+-  **Interface moderne**
+-  **Données sécurisées**
+-  **RGPD compliant**
 
 ### **Pour l'Équipe**
-- 🛠️ **Maintenance simplifiée**
-- 📚 **Documentation complète**
-- 🧪 **Tests automatisés**
-- 📊 **Monitoring temps réel**
+-  **Maintenance simplifiée**
+-  **Documentation complète**
+-  **Tests automatisés**
+-  **Monitoring temps réel**
 
 ### **Pour l'Entreprise**
-- 💰 **-40% coûts infra**
-- 📈 **+1400% capacité**
-- 🎯 **Time to market réduit**
+-  **-40% coûts infra**
+-  **+1400% capacité**
+-  **Time to market réduit**
 
 ---
 
 # Évolutions Futures
 
-## **🚀 Roadmap 2026**
+## ** Roadmap 2026**
 
 ### **Q1 2026**
 - Machine Learning pour suggestions
@@ -745,30 +745,30 @@ Auto    Manual  Deployment
 
 # Leçons Apprises
 
-## **📚 Retour d'Expérience**
+## ** Retour d'Expérience**
 
 ### **Ce qui a bien fonctionné**
-- ✅ Architecture modulaire
-- ✅ Tests dès le début
-- ✅ Documentation continue
-- ✅ Automatisation maximale
+-  Architecture modulaire
+-  Tests dès le début
+-  Documentation continue
+-  Automatisation maximale
 
 ### **Défis rencontrés**
-- ⚠️ Intégration Python-OCaml
-- ⚠️ Migration des données
-- ⚠️ Complexité RGPD
+-  Intégration Python-OCaml
+-  Migration des données
+-  Complexité RGPD
 
 ### **Best Practices adoptées**
-- 📏 Standards stricts (Pylint, Black)
-- 🔄 CI/CD complet
-- 🛡️ Security by design
-- 📊 Monitoring proactif
+-  Standards stricts (Pylint, Black)
+-  CI/CD complet
+-  Security by design
+-  Monitoring proactif
 
 ---
 
 <!-- _class: lead -->
 
-# 🙏 Remerciements
+#  Remerciements
 
 ## Un projet d'équipe
 
@@ -776,7 +776,7 @@ Auto    Manual  Deployment
 
 # Équipe et Contributeurs
 
-## **👥 L'Équipe Projet**
+## ** L'Équipe Projet**
 
 ### **Core Team**
 - **Chef de Projet** - Coordination et vision
@@ -794,7 +794,7 @@ Auto    Manual  Deployment
 
 <!-- _class: lead -->
 
-# 🎯 Questions & Réponses
+#  Questions & Réponses
 
 ## Nous sommes à votre écoute
 
@@ -873,7 +873,7 @@ awkward-legacy/
 
 <!-- _class: lead -->
 
-# 🎉 Merci!
+#  Merci!
 
 ## AWKWARD LEGACY
 ### Le futur de la généalogie

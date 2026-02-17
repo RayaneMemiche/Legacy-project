@@ -8,6 +8,21 @@
 
 ---
 
+## Table des Matieres
+
+1. [Introduction et Objectifs](#1-introduction-et-objectifs)
+2. [Normes et Referentiels Appliques](#2-normes-et-referentiels-appliques)
+3. [Processus Qualite](#3-processus-qualite)
+4. [Pyramide de Tests](#4-pyramide-de-tests)
+5. [Metriques de Qualite et KPIs](#5-metriques-de-qualite-et-kpis)
+6. [Gestion des Non-Conformites](#6-gestion-des-non-conformites)
+7. [Amelioration Continue](#7-amelioration-continue)
+8. [Outils et Infrastructure](#8-outils-et-infrastructure)
+9. [Conformite et Reglementation](#9-conformite-et-reglementation)
+10. [Conclusion](#10-conclusion)
+
+---
+
 ## 1. Introduction et Objectifs
 
 ### 1.1 Contexte
@@ -267,13 +282,13 @@ Chaque défaut est tracé via :
 
 | Période | Objectif | Statut |
 |---------|---------|--------|
-| Q4 2025 | Tests unitaires 80%+ coverage | ✅ Atteint |
-| Q4 2025 | Tests d'intégration | ✅ Atteint |
-| Q4 2025 | Scanner sécurité OWASP | ✅ Atteint |
-| Q1 2026 | Tests de performance/charge | ✅ Atteint |
-| Q1 2026 | Validateur RGPD | ✅ Atteint |
-| Q1 2026 | Tests d'accessibilité WCAG | ✅ Atteint |
-| Q1 2026 | Amélioration accessibilité frontend | ✅ Atteint |
+| Q4 2025 | Tests unitaires 80%+ coverage |  Atteint |
+| Q4 2025 | Tests d'intégration |  Atteint |
+| Q4 2025 | Scanner sécurité OWASP |  Atteint |
+| Q1 2026 | Tests de performance/charge |  Atteint |
+| Q1 2026 | Validateur RGPD |  Atteint |
+| Q1 2026 | Tests d'accessibilité WCAG |  Atteint |
+| Q1 2026 | Amélioration accessibilité frontend |  Atteint |
 | Q2 2026 | Coverage 90% | En cours |
 | Q2 2026 | Tests E2E Selenium | Planifié |
 

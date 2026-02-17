@@ -36,19 +36,19 @@ Le projet **LegacyProject** vise à moderniser le système généalogique **Gene
 | **Modules de code** | 206 fichiers ML/MLI | 40 modules Python | **19.4%** |
 | **Lignes de code** | ~64,831 lignes (lib/) | 7,271 lignes (lib/) | **11.2%** |
 | **Binaires/Outils** | 16 outils | 1 serveur dev | **6.25%** |
-| **Tests** | 6 fichiers de tests | 48 fichiers de tests | **800%** ✓ |
-| **Documentation** | 3 fichiers majeurs | 4 docs + planning | **133%** ✓ |
+| **Tests** | 6 fichiers de tests | 48 fichiers de tests | **800%**  |
+| **Documentation** | 3 fichiers majeurs | 4 docs + planning | **133%**  |
 
 ### 1.3 État Global
 
-**🟢 Points Forts:**
+** Points Forts:**
 - Excellente couverture de tests (48 fichiers vs 6 dans l'original)
 - Documentation RGPD/déploiement complète
 - Sécurité moderne (JWT, RBAC, encryption)
 - CI/CD fonctionnel avec GitHub Actions
 - Containerisation Docker multi-stage
 
-**🔴 Points Faibles:**
+** Points Faibles:**
 - **CRITIQUE:** Seulement ~19% des modules originaux implémentés
 - **CRITIQUE:** Absence de 15 outils binaires essentiels (gwc, gwu, ged2gwb, etc.)
 - **CRITIQUE:** API REST manquante (Protocol Buffers)
@@ -57,7 +57,7 @@ Le projet **LegacyProject** vise à moderniser le système généalogique **Gene
 
 ### 1.4 Verdict
 
-**Niveau de maturité:** 🟡 **PROTOTYPE** (20-30% de fonctionnalités complètes)
+**Niveau de maturité:**  **PROTOTYPE** (20-30% de fonctionnalités complètes)
 
 Le projet a établi une excellente fondation en termes d'infrastructure (tests, sécurité, déploiement) mais nécessite un développement substantiel des fonctionnalités métier pour atteindre la parité avec GeneWeb.
 
@@ -68,10 +68,10 @@ Le projet a établi une excellente fondation en termes d'infrastructure (tests, 
 ### 2.1 Rappel du Brief
 
 **Mission:** Rendre le code conforme aux standards actuels tout en:
-- ✅ **PRÉSERVANT** le cœur du code (pas de réécriture totale)
-- ✅ **TESTANT** rigoureusement le système
-- ✅ **DÉPLOYANT** de manière sécurisée
-- ❌ **ÉVITANT** la destruction de l'infrastructure
+-  **PRÉSERVANT** le cœur du code (pas de réécriture totale)
+-  **TESTANT** rigoureusement le système
+-  **DÉPLOYANT** de manière sécurisée
+-  **ÉVITANT** la destruction de l'infrastructure
 
 **Contraintes:**
 - Langage de rendu: Python
@@ -85,7 +85,7 @@ LegacyProject a adopté une approche **hybride OCaml-Python** via Docker:
 2. **Stage 2:** Environnement Python
 3. **Stage 3:** Runtime combiné
 
-**Évaluation:** ✅ Cette approche est conforme au brief ("restaurer, pas réécrire")
+**Évaluation:**  Cette approche est conforme au brief ("restaurer, pas réécrire")
 
 ---
 
@@ -203,13 +203,13 @@ LegacyProject a adopté une approche **hybride OCaml-Python** via Docker:
 
 | Composant | GeneWeb | LegacyProject | Gap |
 |-----------|---------|---------------|-----|
-| **Outils CLI** | 16 binaires | 1 serveur dev | 🔴 15 outils manquants |
-| **API REST** | Protocol Buffers (5 .proto) | Absente | 🔴 API complète manquante |
-| **Template Engine** | Jingoo (42,855 lignes) | Absent | 🔴 Moteur template manquant |
-| **Web Server** | wserver.ml (19,047 lignes) | Flask dev (basique) | 🔴 Server production manquant |
-| **Database** | 2 backends (legacy, arangodb) | 1 backend Python | 🟡 Backend limité |
-| **Tests** | 6 fichiers | 48 fichiers | 🟢 Excellent |
-| **Documentation** | Minimale | Complète (RGPD, deploy) | 🟢 Excellent |
+| **Outils CLI** | 16 binaires | 1 serveur dev |  15 outils manquants |
+| **API REST** | Protocol Buffers (5 .proto) | Absente |  API complète manquante |
+| **Template Engine** | Jingoo (42,855 lignes) | Absent |  Moteur template manquant |
+| **Web Server** | wserver.ml (19,047 lignes) | Flask dev (basique) |  Server production manquant |
+| **Database** | 2 backends (legacy, arangodb) | 1 backend Python |  Backend limité |
+| **Tests** | 6 fichiers | 48 fichiers |  Excellent |
+| **Documentation** | Minimale | Complète (RGPD, deploy) |  Excellent |
 
 ---
 
@@ -217,46 +217,46 @@ LegacyProject a adopté une approche **hybride OCaml-Python** via Docker:
 
 ### 4.1 Fonctionnalités de Base (CRUD)
 
-#### 4.1.1 Implémentées ✅
+#### 4.1.1 Implémentées 
 
 | Fonctionnalité | GeneWeb | LegacyProject | Fichier | Statut |
 |----------------|---------|---------------|---------|--------|
-| **Gestion Personnes** | ✅ | ✅ | `database.py:41KB` | 🟢 Complet |
-| **Gestion Familles** | ✅ | ✅ | `database.py` | 🟢 Complet |
-| **Relations Parent-Enfant** | ✅ | ✅ | `database.py` | 🟢 Complet |
-| **Relations Maritales** | ✅ | ✅ | `database.py` | 🟢 Complet |
-| **Événements (naissance, décès, mariage)** | ✅ | ✅ | `event.py`, `date.py` | 🟢 Complet |
-| **Parsing de noms** | ✅ | ✅ | `name.py` | 🟢 Complet |
-| **Parsing de dates** | ✅ | ✅ | `date.py` | 🟢 Complet |
-| **Calendriers multiples** | ✅ | ✅ | `calendar.py` | 🟢 Complet |
+| **Gestion Personnes** |  |  | `database.py:41KB` |  Complet |
+| **Gestion Familles** |  |  | `database.py` |  Complet |
+| **Relations Parent-Enfant** |  |  | `database.py` |  Complet |
+| **Relations Maritales** |  |  | `database.py` |  Complet |
+| **Événements (naissance, décès, mariage)** |  |  | `event.py`, `date.py` |  Complet |
+| **Parsing de noms** |  |  | `name.py` |  Complet |
+| **Parsing de dates** |  |  | `date.py` |  Complet |
+| **Calendriers multiples** |  |  | `calendar.py` |  Complet |
 
 ### 4.2 Fonctionnalités Avancées
 
-#### 4.2.1 Manquantes ❌
+#### 4.2.1 Manquantes 
 
 | Fonctionnalité | GeneWeb Module | Taille (lignes) | LegacyProject | Priorité |
 |----------------|----------------|-----------------|---------------|----------|
-| **Calcul de consanguinité** | `consang.ml`, `consangAll.ml` | ~5,000 | ❌ Absent | 🔴 HAUTE |
-| **Analyse des composantes connexes** | `connex` (binaire) | N/A | ❌ Absent | 🔴 HAUTE |
-| **Affichage DAG (arbre graphique)** | `dag.ml`, `dag2html.ml` | 1,398 | ❌ Absent | 🔴 HAUTE |
-| **Recherche avancée** | `advSearchOk.ml`, `advSearchOkDisplay.ml` | ~2,000 | ❌ Absent | 🔴 HAUTE |
-| **Recherche de cousins** | `cousins.ml`, `cousinsDisplay.ml` | ~1,500 | ❌ Absent | 🟡 MOYENNE |
-| **Affichage descendants** | `descendDisplay.ml` | 1,380 | ❌ Absent | 🔴 HAUTE |
-| **Statistiques généalogiques** | `api_stats.ml` | 1,683 | ❌ Absent | 🔴 HAUTE |
-| **Historique des modifications** | `history.ml`, `historyDiff.ml`, `historyDiffDisplay.ml` | ~2,500 | ❌ Absent | 🟡 MOYENNE |
-| **Forum/Discussion** | `forum.ml`, `forumDisplay.ml` | ~1,000 | ❌ Absent | 🟢 BASSE |
-| **Numérotation Sosa (avancée)** | `sosa.zarith`, `sosa.num` | ~500 | 🟡 Partiel | 🟡 MOYENNE |
-| **Affichage relationnel** | `relationDisplay.ml` | ~800 | ❌ Absent | 🔴 HAUTE |
-| **Analyse des différences** | `difference.ml`, `gwdiff` (binaire) | ~1,200 | ❌ Absent | 🟡 MOYENNE |
+| **Calcul de consanguinité** | `consang.ml`, `consangAll.ml` | ~5,000 |  Absent |  HAUTE |
+| **Analyse des composantes connexes** | `connex` (binaire) | N/A |  Absent |  HAUTE |
+| **Affichage DAG (arbre graphique)** | `dag.ml`, `dag2html.ml` | 1,398 |  Absent |  HAUTE |
+| **Recherche avancée** | `advSearchOk.ml`, `advSearchOkDisplay.ml` | ~2,000 |  Absent |  HAUTE |
+| **Recherche de cousins** | `cousins.ml`, `cousinsDisplay.ml` | ~1,500 |  Absent |  MOYENNE |
+| **Affichage descendants** | `descendDisplay.ml` | 1,380 |  Absent |  HAUTE |
+| **Statistiques généalogiques** | `api_stats.ml` | 1,683 |  Absent |  HAUTE |
+| **Historique des modifications** | `history.ml`, `historyDiff.ml`, `historyDiffDisplay.ml` | ~2,500 |  Absent |  MOYENNE |
+| **Forum/Discussion** | `forum.ml`, `forumDisplay.ml` | ~1,000 |  Absent |  BASSE |
+| **Numérotation Sosa (avancée)** | `sosa.zarith`, `sosa.num` | ~500 |  Partiel |  MOYENNE |
+| **Affichage relationnel** | `relationDisplay.ml` | ~800 |  Absent |  HAUTE |
+| **Analyse des différences** | `difference.ml`, `gwdiff` (binaire) | ~1,200 |  Absent |  MOYENNE |
 
-#### 4.2.2 Partiellement Implémentées 🟡
+#### 4.2.2 Partiellement Implémentées 
 
 | Fonctionnalité | GeneWeb | LegacyProject | Gap | Priorité |
 |----------------|---------|---------------|-----|----------|
-| **Validation de données** | `check.ml`, `checkItem.ml` (2,500 lignes) | Basique dans tests | 🟡 Validation avancée manquante | 🔴 HAUTE |
-| **Sérialisation de données** | `iovalue.ml` (complexe) | `iovalue.py` (simplifié) | 🟡 Fonctionnalités limitées | 🟡 MOYENNE |
-| **Gestion de fichiers** | `futil.ml` (12KB) | `futil.py` (12KB) | 🟢 Similaire | 🟢 OK |
-| **Utilitaires noms** | `name.ml` (avancé) | `name.py` (basique) | 🟡 Parsing limité | 🟡 MOYENNE |
+| **Validation de données** | `check.ml`, `checkItem.ml` (2,500 lignes) | Basique dans tests |  Validation avancée manquante |  HAUTE |
+| **Sérialisation de données** | `iovalue.ml` (complexe) | `iovalue.py` (simplifié) |  Fonctionnalités limitées |  MOYENNE |
+| **Gestion de fichiers** | `futil.ml` (12KB) | `futil.py` (12KB) |  Similaire |  OK |
+| **Utilitaires noms** | `name.ml` (avancé) | `name.py` (basique) |  Parsing limité |  MOYENNE |
 
 ### 4.3 Outils et Utilitaires
 
@@ -264,20 +264,20 @@ LegacyProject a adopté une approche **hybride OCaml-Python** via Docker:
 
 | Outil GeneWeb | Fonction | Impact Business | Priorité |
 |---------------|----------|-----------------|----------|
-| **gwc** | Compilation de données généalogiques | 🔴 CRITIQUE - Préparation des données | 🔴 P0 |
-| **gwu** | Utilitaire de manipulation de données | 🔴 CRITIQUE - Maintenance DB | 🔴 P0 |
-| **ged2gwb** | Import GEDCOM → GeneWeb | 🔴 CRITIQUE - Interopérabilité | 🔴 P0 |
-| **gwb2ged** | Export GeneWeb → GEDCOM | 🔴 CRITIQUE - Portabilité | 🔴 P0 |
-| **consang** | Calcul de consanguinité (CLI) | 🔴 HAUTE - Fonctionnalité métier clé | 🔴 P1 |
-| **connex** | Analyse composantes connexes | 🔴 HAUTE - Analyse lignées | 🔴 P1 |
-| **gwdiff** | Comparaison de bases de données | 🟡 MOYENNE - Outils de debug | 🟡 P2 |
-| **gwgc** | Garbage collector pour DB | 🟡 MOYENNE - Maintenance | 🟡 P2 |
-| **fixbase** | Réparation de base de données | 🟡 MOYENNE - Récupération | 🟡 P2 |
-| **setup** | Assistant d'installation web | 🟡 MOYENNE - UX | 🟡 P3 |
-| **dico_place** | Dictionnaire de lieux | 🟢 BASSE - Fonctionnalité secondaire | 🟢 P3 |
-| **update_nldb** | Mise à jour DB non-locale | 🟢 BASSE - Feature avancée | 🟢 P3 |
+| **gwc** | Compilation de données généalogiques |  CRITIQUE - Préparation des données |  P0 |
+| **gwu** | Utilitaire de manipulation de données |  CRITIQUE - Maintenance DB |  P0 |
+| **ged2gwb** | Import GEDCOM → GeneWeb |  CRITIQUE - Interopérabilité |  P0 |
+| **gwb2ged** | Export GeneWeb → GEDCOM |  CRITIQUE - Portabilité |  P0 |
+| **consang** | Calcul de consanguinité (CLI) |  HAUTE - Fonctionnalité métier clé |  P1 |
+| **connex** | Analyse composantes connexes |  HAUTE - Analyse lignées |  P1 |
+| **gwdiff** | Comparaison de bases de données |  MOYENNE - Outils de debug |  P2 |
+| **gwgc** | Garbage collector pour DB |  MOYENNE - Maintenance |  P2 |
+| **fixbase** | Réparation de base de données |  MOYENNE - Récupération |  P2 |
+| **setup** | Assistant d'installation web |  MOYENNE - UX |  P3 |
+| **dico_place** | Dictionnaire de lieux |  BASSE - Fonctionnalité secondaire |  P3 |
+| **update_nldb** | Mise à jour DB non-locale |  BASSE - Feature avancée |  P3 |
 
-**Impact:** 🔴 **BLOQUANT** - Sans ces outils, l'utilisateur ne peut pas:
+**Impact:**  **BLOQUANT** - Sans ces outils, l'utilisateur ne peut pas:
 1. Importer des données depuis des fichiers GEDCOM standards
 2. Exporter des données vers d'autres logiciels de généalogie
 3. Compiler/optimiser les bases de données
@@ -293,16 +293,16 @@ LegacyProject a adopté une approche **hybride OCaml-Python** via Docker:
 
 | Catégorie | GeneWeb (OCaml) | LegacyProject (Python) | Taux |
 |-----------|-----------------|------------------------|------|
-| **Data Models** | 2 (def.ml, adef.ml: 12,869 lignes) | 2 (gwdef.py, adef.py: ~14KB) | 🟢 100% |
-| **Database** | 12 modules (gwdb-legacy) | 2 (database.py, dbdisk.py) | 🟡 17% |
-| **Utilities** | 17 modules (util/) | 8 (mutil.py, futil.py, etc) | 🟡 47% |
-| **Web Server** | 1 (wserver.ml: 19,047 lignes) | 2 (wserver.py, wserver_util.py: ~15KB) | 🔴 <10% |
-| **Templates** | 4 (gwxjg/: 42,855+ lignes) | 1 (templ.py: minimal) | 🔴 <5% |
-| **API** | 15 modules (api_*.ml: ~50,000 lignes) | 0 | 🔴 0% |
-| **Display/Rendering** | 14 modules (*Display.ml: ~15,000 lignes) | 0 | 🔴 0% |
-| **Genealogy Algorithms** | 8 modules (consang, dag, check, etc) | 0 | 🔴 0% |
-| **I/O** | 5 modules (iovalue, iochan, etc) | 2 (iovalue.py, my_gzip.py) | 🟡 40% |
-| **Security** | 1 (secure.ml) | 1 (security.py: 31KB) | 🟢 100%+ |
+| **Data Models** | 2 (def.ml, adef.ml: 12,869 lignes) | 2 (gwdef.py, adef.py: ~14KB) |  100% |
+| **Database** | 12 modules (gwdb-legacy) | 2 (database.py, dbdisk.py) |  17% |
+| **Utilities** | 17 modules (util/) | 8 (mutil.py, futil.py, etc) |  47% |
+| **Web Server** | 1 (wserver.ml: 19,047 lignes) | 2 (wserver.py, wserver_util.py: ~15KB) |  <10% |
+| **Templates** | 4 (gwxjg/: 42,855+ lignes) | 1 (templ.py: minimal) |  <5% |
+| **API** | 15 modules (api_*.ml: ~50,000 lignes) | 0 |  0% |
+| **Display/Rendering** | 14 modules (*Display.ml: ~15,000 lignes) | 0 |  0% |
+| **Genealogy Algorithms** | 8 modules (consang, dag, check, etc) | 0 |  0% |
+| **I/O** | 5 modules (iovalue, iochan, etc) | 2 (iovalue.py, my_gzip.py) |  40% |
+| **Security** | 1 (secure.ml) | 1 (security.py: 31KB) |  100%+ |
 
 #### 5.1.2 Modules Critiques Manquants
 
@@ -310,65 +310,65 @@ LegacyProject a adopté une approche **hybride OCaml-Python** via Docker:
 
 1. **API Layer (api_*.ml: ~50,000 lignes)**
    - Fichier: 15 modules (api.ml, api_saisie_read.ml, api_saisie_write.ml, api_stats.ml, api_search.ml, api_graph.ml, api_link.ml, etc.)
-   - Impact: 🔴 CRITIQUE - Aucune API REST disponible
+   - Impact:  CRITIQUE - Aucune API REST disponible
    - Priorité: **P0**
 
 2. **Template Engine (gwxjg/: 42,855+ lignes)**
    - Fichier: data.ml (42,855 lignes), ezgw.ml, trans.ml
-   - Impact: 🔴 CRITIQUE - Rendu dynamique impossible
+   - Impact:  CRITIQUE - Rendu dynamique impossible
    - Priorité: **P0**
 
 3. **Web Server Production (wserver.ml: 19,047 lignes)**
    - Fichier: wserver.ml
-   - Impact: 🔴 CRITIQUE - Serveur dev Flask insuffisant
+   - Impact:  CRITIQUE - Serveur dev Flask insuffisant
    - Priorité: **P0**
 
 4. **Display Modules (14 modules: ~15,000 lignes)**
    - Fichiers: perso.ml (5,972), descendDisplay.ml (1,380), dag2html.ml (1,398), relationDisplay.ml, etc.
-   - Impact: 🔴 HAUTE - Affichage généalogique limité
+   - Impact:  HAUTE - Affichage généalogique limité
    - Priorité: **P1**
 
 5. **Consanguinity (consang.ml, consangAll.ml: ~5,000 lignes)**
    - Fichiers: consang.ml, consangAll.ml
-   - Impact: 🔴 HAUTE - Fonctionnalité métier clé
+   - Impact:  HAUTE - Fonctionnalité métier clé
    - Priorité: **P1**
 
 6. **Update System (update*.ml: ~4,300 lignes)**
    - Fichiers: update.ml (1,296), updateIndOk.ml (1,359), updateFamOk.ml (1,645)
-   - Impact: 🔴 HAUTE - Mise à jour de données incomplète
+   - Impact:  HAUTE - Mise à jour de données incomplète
    - Priorité: **P1**
 
 7. **Search System (advSearchOk.ml, api_search.ml: ~4,000 lignes)**
    - Fichiers: advSearchOk.ml, advSearchOkDisplay.ml, api_search.ml
-   - Impact: 🔴 HAUTE - Recherche limitée
+   - Impact:  HAUTE - Recherche limitée
    - Priorité: **P1**
 
 8. **DAG (Directed Acyclic Graph) (dag.ml, dag2html.ml: ~2,500 lignes)**
    - Fichiers: dag.ml, dag2html.ml, dagDisplay.ml
-   - Impact: 🔴 HAUTE - Visualisation d'arbres manquante
+   - Impact:  HAUTE - Visualisation d'arbres manquante
    - Priorité: **P1**
 
 9. **Statistics (api_stats.ml: 1,683 lignes)**
    - Fichier: api_stats.ml
-   - Impact: 🟡 MOYENNE - Analytics manquants
+   - Impact:  MOYENNE - Analytics manquants
    - Priorité: **P2**
 
 10. **Data Validation (check.ml, checkItem.ml: ~2,500 lignes)**
     - Fichiers: check.ml, checkItem.ml
-    - Impact: 🟡 MOYENNE - Validation basique seulement
+    - Impact:  MOYENNE - Validation basique seulement
     - Priorité: **P2**
 
-### 5.2 Modules Bien Implémentés ✅
+### 5.2 Modules Bien Implémentés 
 
 | Module Python | Équivalent GeneWeb | Qualité | Notes |
 |---------------|-------------------|---------|-------|
-| **security.py** (31KB) | secure.ml + extensions | 🟢 Excellent | JWT, RBAC, encryption moderne |
-| **database.py** (41KB) | database.ml (partiel) | 🟢 Bon | CRUD complet, locking |
-| **gwdef.py** (14KB) | def.ml | 🟢 Bon | Data structures de base |
-| **date.py** | dateDisplay.ml (partiel) | 🟢 Bon | Parsing dates |
-| **calendar.py** | calendar.ml | 🟢 Bon | Calendriers multiples |
-| **futil.py** (12KB) | futil.ml | 🟢 Bon | File utilities |
-| **name.py** | name.ml (partiel) | 🟡 Acceptable | Fonctionnalités limitées |
+| **security.py** (31KB) | secure.ml + extensions |  Excellent | JWT, RBAC, encryption moderne |
+| **database.py** (41KB) | database.ml (partiel) |  Bon | CRUD complet, locking |
+| **gwdef.py** (14KB) | def.ml |  Bon | Data structures de base |
+| **date.py** | dateDisplay.ml (partiel) |  Bon | Parsing dates |
+| **calendar.py** | calendar.ml |  Bon | Calendriers multiples |
+| **futil.py** (12KB) | futil.ml |  Bon | File utilities |
+| **name.py** | name.ml (partiel) |  Acceptable | Fonctionnalités limitées |
 
 ---
 
@@ -381,9 +381,9 @@ LegacyProject a adopté une approche **hybride OCaml-Python** via Docker:
 **Gap:** Aucun outil d'import/export GEDCOM
 
 **Impact Business:**
-- ❌ Impossible d'importer des données depuis d'autres logiciels de généalogie
-- ❌ Impossible d'exporter vers des formats standards
-- ❌ Interopérabilité ZÉRO avec l'écosystème généalogique
+-  Impossible d'importer des données depuis d'autres logiciels de généalogie
+-  Impossible d'exporter vers des formats standards
+-  Interopérabilité ZÉRO avec l'écosystème généalogique
 
 **GeneWeb:**
 - `ged2gwb` (binaire) - Import GEDCOM vers GeneWeb
@@ -406,9 +406,9 @@ Implémentation: Créer modules Python:
 **Gap:** Aucun compilateur de données généalogiques
 
 **Impact Business:**
-- ❌ Impossible de compiler/optimiser les bases de données
-- ❌ Pas de validation avant import
-- ❌ Performance de lecture potentiellement dégradée
+-  Impossible de compiler/optimiser les bases de données
+-  Pas de validation avant import
+-  Performance de lecture potentiellement dégradée
 
 **GeneWeb:**
 - `gwc` (binaire) - Compilation de données généalogiques
@@ -428,9 +428,9 @@ Implémentation:
 **Gap:** Aucune API REST disponible
 
 **Impact Business:**
-- ❌ Impossible d'intégrer avec des applications tierces
-- ❌ Pas d'accès programmatique aux données
-- ❌ Frontend limité aux appels directs Python
+-  Impossible d'intégrer avec des applications tierces
+-  Pas d'accès programmatique aux données
+-  Frontend limité aux appels directs Python
 
 **GeneWeb:**
 - 5 fichiers `.proto` (api.proto, api_stats.proto, api_saisie_read.proto, etc.)
@@ -475,9 +475,9 @@ Implémentation:
 **Gap:** Aucun moteur de template pour rendu dynamique
 
 **Impact Business:**
-- ❌ Pages web statiques uniquement
-- ❌ Pas de personnalisation d'affichage
-- ❌ Expérience utilisateur limitée
+-  Pages web statiques uniquement
+-  Pas de personnalisation d'affichage
+-  Expérience utilisateur limitée
 
 **GeneWeb:**
 - Module `gwxjg` (GeneWeb x Jingoo)
@@ -503,9 +503,9 @@ Implémentation:
 **Gap:** Aucun calcul de consanguinité
 
 **Impact Business:**
-- ❌ Fonctionnalité historique clé du brief ("révéler les origines de chaque individu")
-- ❌ Impossible de calculer les degrés de parenté
-- ❌ Analyse généalogique incomplète
+-  Fonctionnalité historique clé du brief ("révéler les origines de chaque individu")
+-  Impossible de calculer les degrés de parenté
+-  Analyse généalogique incomplète
 
 **GeneWeb:**
 - `consang.ml`, `consangAll.ml` (~5,000 lignes)
@@ -530,9 +530,9 @@ Tests:
 **Gap:** Aucune analyse de connectivité
 
 **Impact Business:**
-- ❌ Impossible d'identifier les lignées distinctes
-- ❌ Pas de détection de "clusters" familiaux
-- ❌ Analyse de réseau familial manquante
+-  Impossible d'identifier les lignées distinctes
+-  Pas de détection de "clusters" familiaux
+-  Analyse de réseau familial manquante
 
 **GeneWeb:**
 - `connex` (binaire) - Analyse des composantes connexes
@@ -552,9 +552,9 @@ Implémentation:
 **Gap:** Aucune visualisation d'arbres
 
 **Impact Business:**
-- ❌ Impossible d'afficher des arbres généalogiques visuels
-- ❌ UX très limitée
-- ❌ Fonctionnalité attendue d'un logiciel de généalogie
+-  Impossible d'afficher des arbres généalogiques visuels
+-  UX très limitée
+-  Fonctionnalité attendue d'un logiciel de généalogie
 
 **GeneWeb:**
 - `dag.ml`, `dag2html.ml` (1,398 lignes)
@@ -577,8 +577,8 @@ Implémentation:
 **Gap:** Pas d'affichage structuré de descendants
 
 **Impact Business:**
-- ❌ Navigation généalogique limitée
-- ❌ Impossible de voir la descendance d'un individu
+-  Navigation généalogique limitée
+-  Impossible de voir la descendance d'un individu
 
 **GeneWeb:**
 - `descendDisplay.ml` (1,380 lignes)
@@ -597,9 +597,9 @@ Implémentation:
 **Gap:** Recherche basique uniquement
 
 **Impact Business:**
-- ❌ Impossible de rechercher par critères multiples
-- ❌ Pas de filtres avancés (dates, lieux, relations)
-- ❌ UX dégradée
+-  Impossible de rechercher par critères multiples
+-  Pas de filtres avancés (dates, lieux, relations)
+-  UX dégradée
 
 **GeneWeb:**
 - `advSearchOk.ml`, `advSearchOkDisplay.ml` (~2,000 lignes)
@@ -621,9 +621,9 @@ Implémentation:
 **Gap:** Aucune statistique disponible
 
 **Impact Business:**
-- ❌ Pas d'insights sur les données
-- ❌ Impossible de répondre à "Combien de personnes dans la lignée X?"
-- ❌ Analytics manquants
+-  Pas d'insights sur les données
+-  Impossible de répondre à "Combien de personnes dans la lignée X?"
+-  Analytics manquants
 
 **GeneWeb:**
 - `api_stats.ml` (1,683 lignes)
@@ -646,9 +646,9 @@ Implémentation:
 **Gap:** Pas de tracking des modifications
 
 **Impact Business:**
-- 🟡 Pas d'audit trail des changements
-- 🟡 Difficile de revenir en arrière
-- 🟡 Collaboration difficile
+-  Pas d'audit trail des changements
+-  Difficile de revenir en arrière
+-  Collaboration difficile
 
 **GeneWeb:**
 - `history.ml`, `historyDiff.ml`, `historyDiffDisplay.ml` (~2,500 lignes)
@@ -668,8 +668,8 @@ Implémentation:
 **Gap:** Pas de recherche de relations
 
 **Impact Business:**
-- 🟡 Fonctionnalité "fun" manquante
-- 🟡 Analyse de liens familiaux limitée
+-  Fonctionnalité "fun" manquante
+-  Analyse de liens familiaux limitée
 
 **GeneWeb:**
 - `cousins.ml`, `cousinsDisplay.ml` (~1,500 lignes)
@@ -688,8 +688,8 @@ Implémentation:
 **Gap:** Pas d'outil de diff
 
 **Impact Business:**
-- 🟡 Synchronisation difficile entre environnements
-- 🟡 Debug compliqué
+-  Synchronisation difficile entre environnements
+-  Debug compliqué
 
 **GeneWeb:**
 - `gwdiff` (binaire)
@@ -709,8 +709,8 @@ Implémentation:
 **Gap:** Pas d'outils de maintenance DB
 
 **Impact Business:**
-- 🟡 Accumulation de données orphelines
-- 🟡 Performance dégradée à long terme
+-  Accumulation de données orphelines
+-  Performance dégradée à long terme
 
 **GeneWeb:**
 - `gwgc` (binaire) - Garbage collector
@@ -733,8 +733,8 @@ Implémentation:
 **Gap:** Pas de système de forum
 
 **Impact Business:**
-- 🟢 Fonctionnalité secondaire
-- 🟢 Collaboration possible autrement
+-  Fonctionnalité secondaire
+-  Collaboration possible autrement
 
 **GeneWeb:**
 - `forum.ml`, `forumDisplay.ml` (~1,000 lignes)
@@ -751,8 +751,8 @@ Implémentation: Optionnel, utiliser solution tierce (Discourse, etc.)
 **Gap:** Pas d'assistant web
 
 **Impact Business:**
-- 🟢 Installation manuelle possible
-- 🟢 Documentation existante
+-  Installation manuelle possible
+-  Documentation existante
 
 **GeneWeb:**
 - `setup` (binaire) - Assistant d'installation web
@@ -772,80 +772,80 @@ Implémentation: Web wizard pour configuration initiale
 
 | Document | Contenu | Qualité |
 |----------|---------|---------|
-| `README.md` | Instructions de build, installation | 🟢 Bon |
-| `CHANGES` | Changelog complet (163 KB) | 🟢 Excellent |
-| `LICENSE` | GNU GPL | 🟢 Complet |
-| `CONTRIBUTING.md` | Guide de contribution | 🟢 Bon |
+| `README.md` | Instructions de build, installation |  Bon |
+| `CHANGES` | Changelog complet (163 KB) |  Excellent |
+| `LICENSE` | GNU GPL |  Complet |
+| `CONTRIBUTING.md` | Guide de contribution |  Bon |
 
 **Points faibles:**
-- ❌ Pas de documentation RGPD
-- ❌ Pas de guide de déploiement production
-- ❌ Documentation API minimale
-- ❌ Pas de guide de sécurité
+-  Pas de documentation RGPD
+-  Pas de guide de déploiement production
+-  Documentation API minimale
+-  Pas de guide de sécurité
 
 ### 7.2 Documentation LegacyProject (Actuel)
 
 | Document | Taille | Contenu | Qualité |
 |----------|--------|---------|---------|
-| `README.md` | 365 bytes | Description basique + badges CI | 🟡 Minimal |
-| `DEPLOYMENT_GUIDE.md` | 33 KB | Déploiement complet, monitoring, troubleshooting | 🟢 Excellent |
-| `RGPD_COMPLIANCE.md` | 52 KB | Conformité RGPD détaillée | 🟢 Excellent |
-| `TEST_POLICY.md` | 17 KB | Stratégie de tests complète | 🟢 Excellent |
-| `planning.pdf` | 69 KB | Planification projet | 🟢 Bon |
+| `README.md` | 365 bytes | Description basique + badges CI |  Minimal |
+| `DEPLOYMENT_GUIDE.md` | 33 KB | Déploiement complet, monitoring, troubleshooting |  Excellent |
+| `RGPD_COMPLIANCE.md` | 52 KB | Conformité RGPD détaillée |  Excellent |
+| `TEST_POLICY.md` | 17 KB | Stratégie de tests complète |  Excellent |
+| `planning.pdf` | 69 KB | Planification projet |  Bon |
 
 **Points forts:**
-- ✅ Documentation RGPD complète (exigence du brief)
-- ✅ Guide de déploiement détaillé (exigence du brief)
-- ✅ Politique de tests documentée (exigence du brief)
+-  Documentation RGPD complète (exigence du brief)
+-  Guide de déploiement détaillé (exigence du brief)
+-  Politique de tests documentée (exigence du brief)
 
 **Points faibles:**
-- ❌ README trop minimal (pas de guide d'utilisation)
-- ❌ Pas de documentation API (car API absente)
-- ❌ Pas de documentation des modules Python
-- ❌ Pas de guide de contribution
+-  README trop minimal (pas de guide d'utilisation)
+-  Pas de documentation API (car API absente)
+-  Pas de documentation des modules Python
+-  Pas de guide de contribution
 
 ### 7.3 Conformité aux Exigences du Brief
 
-**Section A: Politique de Tests** ✅
-- ✅ Processus qualité intégré tout au long du cycle
-- ✅ Protocoles et scénarios définis (TEST_POLICY.md)
-- ✅ Tests unitaires (39 modules)
-- ✅ Tests fonctionnels (functional/)
-- ✅ Tests d'intégration (integration/)
-- ✅ Tests de performance (performance/, locust)
-- ✅ Détection d'erreurs automatisée (CI/CD)
-- ✅ Analyse des résultats (Codecov)
-- ✅ Audit de sécurité (security_scanner.py)
+**Section A: Politique de Tests** 
+-  Processus qualité intégré tout au long du cycle
+-  Protocoles et scénarios définis (TEST_POLICY.md)
+-  Tests unitaires (39 modules)
+-  Tests fonctionnels (functional/)
+-  Tests d'intégration (integration/)
+-  Tests de performance (performance/, locust)
+-  Détection d'erreurs automatisée (CI/CD)
+-  Analyse des résultats (Codecov)
+-  Audit de sécurité (security_scanner.py)
 
-**Section B: Standards et Processus Qualité** 🟡
-- ✅ Standards de documentation définis (TEST_POLICY.md)
-- 🟡 Conventions de codage (non documentées explicitement)
-- ✅ Rapports d'activité (GitHub Actions logs)
-- ❌ Accessibilité personnes en situation de handicap (non documenté)
-- ✅ Activités de contrôle qualité (CI/CD, tests)
+**Section B: Standards et Processus Qualité** 
+-  Standards de documentation définis (TEST_POLICY.md)
+-  Conventions de codage (non documentées explicitement)
+-  Rapports d'activité (GitHub Actions logs)
+-  Accessibilité personnes en situation de handicap (non documenté)
+-  Activités de contrôle qualité (CI/CD, tests)
 
-**Section C: Expertise Technique en Déploiement** ✅
-- ✅ Provisionnement des ressources (DEPLOYMENT_GUIDE.md)
-- ✅ Configuration serveurs (Docker, multi-stage)
-- ✅ Services cloud (guide AWS/Azure/GCP dans DEPLOYMENT_GUIDE.md)
-- ✅ Gestion des mots de passe (security.py, bcrypt/argon2)
-- ✅ Configuration réseau sécurisée (ports, firewall)
-- ✅ Gestion des clés de chiffrement (AES-256-GCM)
+**Section C: Expertise Technique en Déploiement** 
+-  Provisionnement des ressources (DEPLOYMENT_GUIDE.md)
+-  Configuration serveurs (Docker, multi-stage)
+-  Services cloud (guide AWS/Azure/GCP dans DEPLOYMENT_GUIDE.md)
+-  Gestion des mots de passe (security.py, bcrypt/argon2)
+-  Configuration réseau sécurisée (ports, firewall)
+-  Gestion des clés de chiffrement (AES-256-GCM)
 
-**Section D: Documentation de Déploiement** ✅
-- ✅ Bonnes pratiques de sécurité (DEPLOYMENT_GUIDE.md)
-- ✅ Conformité RGPD (RGPD_COMPLIANCE.md)
-- ✅ Stratégie de livraison (Docker, CI/CD)
-- 🟡 Communication inter-départements (non documentée)
-- ✅ Documentation des processus (complète)
-- ✅ Communication technique claire (documentation accessible)
+**Section D: Documentation de Déploiement** 
+-  Bonnes pratiques de sécurité (DEPLOYMENT_GUIDE.md)
+-  Conformité RGPD (RGPD_COMPLIANCE.md)
+-  Stratégie de livraison (Docker, CI/CD)
+-  Communication inter-départements (non documentée)
+-  Documentation des processus (complète)
+-  Communication technique claire (documentation accessible)
 
-**Verdict:** 🟢 **85% de conformité** aux exigences documentaires du brief
+**Verdict:**  **85% de conformité** aux exigences documentaires du brief
 
 **Gaps documentaires:**
-1. ❌ Accessibilité (WCAG guidelines)
-2. ❌ Communication inter-départements
-3. ❌ Conventions de codage explicites (PEP 8, type hints, etc.)
+1.  Accessibilité (WCAG guidelines)
+2.  Communication inter-départements
+3.  Conventions de codage explicites (PEP 8, type hints, etc.)
 
 ---
 
@@ -855,27 +855,27 @@ Implémentation: Web wizard pour configuration initiale
 
 | Type de Test | GeneWeb | LegacyProject | Verdict |
 |--------------|---------|---------------|---------|
-| **Tests unitaires** | 6 fichiers | 39 fichiers | 🟢 **+650%** |
-| **Tests d'intégration** | Minimal | Dossier dédié | 🟢 Excellent |
-| **Tests fonctionnels** | Absent | Dossier dédié (Behave) | 🟢 Excellent |
-| **Tests de performance** | Absent | pytest-benchmark, locust | 🟢 Excellent |
-| **Tests de sécurité** | Absent | security_scanner.py | 🟢 Excellent |
-| **Tests RGPD** | Absent | rgpd_validator.py | 🟢 Excellent |
-| **Couverture cible** | Non documenté | 80% minimum | 🟢 Bon |
+| **Tests unitaires** | 6 fichiers | 39 fichiers |  **+650%** |
+| **Tests d'intégration** | Minimal | Dossier dédié |  Excellent |
+| **Tests fonctionnels** | Absent | Dossier dédié (Behave) |  Excellent |
+| **Tests de performance** | Absent | pytest-benchmark, locust |  Excellent |
+| **Tests de sécurité** | Absent | security_scanner.py |  Excellent |
+| **Tests RGPD** | Absent | rgpd_validator.py |  Excellent |
+| **Couverture cible** | Non documenté | 80% minimum |  Bon |
 
 ### 8.2 Qualité des Tests
 
 **Points forts:**
-- ✅ Couverture unitaire complète (1:1 avec les modules)
-- ✅ Tests spécialisés (sécurité, RGPD, performance)
-- ✅ CI/CD intégré avec reporting (Codecov)
-- ✅ Tests de charge (Locust)
-- ✅ Tests BDD (Behave)
+-  Couverture unitaire complète (1:1 avec les modules)
+-  Tests spécialisés (sécurité, RGPD, performance)
+-  CI/CD intégré avec reporting (Codecov)
+-  Tests de charge (Locust)
+-  Tests BDD (Behave)
 
 **Points faibles:**
-- ❌ Tests des fonctionnalités manquantes (API, templates, outils CLI)
-- 🟡 Pas de tests de régression documentés
-- 🟡 Pas de tests end-to-end avec Selenium (mentionné dans requirements.txt mais absent)
+-  Tests des fonctionnalités manquantes (API, templates, outils CLI)
+-  Pas de tests de régression documentés
+-  Pas de tests end-to-end avec Selenium (mentionné dans requirements.txt mais absent)
 
 ### 8.3 Comparaison
 
@@ -902,7 +902,7 @@ tests/
 └── integration/ (multi-component tests)
 ```
 
-**Verdict:** 🟢 **LegacyProject largement supérieur en matière de tests**
+**Verdict:**  **LegacyProject largement supérieur en matière de tests**
 
 ---
 
@@ -912,35 +912,35 @@ tests/
 
 | Exigence | Status | Notes |
 |----------|--------|-------|
-| **Langage de rendu: Python** | ✅ | Implémenté |
-| **Makefile avec re, clean, fclean** | ✅ | Présent et fonctionnel |
-| **Préserver le cœur du code OCaml** | ✅ | Docker multi-stage, OCaml compilé |
-| **Tests rigoureux** | ✅ | 48 fichiers de tests, CI/CD |
-| **Déploiement sécurisé** | ✅ | Docker, DEPLOYMENT_GUIDE.md |
-| **Éviter la destruction** | ✅ | Architecture hybride préserve OCaml |
-| **Politique de tests documentée** | ✅ | TEST_POLICY.md (17 KB) |
-| **Standards qualité documentés** | 🟡 | Partiel (conventions de codage non explicites) |
-| **Expertise déploiement** | ✅ | DEPLOYMENT_GUIDE.md (33 KB) |
-| **Conformité RGPD** | ✅ | RGPD_COMPLIANCE.md (52 KB) |
-| **Accessibilité** | ❌ | Non documenté |
-| **Communication inter-départements** | ❌ | Non documenté |
+| **Langage de rendu: Python** |  | Implémenté |
+| **Makefile avec re, clean, fclean** |  | Présent et fonctionnel |
+| **Préserver le cœur du code OCaml** |  | Docker multi-stage, OCaml compilé |
+| **Tests rigoureux** |  | 48 fichiers de tests, CI/CD |
+| **Déploiement sécurisé** |  | Docker, DEPLOYMENT_GUIDE.md |
+| **Éviter la destruction** |  | Architecture hybride préserve OCaml |
+| **Politique de tests documentée** |  | TEST_POLICY.md (17 KB) |
+| **Standards qualité documentés** |  | Partiel (conventions de codage non explicites) |
+| **Expertise déploiement** |  | DEPLOYMENT_GUIDE.md (33 KB) |
+| **Conformité RGPD** |  | RGPD_COMPLIANCE.md (52 KB) |
+| **Accessibilité** |  | Non documenté |
+| **Communication inter-départements** |  | Non documenté |
 
-**Score:** 🟢 **10/12 (83%)**
+**Score:**  **10/12 (83%)**
 
 ### 9.2 Alignement avec l'Objectif Commercial
 
 **Objectif:** *"Le logiciel contient un programme capable de révéler les origines de chaque individu. L'objectif est de découvrir les héritiers légitimes de lignées puissantes et de facturer des honoraires pour ce service."*
 
 **Analyse:**
-- ❌ **Calcul de consanguinité:** ABSENT (fonctionnalité clé pour "révéler les origines")
-- ❌ **Analyse de lignées:** ABSENT (pas d'outil `connex` pour identifier les lignées)
-- ❌ **Visualisation d'arbres:** ABSENT (pas de DAG/arbres généalogiques)
-- ❌ **Recherche avancée:** LIMITÉE (recherche de base seulement)
-- ❌ **Statistiques:** ABSENT (pas d'analytics pour les lignées)
-- ✅ **Base de données:** PRÉSENTE (stockage de personnes/familles)
-- ✅ **Sécurité:** EXCELLENTE (protection des données sensibles)
+-  **Calcul de consanguinité:** ABSENT (fonctionnalité clé pour "révéler les origines")
+-  **Analyse de lignées:** ABSENT (pas d'outil `connex` pour identifier les lignées)
+-  **Visualisation d'arbres:** ABSENT (pas de DAG/arbres généalogiques)
+-  **Recherche avancée:** LIMITÉE (recherche de base seulement)
+-  **Statistiques:** ABSENT (pas d'analytics pour les lignées)
+-  **Base de données:** PRÉSENTE (stockage de personnes/familles)
+-  **Sécurité:** EXCELLENTE (protection des données sensibles)
 
-**Verdict:** 🔴 **CRITIQUE - Les fonctionnalités métier clés pour l'objectif commercial sont manquantes**
+**Verdict:**  **CRITIQUE - Les fonctionnalités métier clés pour l'objectif commercial sont manquantes**
 
 **Impact Business:** L'application actuelle ne peut PAS:
 1. Calculer les degrés de parenté (consanguinité)
@@ -1201,31 +1201,31 @@ tests/
 
 | GeneWeb Module | Taille | LegacyProject Équivalent | Status | Gap |
 |----------------|--------|--------------------------|--------|-----|
-| def.ml | 9,600 | gwdef.py | 🟢 | Complet |
-| adef.ml | 3,269 | adef.py | 🟢 | Complet |
-| database.ml | Large | database.py (41KB) | 🟡 | Partiel (backend unique) |
-| mutil.ml | 20,576 | mutil.py | 🟡 | Simplifié |
-| wserver.ml | 19,047 | wserver.py | 🔴 | Minimal (dev only) |
-| perso.ml | 5,972 | ❌ | 🔴 | Absent |
-| api_saisie_read.ml | 3,766 | ❌ | 🔴 | Absent |
-| util.ml | 3,381 | Réparti (futil, etc) | 🟡 | Partiel |
-| api_saisie_write.ml | 2,751 | ❌ | 🔴 | Absent |
-| gwuLib.ml | 2,025 | ❌ | 🔴 | Absent |
-| api_util.ml | 1,921 | ❌ | 🔴 | Absent |
-| api_update_util.ml | 1,729 | ❌ | 🔴 | Absent |
-| api_stats.ml | 1,683 | ❌ | 🔴 | Absent |
-| updateFamOk.ml | 1,645 | ❌ | 🔴 | Absent |
-| templ.camlp5.ml | 1,568 | templ.py | 🔴 | Minimal |
-| dag2html.ml | 1,398 | ❌ | 🔴 | Absent |
-| descendDisplay.ml | 1,380 | ❌ | 🔴 | Absent |
-| updateIndOk.ml | 1,359 | ❌ | 🔴 | Absent |
-| update.ml | 1,296 | ❌ | 🔴 | Absent |
-| consang.ml | ~2,500 | ❌ | 🔴 | Absent |
-| dag.ml | ~1,100 | ❌ | 🔴 | Absent |
-| secure.ml | ~500 | security.py (31KB) | 🟢 | Excellent (amélioré) |
-| calendar.ml | ~800 | calendar.py | 🟢 | Complet |
-| name.ml | ~1,000 | name.py | 🟡 | Simplifié |
-| futil.ml | 12KB | futil.py (12KB) | 🟢 | Similaire |
+| def.ml | 9,600 | gwdef.py |  | Complet |
+| adef.ml | 3,269 | adef.py |  | Complet |
+| database.ml | Large | database.py (41KB) |  | Partiel (backend unique) |
+| mutil.ml | 20,576 | mutil.py |  | Simplifié |
+| wserver.ml | 19,047 | wserver.py |  | Minimal (dev only) |
+| perso.ml | 5,972 |  |  | Absent |
+| api_saisie_read.ml | 3,766 |  |  | Absent |
+| util.ml | 3,381 | Réparti (futil, etc) |  | Partiel |
+| api_saisie_write.ml | 2,751 |  |  | Absent |
+| gwuLib.ml | 2,025 |  |  | Absent |
+| api_util.ml | 1,921 |  |  | Absent |
+| api_update_util.ml | 1,729 |  |  | Absent |
+| api_stats.ml | 1,683 |  |  | Absent |
+| updateFamOk.ml | 1,645 |  |  | Absent |
+| templ.camlp5.ml | 1,568 | templ.py |  | Minimal |
+| dag2html.ml | 1,398 |  |  | Absent |
+| descendDisplay.ml | 1,380 |  |  | Absent |
+| updateIndOk.ml | 1,359 |  |  | Absent |
+| update.ml | 1,296 |  |  | Absent |
+| consang.ml | ~2,500 |  |  | Absent |
+| dag.ml | ~1,100 |  |  | Absent |
+| secure.ml | ~500 | security.py (31KB) |  | Excellent (amélioré) |
+| calendar.ml | ~800 | calendar.py |  | Complet |
+| name.ml | ~1,000 | name.py |  | Simplifié |
+| futil.ml | 12KB | futil.py (12KB) |  | Similaire |
 
 ### 11.2 Glossaire
 
@@ -1281,9 +1281,9 @@ tests/
 - Manquantes (P2-P3): ~10% (nice-to-have)
 
 **Conformité Brief:**
-- Exigences techniques: ✅ 100%
-- Exigences documentaires: ✅ 85%
-- Objectif commercial: 🔴 20% (fonctionnalités métier manquantes)
+- Exigences techniques:  100%
+- Exigences documentaires:  85%
+- Objectif commercial:  20% (fonctionnalités métier manquantes)
 
 ---
 
@@ -1294,22 +1294,22 @@ tests/
 **LegacyProject** a établi une **excellente fondation** en termes d'infrastructure, de tests et de documentation, mais nécessite un **développement substantiel** des fonctionnalités métier pour être viable commercialement.
 
 **Points Forts:**
-- 🟢 Architecture hybride OCaml-Python conforme au brief
-- 🟢 Tests exhaustifs (800% de plus que l'original)
-- 🟢 Documentation RGPD/déploiement complète
-- 🟢 Sécurité moderne (JWT, RBAC, encryption)
-- 🟢 CI/CD fonctionnel
+-  Architecture hybride OCaml-Python conforme au brief
+-  Tests exhaustifs (800% de plus que l'original)
+-  Documentation RGPD/déploiement complète
+-  Sécurité moderne (JWT, RBAC, encryption)
+-  CI/CD fonctionnel
 
 **Points Critiques:**
-- 🔴 Seulement 20% des fonctionnalités métier implémentées
-- 🔴 15/16 outils CLI manquants
-- 🔴 API REST absente
-- 🔴 Moteur de templates absent
-- 🔴 Algorithmes généalogiques clés manquants (consanguinité, DAG, statistiques)
+-  Seulement 20% des fonctionnalités métier implémentées
+-  15/16 outils CLI manquants
+-  API REST absente
+-  Moteur de templates absent
+-  Algorithmes généalogiques clés manquants (consanguinité, DAG, statistiques)
 
 **Recommandation Finale:**
 
-**STATUT:** 🟡 **PROTOTYPE** - Non prêt pour la production
+**STATUT:**  **PROTOTYPE** - Non prêt pour la production
 
 **Action:** Suivre la roadmap proposée (13 semaines / 3.25 mois) pour atteindre la parité fonctionnelle avec GeneWeb.
 

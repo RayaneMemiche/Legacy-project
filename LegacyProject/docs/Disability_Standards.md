@@ -1,4 +1,4 @@
-# ♿ Standards d'Accessibilité - AWKWARD LEGACY
+#  Standards d'Accessibilité - AWKWARD LEGACY
 ## État Actuel de l'Implémentation
 
 **Date:** 30 Octobre 2025
@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
 1. [Vue d'Ensemble](#-vue-densemble)
 2. [Fonctionnalités Implémentées](#-fonctionnalités-implémentées)
@@ -19,7 +19,7 @@
 
 ---
 
-## 🎯 Vue d'Ensemble
+##  Vue d'Ensemble
 
 Ce document recense **uniquement les fonctionnalités d'accessibilité déjà implémentées** dans le projet AWKWARD LEGACY. Il reflète l'état actuel du code et ne contient pas de recommandations futures.
 
@@ -27,22 +27,22 @@ Ce document recense **uniquement les fonctionnalités d'accessibilité déjà im
 
 | Catégorie | Implémentation | Score |
 |-----------|---------------|-------|
-| Formulaires | Excellente | 90% ✅ |
-| Gestion du Focus | Bonne | 75% ✅ |
-| Design Réactif | Bonne | 70% ✅ |
-| Mode Sombre | Bonne | 70% ✅ |
-| Lecteurs d'Écran | Faible | 30% ⚠️ |
-| Navigation Clavier | Basique | 40% ⚠️ |
-| ARIA | Très Faible | 15% ❌ |
-| Structure Sémantique | Partielle | 35% ⚠️ |
+| Formulaires | Excellente | 90%  |
+| Gestion du Focus | Bonne | 75%  |
+| Design Réactif | Bonne | 70%  |
+| Mode Sombre | Bonne | 70%  |
+| Lecteurs d'Écran | Faible | 30%  |
+| Navigation Clavier | Basique | 40%  |
+| ARIA | Très Faible | 15%  |
+| Structure Sémantique | Partielle | 35%  |
 
 ---
 
-## ✅ Fonctionnalités Implémentées
+##  Fonctionnalités Implémentées
 
 ### 1. Accessibilité des Formulaires
 
-**Status:** ✅ Excellente implémentation
+**Status:**  Excellente implémentation
 
 Tous les formulaires de l'application utilisent des pratiques d'accessibilité correctes:
 
@@ -100,16 +100,16 @@ Tous les formulaires de l'application utilisent des pratiques d'accessibilité c
 ```
 
 **Points forts:**
-- ✅ Tous les champs ont des labels associés via l'attribut `for`
-- ✅ Attribut `required` présent sur les champs obligatoires
-- ✅ Types d'input appropriés (email, password, number, text, checkbox)
-- ✅ Classes Bootstrap pour styling cohérent
+-  Tous les champs ont des labels associés via l'attribut `for`
+-  Attribut `required` présent sur les champs obligatoires
+-  Types d'input appropriés (email, password, number, text, checkbox)
+-  Classes Bootstrap pour styling cohérent
 
 ---
 
 ### 2. Gestion du Focus
 
-**Status:** ✅ Bonne implémentation
+**Status:**  Bonne implémentation
 
 #### Styles de Focus Visibles
 
@@ -154,16 +154,16 @@ modal.setAttribute('tabindex', '-1');
 ```
 
 **Points forts:**
-- ✅ Outline visible de 2px sur tous les éléments focusables
-- ✅ Offset de 4px sur les boutons et liens pour meilleure visibilité
-- ✅ Box-shadow sur les contrôles de formulaire
-- ✅ Modales avec tabindex="-1" pour gestion du focus
+-  Outline visible de 2px sur tous les éléments focusables
+-  Offset de 4px sur les boutons et liens pour meilleure visibilité
+-  Box-shadow sur les contrôles de formulaire
+-  Modales avec tabindex="-1" pour gestion du focus
 
 ---
 
 ### 3. Support des Lecteurs d'Écran
 
-**Status:** ⚠️ Implémentation basique
+**Status:**  Implémentation basique
 
 #### Classe Screen Reader Only
 
@@ -209,21 +209,21 @@ toast.setAttribute('role', 'alert');
 ```
 
 **Points forts:**
-- ✅ Classe `.sr-only` correctement implémentée
-- ✅ Utilisation de `.visually-hidden` sur les spinners
-- ✅ Toast container avec `aria-live="polite"`
-- ✅ Toasts avec `role="alert"`
+-  Classe `.sr-only` correctement implémentée
+-  Utilisation de `.visually-hidden` sur les spinners
+-  Toast container avec `aria-live="polite"`
+-  Toasts avec `role="alert"`
 
 **Limitations:**
-- ⚠️ Seulement 2 attributs ARIA dans tout le code
-- ⚠️ Aucun `aria-label` sur les boutons d'icônes
-- ⚠️ Pas d'`aria-describedby` pour les messages d'aide
+-  Seulement 2 attributs ARIA dans tout le code
+-  Aucun `aria-label` sur les boutons d'icônes
+-  Pas d'`aria-describedby` pour les messages d'aide
 
 ---
 
 ### 4. Éléments Sémantiques HTML
 
-**Status:** ⚠️ Implémentation partielle
+**Status:**  Implémentation partielle
 
 #### Navigation Sémantique
 
@@ -252,22 +252,22 @@ toast.setAttribute('role', 'alert');
 ```
 
 **Points forts:**
-- ✅ Utilisation de l'élément `<nav>` pour la navigation
-- ✅ Attribut `role="button"` sur les toggles de dropdown
-- ✅ `role="group"` sur les groupes de boutons
-- ✅ `role="status"` sur les spinners de chargement
+-  Utilisation de l'élément `<nav>` pour la navigation
+-  Attribut `role="button"` sur les toggles de dropdown
+-  `role="group"` sur les groupes de boutons
+-  `role="status"` sur les spinners de chargement
 
 **Limitations:**
-- ❌ Pas d'élément `<main>` pour le contenu principal
-- ❌ Pas d'élément `<header>` ou `<footer>`
-- ❌ Pas d'utilisation de `<article>` ou `<section>`
-- ❌ Pas d'élément `<aside>` pour les sidebars
+-  Pas d'élément `<main>` pour le contenu principal
+-  Pas d'élément `<header>` ou `<footer>`
+-  Pas d'utilisation de `<article>` ou `<section>`
+-  Pas d'élément `<aside>` pour les sidebars
 
 ---
 
 ### 5. Mode Sombre et Préférences Système
 
-**Status:** ✅ Bonne implémentation
+**Status:**  Bonne implémentation
 
 #### Variables CSS pour le Thème
 
@@ -328,21 +328,21 @@ toast.setAttribute('role', 'alert');
 ```
 
 **Points forts:**
-- ✅ Détection automatique de la préférence système
-- ✅ Thème sombre complet (navbar, cards, modals, forms, tables)
-- ✅ Couleurs sombres avec bon contraste
-- ✅ Utilisation de variables CSS pour cohérence
+-  Détection automatique de la préférence système
+-  Thème sombre complet (navbar, cards, modals, forms, tables)
+-  Couleurs sombres avec bon contraste
+-  Utilisation de variables CSS pour cohérence
 
 **Limitations:**
-- ⚠️ Pas de toggle manuel pour le mode sombre
-- ⚠️ Pas de support `prefers-reduced-motion`
-- ⚠️ Pas de support `prefers-contrast: high`
+-  Pas de toggle manuel pour le mode sombre
+-  Pas de support `prefers-reduced-motion`
+-  Pas de support `prefers-contrast: high`
 
 ---
 
 ### 6. Design Réactif (Responsive)
 
-**Status:** ✅ Bonne implémentation
+**Status:**  Bonne implémentation
 
 #### Breakpoints Responsive
 
@@ -404,17 +404,17 @@ toast.setAttribute('role', 'alert');
 ```
 
 **Points forts:**
-- ✅ Breakpoints à 768px (tablette) et 576px (mobile)
-- ✅ Ajustements de taille de police
-- ✅ Adaptation des boutons et cards
-- ✅ Meta viewport configuré correctement
-- ✅ Pas de désactivation du zoom utilisateur
+-  Breakpoints à 768px (tablette) et 576px (mobile)
+-  Ajustements de taille de police
+-  Adaptation des boutons et cards
+-  Meta viewport configuré correctement
+-  Pas de désactivation du zoom utilisateur
 
 ---
 
 ### 7. Styles d'Impression
 
-**Status:** ✅ Implémentée
+**Status:**  Implémentée
 
 ```css
 /* Fichier: frontend/styles.css, Lignes 358-374 */
@@ -443,16 +443,16 @@ toast.setAttribute('role', 'alert');
 ```
 
 **Points forts:**
-- ✅ Masquage des éléments interactifs (navbar, boutons, modals, toasts)
-- ✅ Simplification des cards
-- ✅ Fond blanc et texte noir pour économie d'encre
-- ✅ Liens soulignés
+-  Masquage des éléments interactifs (navbar, boutons, modals, toasts)
+-  Simplification des cards
+-  Fond blanc et texte noir pour économie d'encre
+-  Liens soulignés
 
 ---
 
 ### 8. Déclaration de Langue
 
-**Status:** ✅ Implémentée
+**Status:**  Implémentée
 
 ```html
 <!-- Tous les fichiers HTML, Ligne 2 -->
@@ -466,15 +466,15 @@ toast.setAttribute('role', 'alert');
 - `frontend/geneweb-demo.html`
 
 **Points forts:**
-- ✅ Langue déclarée sur toutes les pages
-- ✅ Code de langue correct (fr = français)
-- ✅ Aide les lecteurs d'écran à choisir la bonne prononciation
+-  Langue déclarée sur toutes les pages
+-  Code de langue correct (fr = français)
+-  Aide les lecteurs d'écran à choisir la bonne prononciation
 
 ---
 
 ### 9. Notifications Accessibles
 
-**Status:** ✅ Bonne implémentation
+**Status:**  Bonne implémentation
 
 #### Toast Container avec ARIA Live
 
@@ -525,15 +525,15 @@ function showToast(message, type = 'info') {
 ```
 
 **Points forts:**
-- ✅ Container avec `aria-live="polite"` pour notifications non urgentes
-- ✅ Toasts individuels avec `role="alert"` et `aria-live="assertive"`
-- ✅ Bouton de fermeture avec `aria-label="Fermer"`
-- ✅ Auto-dismiss après 5 secondes
-- ✅ Suppression du DOM après fermeture
+-  Container avec `aria-live="polite"` pour notifications non urgentes
+-  Toasts individuels avec `role="alert"` et `aria-live="assertive"`
+-  Bouton de fermeture avec `aria-label="Fermer"`
+-  Auto-dismiss après 5 secondes
+-  Suppression du DOM après fermeture
 
 ---
 
-## 📁 Fichiers Concernés
+##  Fichiers Concernés
 
 ### Fichiers HTML
 
@@ -559,17 +559,17 @@ function showToast(message, type = 'info') {
 
 ---
 
-## 🔍 Détails Techniques
+##  Détails Techniques
 
 ### Bootstrap 5
 
 Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
-- ✅ Composants accessibles par défaut (modals, dropdowns, toasts)
-- ✅ Classes utilitaires (.visually-hidden, .sr-only)
-- ✅ Gestion du focus dans les modals
-- ✅ Support du clavier (Tab, Escape)
-- ✅ ARIA attributes sur les composants
+-  Composants accessibles par défaut (modals, dropdowns, toasts)
+-  Classes utilitaires (.visually-hidden, .sr-only)
+-  Gestion du focus dans les modals
+-  Support du clavier (Tab, Escape)
+-  ARIA attributes sur les composants
 
 **Version utilisée:** Bootstrap 5.3.x (dernière stable)
 
@@ -588,71 +588,71 @@ Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
 ---
 
-## ❌ Lacunes Identifiées
+##  Lacunes Identifiées
 
 ### Fonctionnalités Manquantes
 
 #### 1. Skip Links
-- ❌ Pas de lien "Aller au contenu principal"
-- ❌ Pas de lien "Passer la navigation"
+-  Pas de lien "Aller au contenu principal"
+-  Pas de lien "Passer la navigation"
 - **Impact:** Utilisateurs clavier doivent tabuler à travers toute la navigation
 
 #### 2. ARIA Complet
-- ❌ Seulement 2 attributs ARIA dans tout le code
-- ❌ Pas d'`aria-label` sur les boutons d'icônes
-- ❌ Pas d'`aria-expanded` sur les dropdowns
-- ❌ Pas d'`aria-controls` pour les relations
-- ❌ Pas d'`aria-describedby` pour les aides contextuelles
+-  Seulement 2 attributs ARIA dans tout le code
+-  Pas d'`aria-label` sur les boutons d'icônes
+-  Pas d'`aria-expanded` sur les dropdowns
+-  Pas d'`aria-controls` pour les relations
+-  Pas d'`aria-describedby` pour les aides contextuelles
 - **Impact:** Lecteurs d'écran ne peuvent pas décrire correctement les interactions
 
 #### 3. Structure Sémantique Complète
-- ❌ Pas d'élément `<main>` pour le contenu principal
-- ❌ Pas d'éléments `<header>` ou `<footer>`
-- ❌ Pas d'utilisation de `<article>` ou `<section>`
-- ❌ Pas d'élément `<aside>` pour les sidebars
+-  Pas d'élément `<main>` pour le contenu principal
+-  Pas d'éléments `<header>` ou `<footer>`
+-  Pas d'utilisation de `<article>` ou `<section>`
+-  Pas d'élément `<aside>` pour les sidebars
 - **Impact:** Navigation par landmarks impossible pour les utilisateurs de lecteurs d'écran
 
 #### 4. Textes Alternatifs
-- ❌ Aucune image avec attribut `alt`
-- ❌ Icônes (Bootstrap Icons) sans texte alternatif
-- ❌ Exemple: `<i class="bi bi-search"></i>` sans label
+-  Aucune image avec attribut `alt`
+-  Icônes (Bootstrap Icons) sans texte alternatif
+-  Exemple: `<i class="bi bi-search"></i>` sans label
 - **Impact:** Icônes invisibles pour les lecteurs d'écran
 
 #### 5. Navigation Clavier Personnalisée
-- ❌ Pas de gestionnaires d'événements clavier (keydown, keypress)
-- ❌ Pas de raccourcis clavier personnalisés
-- ❌ Dépendance totale sur Bootstrap pour la navigation
+-  Pas de gestionnaires d'événements clavier (keydown, keypress)
+-  Pas de raccourcis clavier personnalisés
+-  Dépendance totale sur Bootstrap pour la navigation
 - **Impact:** Pas d'accélérateurs clavier pour power users
 
 #### 6. Préférences d'Animation
-- ❌ Pas de support `prefers-reduced-motion`
-- ❌ Animations sans possibilité de désactivation
+-  Pas de support `prefers-reduced-motion`
+-  Animations sans possibilité de désactivation
 - **Impact:** Problèmes pour utilisateurs sensibles au mouvement
 
 #### 7. Mode Contraste Élevé
-- ❌ Pas de support `prefers-contrast: high`
-- ❌ Pas de thème contraste élevé
+-  Pas de support `prefers-contrast: high`
+-  Pas de thème contraste élevé
 - **Impact:** Difficultés pour utilisateurs malvoyants
 
 #### 8. Documentation
-- ⚠️ Accessibilité mentionnée mais non documentée
-- ⚠️ Pas de guide d'utilisation pour technologies d'assistance
+-  Accessibilité mentionnée mais non documentée
+-  Pas de guide d'utilisation pour technologies d'assistance
 - **Impact:** Manque de transparence sur le niveau d'accessibilité
 
 ---
 
-## 📊 Évaluation par Catégorie
+##  Évaluation par Catégorie
 
 ### 1. Perceptible (WCAG Principe 1)
 
 | Critère | Status | Détails |
 |---------|--------|---------|
-| 1.1.1 Contenu non textuel | ❌ Partiel | Icônes sans alt text |
-| 1.3.1 Info et relations | ⚠️ Partiel | Labels OK, landmarks manquants |
-| 1.3.2 Ordre séquentiel | ✅ OK | Ordre DOM logique |
-| 1.4.1 Utilisation de la couleur | ✅ OK | Pas de dépendance à la couleur seule |
-| 1.4.3 Contraste minimum | ✅ OK | Bootstrap 5 palette (4.5:1) |
-| 1.4.4 Redimensionnement texte | ✅ OK | Responsive, pas de zoom bloqué |
+| 1.1.1 Contenu non textuel |  Partiel | Icônes sans alt text |
+| 1.3.1 Info et relations |  Partiel | Labels OK, landmarks manquants |
+| 1.3.2 Ordre séquentiel |  OK | Ordre DOM logique |
+| 1.4.1 Utilisation de la couleur |  OK | Pas de dépendance à la couleur seule |
+| 1.4.3 Contraste minimum |  OK | Bootstrap 5 palette (4.5:1) |
+| 1.4.4 Redimensionnement texte |  OK | Responsive, pas de zoom bloqué |
 
 **Score:** 60% (4/6 critères complets)
 
@@ -660,11 +660,11 @@ Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
 | Critère | Status | Détails |
 |---------|--------|---------|
-| 2.1.1 Clavier | ⚠️ Partiel | Bootstrap OK, pas de custom handlers |
-| 2.1.2 Pas de piège clavier | ✅ OK | Modals avec Escape |
-| 2.4.1 Contourner des blocs | ❌ Non | Pas de skip links |
-| 2.4.3 Parcours du focus | ✅ OK | Ordre logique |
-| 2.4.7 Focus visible | ✅ OK | Outlines clairs |
+| 2.1.1 Clavier |  Partiel | Bootstrap OK, pas de custom handlers |
+| 2.1.2 Pas de piège clavier |  OK | Modals avec Escape |
+| 2.4.1 Contourner des blocs |  Non | Pas de skip links |
+| 2.4.3 Parcours du focus |  OK | Ordre logique |
+| 2.4.7 Focus visible |  OK | Outlines clairs |
 
 **Score:** 50% (2.5/5 critères complets)
 
@@ -672,11 +672,11 @@ Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
 | Critère | Status | Détails |
 |---------|--------|---------|
-| 3.1.1 Langue de la page | ✅ OK | lang="fr" |
-| 3.2.1 Au focus | ✅ OK | Pas de changements inattendus |
-| 3.2.2 À la saisie | ✅ OK | Formulaires prévisibles |
-| 3.3.1 Identification erreurs | ⚠️ Partiel | HTML5 validation, pas ARIA |
-| 3.3.2 Étiquettes ou instructions | ✅ OK | Tous les labels présents |
+| 3.1.1 Langue de la page |  OK | lang="fr" |
+| 3.2.1 Au focus |  OK | Pas de changements inattendus |
+| 3.2.2 À la saisie |  OK | Formulaires prévisibles |
+| 3.3.1 Identification erreurs |  Partiel | HTML5 validation, pas ARIA |
+| 3.3.2 Étiquettes ou instructions |  OK | Tous les labels présents |
 
 **Score:** 80% (4/5 critères complets)
 
@@ -684,14 +684,14 @@ Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
 | Critère | Status | Détails |
 |---------|--------|---------|
-| 4.1.1 Analyse syntaxique | ✅ OK | HTML5 valide |
-| 4.1.2 Nom, rôle, valeur | ⚠️ Partiel | Basique, pas assez ARIA |
+| 4.1.1 Analyse syntaxique |  OK | HTML5 valide |
+| 4.1.2 Nom, rôle, valeur |  Partiel | Basique, pas assez ARIA |
 
 **Score:** 50% (1/2 critères complets)
 
 ---
 
-## 📈 Score d'Accessibilité Global
+##  Score d'Accessibilité Global
 
 ### Calcul du Score
 
@@ -709,15 +709,15 @@ Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
 ### Niveau de Conformité WCAG 2.1
 
-- ❌ **Niveau A:** Non conforme (manque skip links, ARIA minimal)
-- ❌ **Niveau AA:** Non conforme (manque landmarks, textes alternatifs)
-- ❌ **Niveau AAA:** Non conforme
+-  **Niveau A:** Non conforme (manque skip links, ARIA minimal)
+-  **Niveau AA:** Non conforme (manque landmarks, textes alternatifs)
+-  **Niveau AAA:** Non conforme
 
 **Estimation:** Le projet passerait environ **40-50%** des tests automatisés WCAG 2.1 AA.
 
 ---
 
-## 🎯 Points Forts
+##  Points Forts
 
 ### Ce qui fonctionne bien:
 
@@ -760,7 +760,7 @@ Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
 ---
 
-## ⚠️ Axes d'Amélioration Prioritaires
+##  Axes d'Amélioration Prioritaires
 
 ### Impact Élevé (Fixes Rapides)
 
@@ -813,7 +813,7 @@ Le projet utilise **Bootstrap 5**, qui fournit une base d'accessibilité:
 
 ---
 
-## 📞 Contact et Ressources
+##  Contact et Ressources
 
 ### Tests Effectués
 
@@ -839,4 +839,4 @@ Ce document est basé sur:
 **Basé sur:** Commit d232da9
 **Statut:** Document à jour avec le code actuel
 
-✅ **Ce document reflète uniquement l'état ACTUEL de l'implémentation**
+ **Ce document reflète uniquement l'état ACTUEL de l'implémentation**

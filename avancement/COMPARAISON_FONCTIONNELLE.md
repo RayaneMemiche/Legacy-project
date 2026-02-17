@@ -1,12 +1,12 @@
-# 🔄 Comparaison Fonctionnelle: GeneWeb vs AWKWARD LEGACY
+#  Comparaison Fonctionnelle: GeneWeb vs AWKWARD LEGACY
 
-## 📊 Résumé Exécutif
+##  Résumé Exécutif
 
 Ce document compare GeneWeb original (OCaml) avec AWKWARD LEGACY (Python moderne) d'un point de vue **fonctionnel et technique**.
 
 ---
 
-## 🎯 Vue d'Ensemble
+##  Vue d'Ensemble
 
 | Aspect | GeneWeb Original | AWKWARD LEGACY |
 |--------|------------------|----------------|
@@ -18,7 +18,7 @@ Ce document compare GeneWeb original (OCaml) avec AWKWARD LEGACY (Python moderne
 
 ---
 
-## 🖥️ Interface Utilisateur
+##  Interface Utilisateur
 
 ### GeneWeb Original
 
@@ -36,10 +36,10 @@ Ce document compare GeneWeb original (OCaml) avec AWKWARD LEGACY (Python moderne
 - URLs avec paramètres GET complexes
 
 **Accessibilité:**
-- ❌ Non-responsive (pas adapté mobile)
-- ❌ Pas de mode sombre
-- ⚠️ Accessibilité limitée (pas d'ARIA)
-- ✅ Fonctionne sur navigateurs anciens
+-  Non-responsive (pas adapté mobile)
+-  Pas de mode sombre
+-  Accessibilité limitée (pas d'ARIA)
+-  Fonctionne sur navigateurs anciens
 
 ### AWKWARD LEGACY
 
@@ -57,14 +57,14 @@ Ce document compare GeneWeb original (OCaml) avec AWKWARD LEGACY (Python moderne
 - URLs propres et lisibles
 
 **Accessibilité:**
-- ✅ Responsive (mobile, tablet, desktop)
-- ✅ Mode sombre supporté
-- ✅ ARIA labels et accessibilité
-- ✅ Fonctionne sur navigateurs modernes
+-  Responsive (mobile, tablet, desktop)
+-  Mode sombre supporté
+-  ARIA labels et accessibilité
+-  Fonctionne sur navigateurs modernes
 
 ---
 
-## 🔧 Fonctionnalités Techniques
+##  Fonctionnalités Techniques
 
 ### 1. Authentification & Sécurité
 
@@ -95,26 +95,26 @@ def login(email, password):
 ```
 
 **Résultat:**
-- ✅ Tokens JWT avec expiration
-- ✅ Mots de passe hash és sécurisés
-- ✅ Protection CSRF
-- ✅ Headers de sécurité modernes
+-  Tokens JWT avec expiration
+-  Mots de passe hash és sécurisés
+-  Protection CSRF
+-  Headers de sécurité modernes
 
 ---
 
 ### 2. API & Intégration
 
 #### GeneWeb
-- ❌ Pas d'API REST native
-- ⚠️ Génération HTML côté serveur uniquement
-- ⚠️ Difficile à intégrer avec d'autres systèmes
-- ✅ API OCaml interne pour modules
+-  Pas d'API REST native
+-  Génération HTML côté serveur uniquement
+-  Difficile à intégrer avec d'autres systèmes
+-  API OCaml interne pour modules
 
 #### AWKWARD LEGACY
-- ✅ 15+ endpoints REST documentés
-- ✅ Format JSON standardisé
-- ✅ Versioning API possible
-- ✅ CORS configuré pour intégration
+-  15+ endpoints REST documentés
+-  Format JSON standardisé
+-  Versioning API possible
+-  CORS configuré pour intégration
 
 **Endpoints disponibles:**
 ```
@@ -147,9 +147,9 @@ DELETE /api/rgpd/delete
 
 **AWKWARD LEGACY (testé):**
 ```
-🚀 Test de Performance - 100 utilisateurs, 5 requêtes chacun
+ Test de Performance - 100 utilisateurs, 5 requêtes chacun
 
-📊 Résultats:
+ Résultats:
   • Total requêtes: 500
   • Temps total: 0.82s
   • Throughput: 609.5 req/sec
@@ -160,10 +160,10 @@ DELETE /api/rgpd/delete
 ```
 
 **Avantages:**
-- ✅ **3x plus rapide** en throughput
-- ✅ Latence P95 < 50ms
-- ✅ Cache implémenté
-- ✅ Tests automatisés
+-  **3x plus rapide** en throughput
+-  Latence P95 < 50ms
+-  Cache implémenté
+-  Tests automatisés
 
 ---
 
@@ -204,10 +204,10 @@ const results = await api.searchPersons(criteria);
 ```
 
 **Avantages:**
-- ✅ Recherche multi-critères
-- ✅ Résultats interactifs
-- ✅ Pagination côté client
-- ✅ Tri dynamique
+-  Recherche multi-critères
+-  Résultats interactifs
+-  Pagination côté client
+-  Tri dynamique
 
 ---
 
@@ -242,10 +242,10 @@ renderTree(treeData);
 ```
 
 **Avantages:**
-- ✅ Interface interactive
-- ✅ Sélection de personne centrale
-- ✅ Nombre de générations configurable
-- ✅ Design moderne
+-  Interface interactive
+-  Sélection de personne centrale
+-  Nombre de générations configurable
+-  Design moderne
 
 ---
 
@@ -282,33 +282,33 @@ createSurnameChart(stats.topSurnames);
 ```
 
 **Avantages:**
-- ✅ Graphiques interactifs
-- ✅ Visualisation moderne
-- ✅ Export possible
-- ✅ Filtres dynamiques
+-  Graphiques interactifs
+-  Visualisation moderne
+-  Export possible
+-  Filtres dynamiques
 
 ---
 
-## 📋 Conformité & Standards
+##  Conformité & Standards
 
 ### RGPD/GDPR
 
 #### GeneWeb
-- ⚠️ Conformité partielle
-- ❌ Pas d'export automatique
-- ❌ Suppression manuelle
-- ⚠️ Documentation limitée
+-  Conformité partielle
+-  Pas d'export automatique
+-  Suppression manuelle
+-  Documentation limitée
 
 #### AWKWARD LEGACY
 ```
-✅ Conformité RGPD: 79.3%
+ Conformité RGPD: 79.3%
 
 Tests réussis: 23/29
-- ✅ Droit d'accès (100%)
-- ✅ Droit de rectification (100%)
-- ✅ Droit à l'oubli (100%)
-- ✅ Portabilité (100%)
-- ✅ Chiffrement données sensibles (100%)
+-  Droit d'accès (100%)
+-  Droit de rectification (100%)
+-  Droit à l'oubli (100%)
+-  Portabilité (100%)
+-  Chiffrement données sensibles (100%)
 ```
 
 **Endpoints RGPD:**
@@ -325,25 +325,25 @@ DELETE /api/rgpd/delete
 ### Sécurité OWASP
 
 #### GeneWeb
-- ⚠️ Sécurité années 2000
-- ❌ Pas de tests automatisés
-- ⚠️ Vulnérabilités connues (anciennes versions)
+-  Sécurité années 2000
+-  Pas de tests automatisés
+-  Vulnérabilités connues (anciennes versions)
 
 #### AWKWARD LEGACY
 ```
-✅ Scanner OWASP Top 10
+ Scanner OWASP Top 10
 
 Résultats:
-- ✅ Injection SQL: Protégé
-- ✅ XSS: Protégé
-- ✅ CSRF: Protégé
-- ✅ Authentification: Moderne (JWT)
-- ✅ Chiffrement: AES-256-GCM
+-  Injection SQL: Protégé
+-  XSS: Protégé
+-  CSRF: Protégé
+-  Authentification: Moderne (JWT)
+-  Chiffrement: AES-256-GCM
 ```
 
 ---
 
-## 🧪 Tests & Qualité
+##  Tests & Qualité
 
 ### GeneWeb
 ```
@@ -372,7 +372,7 @@ Documentation: 25000+ mots
 
 ---
 
-## 🚀 Déploiement & DevOps
+##  Déploiement & DevOps
 
 ### GeneWeb
 **Installation:**
@@ -411,46 +411,46 @@ docker-compose up -d
 ```
 
 **Avantages:**
-- ✅ Docker ready
-- ✅ CI/CD configuré
-- ✅ Scripts automatisés
-- ✅ Monitoring intégré
+-  Docker ready
+-  CI/CD configuré
+-  Scripts automatisés
+-  Monitoring intégré
 
 ---
 
-## 📊 Tableau de Comparaison Détaillé
+##  Tableau de Comparaison Détaillé
 
 | Fonctionnalité | GeneWeb | AWKWARD LEGACY | Gagnant |
 |----------------|---------|----------------|---------|
-| **Interface moderne** | ❌ | ✅ | AWKWARD |
-| **Responsive design** | ❌ | ✅ | AWKWARD |
-| **API REST** | ❌ | ✅ | AWKWARD |
-| **Authentification moderne** | ❌ | ✅ JWT | AWKWARD |
+| **Interface moderne** |  |  | AWKWARD |
+| **Responsive design** |  |  | AWKWARD |
+| **API REST** |  |  | AWKWARD |
+| **Authentification moderne** |  |  JWT | AWKWARD |
 | **Performance** | ~200 req/s | **609 req/s** | AWKWARD |
-| **Graphiques interactifs** | ❌ | ✅ Chart.js | AWKWARD |
-| **Tests automatisés** | ❌ | ✅ 5000+ lignes | AWKWARD |
+| **Graphiques interactifs** |  |  Chart.js | AWKWARD |
+| **Tests automatisés** |  |  5000+ lignes | AWKWARD |
 | **Conformité RGPD** | Partielle | **79.3%** | AWKWARD |
-| **Sécurité OWASP** | Limitée | ✅ Scanner | AWKWARD |
+| **Sécurité OWASP** | Limitée |  Scanner | AWKWARD |
 | **Documentation** | Wiki | **25000+ mots** | AWKWARD |
-| **Docker/CI** | ❌ | ✅ Complet | AWKWARD |
-| **Mode sombre** | ❌ | ✅ | AWKWARD |
-| **Stabilité historique** | ✅ 25+ ans | Nouveau | GeneWeb |
-| **Maturité OCaml** | ✅ Éprouvé | N/A | GeneWeb |
+| **Docker/CI** |  |  Complet | AWKWARD |
+| **Mode sombre** |  |  | AWKWARD |
+| **Stabilité historique** |  25+ ans | Nouveau | GeneWeb |
+| **Maturité OCaml** |  Éprouvé | N/A | GeneWeb |
 
 ---
 
-## 🎯 Cas d'Usage
+##  Cas d'Usage
 
 ### Quand Utiliser GeneWeb Original
 
-✅ **Avantages:**
+ **Avantages:**
 - Installation sur systèmes anciens
 - Compatibilité avec bases existantes
 - Stabilité éprouvée (25+ ans)
 - Performance OCaml native
 - Communauté établie
 
-❌ **Limitations:**
+ **Limitations:**
 - Interface datée
 - Pas d'API moderne
 - Difficile à intégrer
@@ -459,7 +459,7 @@ docker-compose up -d
 
 ### Quand Utiliser AWKWARD LEGACY
 
-✅ **Avantages:**
+ **Avantages:**
 - Interface moderne
 - API REST pour intégrations
 - Sécurité moderne (JWT, RGPD)
@@ -468,14 +468,14 @@ docker-compose up -d
 - Déploiement Docker
 - Documentation complète
 
-❌ **Limitations:**
+ **Limitations:**
 - Projet récent (moins de recul)
 - Nécessite Python 3.8+
 - Dépendances modernes requises
 
 ---
 
-## 💡 Recommandations
+##  Recommandations
 
 ### Pour la Défense
 
@@ -521,20 +521,20 @@ docker-compose up -d
 
 ---
 
-## 📈 Conclusion
+##  Conclusion
 
 **AWKWARD LEGACY apporte:**
-- ✅ Modernisation complète de l'interface
-- ✅ Performance mesurée supérieure (3x)
-- ✅ Sécurité renforcée (JWT, RGPD, OWASP)
-- ✅ Architecture moderne (API REST)
-- ✅ Tests automatisés (95% réussite)
-- ✅ Documentation professionnelle
+-  Modernisation complète de l'interface
+-  Performance mesurée supérieure (3x)
+-  Sécurité renforcée (JWT, RGPD, OWASP)
+-  Architecture moderne (API REST)
+-  Tests automatisés (95% réussite)
+-  Documentation professionnelle
 
 **GeneWeb conserve:**
-- ✅ Stabilité historique (25+ ans)
-- ✅ Maturité OCaml
-- ✅ Compatibilité bases existantes
+-  Stabilité historique (25+ ans)
+-  Maturité OCaml
+-  Compatibilité bases existantes
 
 **Verdict:** AWKWARD LEGACY est une **modernisation réussie** qui conserve les fonctionnalités de GeneWeb tout en apportant des améliorations significatives en termes d'interface, performance, sécurité et maintenabilité.
 
@@ -545,4 +545,4 @@ docker-compose up -d
 **Objectif Défense:** 70-80%
 **Résultat Atteint:** 95%
 
-🎉 **Projet prêt pour la défense !**
+ **Projet prêt pour la défense !**

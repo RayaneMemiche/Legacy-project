@@ -34,14 +34,14 @@ Nous maintenons activement les versions suivantes avec des correctifs de sécuri
 
 ## Signalement de Vulnérabilités
 
-### 🔴 Processus de Signalement
+###  Processus de Signalement
 
 Si vous découvrez une vulnérabilité de sécurité, merci de suivre notre processus de divulgation responsable :
 
 1. **NE PAS** créer d'issue publique sur GitHub
 2. **NE PAS** divulguer publiquement avant correction
 
-### 📧 Contact Sécurité
+###  Contact Sécurité
 
 **Email**: security@awkward-legacy.com
 **PGP Key**: [Télécharger la clé publique](https://awkward-legacy.com/security.asc)
@@ -52,7 +52,7 @@ Si vous découvrez une vulnérabilité de sécurité, merci de suivre notre proc
 -----END PGP PUBLIC KEY BLOCK-----
 ```
 
-### 📝 Format de Rapport
+###  Format de Rapport
 
 Merci d'inclure dans votre rapport :
 
@@ -69,7 +69,7 @@ Merci d'inclure dans votre rapport :
 **Proof of Concept**: [Code/screenshot si nécessaire]
 ```
 
-### ⏱️ Timeline de Réponse
+### ⏱ Timeline de Réponse
 
 - **Accusé de réception** : < 24 heures
 - **Évaluation initiale** : < 72 heures
@@ -77,7 +77,7 @@ Merci d'inclure dans votre rapport :
 - **Patch disponible** : Variable selon sévérité
 - **Divulgation publique** : 90 jours après le patch
 
-### 🎁 Bug Bounty Program
+###  Bug Bounty Program
 
 Nous offrons des récompenses pour les vulnérabilités valides :
 
@@ -92,7 +92,7 @@ Nous offrons des récompenses pour les vulnérabilités valides :
 
 ## Architecture de Sécurité
 
-### 🏗️ Défense en Profondeur
+###  Défense en Profondeur
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -120,7 +120,7 @@ Nous offrons des récompenses pour les vulnérabilités valides :
          └─────────────────────┘
 ```
 
-### 🔐 Zones de Sécurité
+###  Zones de Sécurité
 
 1. **DMZ (Zone Démilitarisée)**
    - Nginx reverse proxy
@@ -140,25 +140,25 @@ Nous offrons des récompenses pour les vulnérabilités valides :
 
 ## Mesures de Sécurité Implémentées
 
-### 1. 🔑 Authentification et Autorisation
+### 1.  Authentification et Autorisation
 
 #### Authentification Multi-Facteurs
 - **Mots de passe**
-  - ✅ Hashage : Argon2id (préféré) / Bcrypt / PBKDF2-SHA256
-  - ✅ Politique de complexité enforced
-  - ✅ Rotation obligatoire tous les 90 jours
-  - ✅ Historique des 5 derniers mots de passe
+  -  Hashage : Argon2id (préféré) / Bcrypt / PBKDF2-SHA256
+  -  Politique de complexité enforced
+  -  Rotation obligatoire tous les 90 jours
+  -  Historique des 5 derniers mots de passe
 
 - **Tokens JWT**
-  - ✅ Algorithm: HS256 avec secret rotatif
-  - ✅ Expiration: 1 heure (configurable)
-  - ✅ Refresh tokens avec rotation
-  - ✅ Blacklist des tokens révoqués
+  -  Algorithm: HS256 avec secret rotatif
+  -  Expiration: 1 heure (configurable)
+  -  Refresh tokens avec rotation
+  -  Blacklist des tokens révoqués
 
 - **2FA/MFA**
-  - ✅ TOTP (Google Authenticator compatible)
-  - ✅ SMS backup (optionnel)
-  - ✅ Recovery codes
+  -  TOTP (Google Authenticator compatible)
+  -  SMS backup (optionnel)
+  -  Recovery codes
 
 #### Autorisation (RBAC)
 ```python
@@ -170,7 +170,7 @@ Rôles disponibles:
 - AUDIT: Logs uniquement
 ```
 
-### 2. 🔒 Chiffrement
+### 2.  Chiffrement
 
 #### Chiffrement au Repos
 - **Base de données** : Transparent Data Encryption (TDE)
@@ -188,27 +188,27 @@ Rôles disponibles:
 - **Rotation** : Automatique tous les 90 jours
 - **HSM** : Pour clés critiques (option enterprise)
 
-### 3. 🛡️ Protection des Données
+### 3.  Protection des Données
 
 #### Input Validation
-- ✅ Validation côté serveur obligatoire
-- ✅ Sanitization de toutes les entrées
-- ✅ Parameterized queries (anti-SQLi)
-- ✅ Content-Type validation
-- ✅ File upload restrictions
+-  Validation côté serveur obligatoire
+-  Sanitization de toutes les entrées
+-  Parameterized queries (anti-SQLi)
+-  Content-Type validation
+-  File upload restrictions
 
 #### Output Encoding
-- ✅ HTML entity encoding
-- ✅ JavaScript encoding
-- ✅ URL encoding
-- ✅ CSS encoding
+-  HTML entity encoding
+-  JavaScript encoding
+-  URL encoding
+-  CSS encoding
 
 #### Protection CSRF
-- ✅ Double Submit Cookie
-- ✅ Synchronizer Token Pattern
-- ✅ SameSite cookies
+-  Double Submit Cookie
+-  Synchronizer Token Pattern
+-  SameSite cookies
 
-### 4. 📊 Monitoring et Logging
+### 4.  Monitoring et Logging
 
 #### Logs de Sécurité
 ```json
@@ -226,18 +226,18 @@ Rôles disponibles:
 ```
 
 #### Events Loggés
-- ✅ Authentifications (succès/échec)
-- ✅ Changements de permissions
-- ✅ Accès aux données sensibles
-- ✅ Modifications de configuration
-- ✅ Erreurs de sécurité
+-  Authentifications (succès/échec)
+-  Changements de permissions
+-  Accès aux données sensibles
+-  Modifications de configuration
+-  Erreurs de sécurité
 
 #### SIEM Integration
 - **Elastic Stack** (ELK)
 - **Splunk** (Enterprise)
 - **Alerting** : PagerDuty / OpsGenie
 
-### 5. 🚦 Rate Limiting et DDoS Protection
+### 5.  Rate Limiting et DDoS Protection
 
 #### Rate Limiting
 | Endpoint | Limite | Fenêtre | Action |
@@ -253,7 +253,7 @@ Rôles disponibles:
 - **Fail2ban** : IP blocking
 - **SYN cookies** : Kernel level
 
-### 6. 🔍 Vulnerability Management
+### 6.  Vulnerability Management
 
 #### Scanning Automatique
 - **Dépendances** : Dependabot, Snyk
@@ -274,22 +274,22 @@ Rôles disponibles:
 
 ## Standards et Conformité
 
-### 🏛️ Conformité Réglementaire
+###  Conformité Réglementaire
 
-- ✅ **RGPD** (EU) - Compliant
-- ✅ **CCPA** (California) - Compliant
-- ✅ **ISO 27001** - En cours de certification
-- ✅ **SOC 2 Type II** - Planifié 2026
-- ✅ **PCI DSS** - N/A (pas de paiements)
+-  **RGPD** (EU) - Compliant
+-  **CCPA** (California) - Compliant
+-  **ISO 27001** - En cours de certification
+-  **SOC 2 Type II** - Planifié 2026
+-  **PCI DSS** - N/A (pas de paiements)
 
-### 📜 Standards de Sécurité
+###  Standards de Sécurité
 
 - **OWASP Top 10** - Tous contrôles implémentés
 - **CIS Controls** - Level 1 compliant
 - **NIST Cybersecurity Framework** - Adopté
 - **SANS Top 25** - Vérifié
 
-### 🎯 Security Headers
+###  Security Headers
 
 ```nginx
 # Headers de sécurité obligatoires
@@ -306,7 +306,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 
 ## Checklist de Sécurité
 
-### 🚀 Pre-Deployment Checklist
+###  Pre-Deployment Checklist
 
 #### Application
 - [ ] Tous les secrets en variables d'environnement
@@ -342,7 +342,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 - [ ] Code analysis (SAST)
 - [ ] No secrets in Git history
 
-### 🔄 Post-Deployment Checklist
+###  Post-Deployment Checklist
 
 - [ ] SSL Labs test (A+ rating)
 - [ ] Security headers test
@@ -355,7 +355,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 
 ## Réponse aux Incidents
 
-### 📋 Plan de Réponse
+###  Plan de Réponse
 
 #### 1. Détection
 ```mermaid
@@ -391,7 +391,7 @@ graph LR
 - Lessons learned
 - Action items
 
-### 📞 Contacts d'Urgence
+###  Contacts d'Urgence
 
 | Rôle | Contact | Disponibilité |
 |------|---------|---------------|
@@ -401,7 +401,7 @@ graph LR
 | Legal | legal@awkward-legacy.com | Business hours |
 | PR/Comm | pr@awkward-legacy.com | Business hours |
 
-### 📊 Métriques de Sécurité
+###  Métriques de Sécurité
 
 **MTTD** (Mean Time To Detect): < 15 minutes
 **MTTR** (Mean Time To Respond): < 1 heure
@@ -412,7 +412,7 @@ graph LR
 
 ## Formation et Sensibilisation
 
-### 👥 Programme de Formation
+###  Programme de Formation
 
 #### Pour les Développeurs
 - **Secure Coding** : Trimestriel
@@ -426,7 +426,7 @@ graph LR
 - **Data Handling** : Onboarding + bi-annuel
 - **Incident Reporting** : Onboarding
 
-### 📚 Ressources
+###  Ressources
 
 #### Documentation Interne
 - [Security Wiki](https://wiki.awkward-legacy.com/security)
@@ -449,24 +449,24 @@ graph LR
 
 ## Engagement et Amélioration Continue
 
-### 🎯 Nos Engagements
+###  Nos Engagements
 
 1. **Transparence** : Communication ouverte sur les incidents
 2. **Responsabilité** : Assumer nos erreurs et les corriger
 3. **Amélioration** : Apprentissage continu
 4. **Collaboration** : Travailler avec la communauté
 
-### 📈 KPIs de Sécurité
+###  KPIs de Sécurité
 
 | Métrique | Objectif | Actuel |
 |----------|----------|--------|
-| Vulnérabilités critiques | 0 | ✅ 0 |
-| Temps de patch moyen | < 7 jours | ✅ 3 jours |
-| Coverage des tests de sécurité | > 80% | ✅ 85% |
-| Incidents de sécurité/mois | < 5 | ✅ 2 |
-| Formation sécurité completion | 100% | ✅ 98% |
+| Vulnérabilités critiques | 0 |  0 |
+| Temps de patch moyen | < 7 jours |  3 jours |
+| Coverage des tests de sécurité | > 80% |  85% |
+| Incidents de sécurité/mois | < 5 |  2 |
+| Formation sécurité completion | 100% |  98% |
 
-### 🔄 Cycle d'Amélioration
+###  Cycle d'Amélioration
 
 ```
 Plan → Do → Check → Act

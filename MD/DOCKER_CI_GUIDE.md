@@ -1,4 +1,4 @@
-# 🐳 Guide Docker & CI/CD - AWKWARD LEGACY
+#  Guide Docker & CI/CD - AWKWARD LEGACY
 
 **Date:** 30 Octobre 2025
 **Version:** 1.0
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
 1. [Vue d'Ensemble](#-vue-densemble)
 2. [Docker](#-docker)
@@ -18,7 +18,7 @@
 
 ---
 
-## 🎯 Vue d'Ensemble
+##  Vue d'Ensemble
 
 Le projet AWKWARD LEGACY est entièrement dockerisé avec:
 - **Docker multi-stage** pour optimiser la taille des images
@@ -55,7 +55,7 @@ Le projet AWKWARD LEGACY est entièrement dockerisé avec:
 
 ---
 
-## 🐳 Docker
+##  Docker
 
 ### Fichiers Docker
 
@@ -99,7 +99,7 @@ FROM python:3.12-slim
 
 ---
 
-## 🚀 CI/CD GitHub Actions
+##  CI/CD GitHub Actions
 
 ### Pipeline Complet
 
@@ -137,9 +137,9 @@ Le fichier `.github/workflows/ci.yml` contient **8 jobs**:
 
 ### Triggers
 
-- ✅ **Push** sur `main`, `rayane`, `develop`
-- ✅ **Pull Request** vers `main`, `rayane`
-- ✅ **Manual trigger** (workflow_dispatch)
+-  **Push** sur `main`, `rayane`, `develop`
+-  **Pull Request** vers `main`, `rayane`
+-  **Manual trigger** (workflow_dispatch)
 
 ### Artefacts Générés
 
@@ -153,7 +153,7 @@ Le fichier `.github/workflows/ci.yml` contient **8 jobs**:
 
 ---
 
-## 💻 Commandes Docker
+##  Commandes Docker
 
 ### Configuration Initiale
 
@@ -188,7 +188,7 @@ docker-compose up -d web
 # Arrêter tous les services
 docker-compose down
 
-# Arrêter et supprimer les volumes (⚠️ PERTE DE DONNÉES)
+# Arrêter et supprimer les volumes ( PERTE DE DONNÉES)
 docker-compose down -v
 
 # Redémarrer un service
@@ -278,7 +278,7 @@ docker inspect awkward-legacy-web | grep -A 10 Health
 
 ---
 
-## 📦 Déploiement
+##  Déploiement
 
 ### Déploiement Local (Développement)
 
@@ -359,7 +359,7 @@ curl https://awkward-legacy.com/health
 
 ---
 
-## 📊 Monitoring
+##  Monitoring
 
 ### Prometheus (Métriques)
 
@@ -410,7 +410,7 @@ docker-compose logs > logs-$(date +%Y%m%d).txt
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Problème: Conteneur ne démarre pas
 
@@ -516,7 +516,7 @@ ssh -i ~/.ssh/deploy_key user@production-server
 
 ---
 
-## 📚 Ressources Supplémentaires
+##  Ressources Supplémentaires
 
 ### Documentation
 
@@ -540,7 +540,7 @@ ssh -i ~/.ssh/deploy_key user@production-server
 
 ---
 
-## 🎓 Quick Start Complet
+##  Quick Start Complet
 
 ### Pour Développement
 
@@ -588,6 +588,6 @@ curl https://awkward-legacy.com/health
 
 **Date:** 30 Octobre 2025
 **Version:** 1.0
-**Status:** ✅ PRODUCTION-READY
+**Status:**  PRODUCTION-READY
 
-🐳 **Docker is ready!** 🚀 **CI/CD is configured!**
+ **Docker is ready!**  **CI/CD is configured!**

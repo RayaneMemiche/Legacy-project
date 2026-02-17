@@ -1,8 +1,8 @@
-# 📖 GUIDE: Ajout de Personnes en Mémoire
+#  GUIDE: Ajout de Personnes en Mémoire
 
 ## Comment GeneWeb Gère les Personnes (Référence Originale)
 
-### 🏗️ Architecture à 3 Couches
+###  Architecture à 3 Couches
 
 GeneWeb utilise un système de **cache intelligent à 3 couches** pour gérer les modifications en mémoire:
 
@@ -27,7 +27,7 @@ GeneWeb utilise un système de **cache intelligent à 3 couches** pour gérer le
 
 **Règle de Priorité**: `PENDING > COMMITTED > BASE`
 
-### 💡 Fonctionnement du Système
+###  Fonctionnement du Système
 
 #### 1. Création d'une Personne
 
@@ -97,7 +97,7 @@ persons = [
 ]
 ```
 
-### 📊 Format des Fichiers
+###  Format des Fichiers
 
 #### `database.gwb/base` (Données principales)
 ```
@@ -120,7 +120,7 @@ PatchesHt: {
 
 ---
 
-## 🚀 Implémentation dans LegacyProject
+##  Implémentation dans LegacyProject
 
 ### Notre Nouvelle Classe Database
 
@@ -229,7 +229,7 @@ print(stats)
 
 ---
 
-## 🌐 Utilisation via l'API REST
+##  Utilisation via l'API REST
 
 ### 1. Créer une Personne
 
@@ -293,7 +293,7 @@ curl -X DELETE "http://localhost:8000/api/persons/0"
 
 ---
 
-## 📊 Exemple Complet
+##  Exemple Complet
 
 ### Script de Test
 
@@ -305,12 +305,12 @@ cd /Users/rayanememiche/Documents/Taff/Legal/LegacyProject/modernProject
 ```
 
 **Ce script**:
-1. ✅ Vérifie l'état de l'API
-2. 📊 Affiche les statistiques initiales
-3. ✏️  Crée 3 personnes
-4. 📋 Liste toutes les personnes
-5. 🔍 Recherche par nom
-6. 📊 Affiche les statistiques finales
+1.  Vérifie l'état de l'API
+2.  Affiche les statistiques initiales
+3.   Crée 3 personnes
+4.  Liste toutes les personnes
+5.  Recherche par nom
+6.  Affiche les statistiques finales
 
 ### Résultat Attendu
 
@@ -341,21 +341,21 @@ cd /Users/rayanememiche/Documents/Taff/Legal/LegacyProject/modernProject
 
 ---
 
-## 🎯 Comparaison GeneWeb vs LegacyProject
+##  Comparaison GeneWeb vs LegacyProject
 
 | Aspect | GeneWeb (OCaml) | LegacyProject (Python) | Statut |
 |--------|-----------------|------------------------|--------|
-| **Architecture** | 3 couches (PENDING → COMMITTED → BASE) | 3 couches (PENDING → COMMITTED → BASE) | ✅ Identique |
-| **String Pooling** | Déduplication automatique | Implémenté (`_insert_string()`) | ✅ Identique |
-| **IDs** | Auto-incrémentés séquentiels | Auto-incrémentés séquentiels | ✅ Identique |
-| **Commit** | `commit_patches()` | `db.commit()` | ✅ Identique |
-| **Rollback** | Non (sauf reload) | `db.rollback()` | 🚀 Amélioré |
-| **Persistence** | Fichiers binaires .gwb | Mémoire (pour l'instant) | ⚠️ À implémenter |
-| **API REST** | Non | Oui (FastAPI) | 🚀 Nouveau |
+| **Architecture** | 3 couches (PENDING → COMMITTED → BASE) | 3 couches (PENDING → COMMITTED → BASE) |  Identique |
+| **String Pooling** | Déduplication automatique | Implémenté (`_insert_string()`) |  Identique |
+| **IDs** | Auto-incrémentés séquentiels | Auto-incrémentés séquentiels |  Identique |
+| **Commit** | `commit_patches()` | `db.commit()` |  Identique |
+| **Rollback** | Non (sauf reload) | `db.rollback()` |  Amélioré |
+| **Persistence** | Fichiers binaires .gwb | Mémoire (pour l'instant) |  À implémenter |
+| **API REST** | Non | Oui (FastAPI) |  Nouveau |
 
 ---
 
-## 💡 Avantages du Système à 3 Couches
+##  Avantages du Système à 3 Couches
 
 ### 1. **Performance**
 - Modifications en mémoire (PENDING) = ultra-rapide
@@ -384,21 +384,21 @@ cd /Users/rayanememiche/Documents/Taff/Legal/LegacyProject/modernProject
 
 ---
 
-## 🔧 État Actuel du Projet
+##  État Actuel du Projet
 
-### ✅ Fonctionnel
+###  Fonctionnel
 - Création de personnes en mémoire
 - IDs auto-incrémentés
 - Système à 3 couches complet
 - API REST avec 25+ endpoints
 - String pooling avec déduplication
 
-### ⏳ En Cours
+###  En Cours
 - Persistence sur disque (fichiers .gwb)
 - Lecture depuis fichiers GeneWeb existants
 - Index de recherche par nom (hash tables)
 
-### 🔮 Futur
+###  Futur
 - Binary trees pour recherche triée
 - Compression des patches
 - Support multi-utilisateurs avec locks
@@ -406,7 +406,7 @@ cd /Users/rayanememiche/Documents/Taff/Legal/LegacyProject/modernProject
 
 ---
 
-## 📖 Ressources
+##  Ressources
 
 ### Fichiers Importants
 - `/lib/database.py` - Classe Database complète
@@ -437,17 +437,17 @@ open http://localhost:3000/index_new.html
 
 ---
 
-## ✅ Résumé
+##  Résumé
 
 **Le projet LegacyProject implémente maintenant le système de gestion de personnes de GeneWeb avec:**
 
-1. ✅ **Architecture à 3 couches** (PENDING → COMMITTED → BASE)
-2. ✅ **IDs auto-incrémentés** comme GeneWeb
-3. ✅ **String pooling** avec déduplication
-4. ✅ **Commit/Rollback** pour transactions
-5. ✅ **API REST moderne** (FastAPI)
-6. ✅ **Frontend responsive** (Bootstrap 5)
-7. ✅ **Tests exhaustifs** (52 fichiers)
+1.  **Architecture à 3 couches** (PENDING → COMMITTED → BASE)
+2.  **IDs auto-incrémentés** comme GeneWeb
+3.  **String pooling** avec déduplication
+4.  **Commit/Rollback** pour transactions
+5.  **API REST moderne** (FastAPI)
+6.  **Frontend responsive** (Bootstrap 5)
+7.  **Tests exhaustifs** (52 fichiers)
 
 **Score de conformité**: 85/100 (était 20/100)
 

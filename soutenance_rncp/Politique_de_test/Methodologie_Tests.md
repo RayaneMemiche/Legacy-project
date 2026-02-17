@@ -1,4 +1,4 @@
-# 🧪 Méthodologie de Test - AWKWARD LEGACY
+#  Méthodologie de Test - AWKWARD LEGACY
 
 **Projet:** AWKWARD LEGACY (Modernisation GeneWeb)
 **Date:** 30 Octobre 2025
@@ -7,13 +7,13 @@
 
 ---
 
-## 📋 Vue d'Ensemble
+##  Vue d'Ensemble
 
 Ce document explique la méthodologie de test adoptée pour le projet AWKWARD LEGACY, une modernisation du logiciel de généalogie GeneWeb (OCaml → Python).
 
 ---
 
-## 🎯 Philosophie de Test
+##  Philosophie de Test
 
 Notre approche suit la **pyramide de tests** avec 4 couches principales:
 
@@ -39,7 +39,7 @@ Notre approche suit la **pyramide de tests** avec 4 couches principales:
 
 ---
 
-## 🏗️ Architecture de Test (4 Couches)
+##  Architecture de Test (4 Couches)
 
 ### 1. Tests Unitaires (186 tests, 41%)
 
@@ -154,8 +154,8 @@ def test_create_person_with_family_links(self):
 - Coverage visé: 75%+
 
 **Résultats actuels**:
-- ✅ 52/53 tests passés (98%)
-- ⚠️ 1 test échoué (concurrent access - race condition)
+-  52/53 tests passés (98%)
+-  1 test échoué (concurrent access - race condition)
 
 ---
 
@@ -186,7 +186,7 @@ def test_create_person_with_family_links(self):
 
 ---
 
-## 🔒 Tests de Sécurité (38 tests, 8%)
+##  Tests de Sécurité (38 tests, 8%)
 
 **Objectif**: Valider conformité OWASP Top 10
 
@@ -199,22 +199,22 @@ def test_create_person_with_family_links(self):
 - `test_encryption.py` - Chiffrement AES-256-GCM (8 tests)
 
 **Vulnérabilités testées**:
-1. ✅ **Injection SQL** - Parameterized queries
-2. ✅ **XSS** - Sanitization inputs
-3. ✅ **Broken Auth** - JWT + bcrypt/argon2
-4. ✅ **Sensitive Data** - AES-256-GCM encryption
-5. ✅ **XML External Entities** - Disabled
-6. ✅ **Broken Access Control** - RBAC complet
-7. ✅ **Security Misconfiguration** - Headers sécurisés
-8. ✅ **Insecure Deserialization** - Validation stricte
-9. ✅ **Components with Known Vulns** - Dépendances à jour
-10. ✅ **Insufficient Logging** - Audit trail complet
+1.  **Injection SQL** - Parameterized queries
+2.  **XSS** - Sanitization inputs
+3.  **Broken Auth** - JWT + bcrypt/argon2
+4.  **Sensitive Data** - AES-256-GCM encryption
+5.  **XML External Entities** - Disabled
+6.  **Broken Access Control** - RBAC complet
+7.  **Security Misconfiguration** - Headers sécurisés
+8.  **Insecure Deserialization** - Validation stricte
+9.  **Components with Known Vulns** - Dépendances à jour
+10.  **Insufficient Logging** - Audit trail complet
 
 **Score sécurité actuel**: 62/100 (2 vulnérabilités high identifiées)
 
 ---
 
-## 📜 Tests de Conformité (30 tests, 7%)
+##  Tests de Conformité (30 tests, 7%)
 
 **Objectif**: Valider conformité RGPD/GDPR
 
@@ -227,18 +227,18 @@ def test_create_person_with_family_links(self):
 - `test_rgpd_portability.py` - Portabilité (8 tests)
 
 **Droits validés**:
-1. ✅ **Article 15** - Droit d'accès (100%)
-2. ✅ **Article 16** - Rectification (100%)
-3. ✅ **Article 17** - Effacement ("droit à l'oubli") (100%)
-4. ✅ **Article 18** - Limitation du traitement (85%)
-5. ✅ **Article 20** - Portabilité (JSON, XML, CSV) (100%)
-6. ✅ **Article 21** - Opposition (50%)
+1.  **Article 15** - Droit d'accès (100%)
+2.  **Article 16** - Rectification (100%)
+3.  **Article 17** - Effacement ("droit à l'oubli") (100%)
+4.  **Article 18** - Limitation du traitement (85%)
+5.  **Article 20** - Portabilité (JSON, XML, CSV) (100%)
+6.  **Article 21** - Opposition (50%)
 
 **Conformité globale**: 79.3% (23/29 tests passés)
 
 ---
 
-## 🔄 Workflow de Test
+##  Workflow de Test
 
 ### 1. Développement Local
 
@@ -277,30 +277,30 @@ stages:
 
 ---
 
-## 📊 Métriques de Qualité
+##  Métriques de Qualité
 
 ### Coverage Actuel (30 Oct 2025)
 
 | Module | Coverage | Tests | Status |
 |--------|----------|-------|--------|
-| `gwdef.py` | 98% | 45 | 🏆 |
-| `loc.py` | 94% | 8 | 🟢 |
-| `gwcalendar.py` | 87% | 15 | 🟢 |
-| `gwast.py` | 86% | 40 | 🟢 |
-| `adef.py` | 80% | 18 | 🟡 |
-| `database.py` | 9% | 48 | 🔴 |
-| **TOTAL** | **23%** | **456** | 🟡 |
+| `gwdef.py` | 98% | 45 |  |
+| `loc.py` | 94% | 8 |  |
+| `gwcalendar.py` | 87% | 15 |  |
+| `gwast.py` | 86% | 40 |  |
+| `adef.py` | 80% | 18 |  |
+| `database.py` | 9% | 48 |  |
+| **TOTAL** | **23%** | **456** |  |
 
 ### Objectifs de Coverage
 
-- ✅ Modules critiques (gwdef, loc): **90%+** (ATTEINT)
-- ⏳ Modules core (calendar, ast): **85%+** (ATTEINT)
-- ⏳ Modules secondaires: **70%+** (EN COURS)
-- ❌ Global: **80%+** (23% actuellement)
+-  Modules critiques (gwdef, loc): **90%+** (ATTEINT)
+-  Modules core (calendar, ast): **85%+** (ATTEINT)
+-  Modules secondaires: **70%+** (EN COURS)
+-  Global: **80%+** (23% actuellement)
 
 ---
 
-## 🛠️ Outils et Technologies
+##  Outils et Technologies
 
 ### Frameworks de Test
 - **pytest 7.4.3** - Framework principal
@@ -322,16 +322,16 @@ stages:
 
 ---
 
-## 🚀 Bonnes Pratiques
+##  Bonnes Pratiques
 
 ### 1. Nommage des Tests
 
 ```python
-# ✅ BON
+#  BON
 def test_sdn_of_gregorian_with_leap_year_returns_correct_value():
     pass
 
-# ❌ MAUVAIS
+#  MAUVAIS
 def test1():
     pass
 ```
@@ -379,29 +379,29 @@ def test_is_leap_year(year, expected):
 
 ---
 
-## 📈 Évolution et Roadmap
+##  Évolution et Roadmap
 
 ### Phase 1 (Actuelle) - 30 Oct 2025
-- ✅ Tests unitaires core modules (23% coverage)
-- ✅ Tests intégration basiques (52/53 passés)
-- ✅ Tests performance (587.6 req/sec)
-- ✅ Tests sécurité OWASP (62/100)
-- ✅ Tests conformité RGPD (79.3%)
+-  Tests unitaires core modules (23% coverage)
+-  Tests intégration basiques (52/53 passés)
+-  Tests performance (587.6 req/sec)
+-  Tests sécurité OWASP (62/100)
+-  Tests conformité RGPD (79.3%)
 
 ### Phase 2 (Nov 2025)
-- ⏳ Augmenter coverage global à 80%+
-- ⏳ Ajouter tests E2E avec Selenium
-- ⏳ CI/CD complet avec GitHub Actions
-- ⏳ Mutation testing avec mutpy
+-  Augmenter coverage global à 80%+
+-  Ajouter tests E2E avec Selenium
+-  CI/CD complet avec GitHub Actions
+-  Mutation testing avec mutpy
 
 ### Phase 3 (Déc 2025)
-- ⏳ Property-based testing avec Hypothesis
-- ⏳ Chaos engineering tests
-- ⏳ A/B testing framework
+-  Property-based testing avec Hypothesis
+-  Chaos engineering tests
+-  A/B testing framework
 
 ---
 
-## 🎓 Documentation de Référence
+##  Documentation de Référence
 
 ### Rapports de Coverage
 - [Coverage Reports Index](avancement/coverage_reports/README.md)
@@ -417,7 +417,7 @@ def test_is_leap_year(year, expected):
 
 ---
 
-## 📞 Support
+##  Support
 
 Pour toute question sur la méthodologie de test:
 - Consulter ce document
@@ -429,6 +429,6 @@ Pour toute question sur la méthodologie de test:
 **Date de mise à jour:** 30 Octobre 2025
 **Version:** 1.0
 **Auteur:** CoinLegacy Inc. + Claude Code
-**Statut:** 🟢 ACTIF
+**Statut:**  ACTIF
 
-🧪 **TESTING IS NOT A PHASE, IT'S A WAY OF LIFE** 🧪
+ **TESTING IS NOT A PHASE, IT'S A WAY OF LIFE** 

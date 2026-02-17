@@ -1,4 +1,4 @@
-# 🚀 Guide des Commandes - AWKWARD LEGACY
+#  Guide des Commandes - AWKWARD LEGACY
 
 **Projet:** AWKWARD LEGACY (Modernisation GeneWeb)
 **Date:** 30 Octobre 2025
@@ -8,7 +8,7 @@ Ce document regroupe **TOUTES** les commandes nécessaires pour travailler sur l
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
 1. [Configuration Initiale](#-configuration-initiale)
 2. [Lancer le Projet](#-lancer-le-projet)
@@ -23,7 +23,7 @@ Ce document regroupe **TOUTES** les commandes nécessaires pour travailler sur l
 
 ---
 
-## 🔧 Configuration Initiale
+##  Configuration Initiale
 
 ### 1. Cloner le Projet
 
@@ -84,7 +84,7 @@ pip list
 
 ---
 
-## 🚀 Lancer le Projet
+##  Lancer le Projet
 
 ### Mode Développement (Backend seul)
 
@@ -145,7 +145,7 @@ npm run dev
 
 ---
 
-## 🧪 Tests
+##  Tests
 
 ### Lancer TOUS les Tests
 
@@ -287,7 +287,7 @@ cd LegacyProject/modernProject
 # OU créer votre propre script:
 cat > run_tests.sh << 'EOF'
 #!/bin/bash
-echo "🧪 Lancement des tests..."
+echo " Lancement des tests..."
 source venv/bin/activate
 
 echo "1. Tests unitaires..."
@@ -308,7 +308,7 @@ pytest tests/security/ -v
 echo "6. Tests RGPD..."
 pytest tests/compliance/ -v
 
-echo "✅ Tous les tests terminés!"
+echo " Tous les tests terminés!"
 EOF
 
 chmod +x run_tests.sh
@@ -317,7 +317,7 @@ chmod +x run_tests.sh
 
 ---
 
-## 📊 Coverage
+##  Coverage
 
 ### Générer le Coverage
 
@@ -366,7 +366,7 @@ pytest tests/ --cov=lib --cov-report=html --cov-fail-under=80
 
 ---
 
-## 💻 Développement
+##  Développement
 
 ### Linting & Formatting
 
@@ -428,7 +428,7 @@ pytest tests/ -vv -s
 
 ---
 
-## 🌿 Git & Versioning
+##  Git & Versioning
 
 ### Workflow Git
 
@@ -494,7 +494,7 @@ git push origin --delete feature/ma-fonctionnalite
 
 ---
 
-## 🐳 Docker
+##  Docker
 
 ### Build & Run
 
@@ -567,7 +567,7 @@ docker system prune -a --volumes
 
 ---
 
-## 🗄️ Base de Données
+##  Base de Données
 
 ### PostgreSQL (Production)
 
@@ -634,7 +634,7 @@ alembic history
 
 ---
 
-## 🔒 Sécurité & Conformité
+##  Sécurité & Conformité
 
 ### Scan de Vulnérabilités
 
@@ -687,7 +687,7 @@ delete_user_data(user_id=1)
 
 ---
 
-## 🏭 Production
+##  Production
 
 ### Vérifications Pré-déploiement
 
@@ -761,7 +761,7 @@ docker run --rm -v awkward_data:/data -v $(pwd):/backup \
 
 ---
 
-## 📚 Commandes Utiles Rapides
+##  Commandes Utiles Rapides
 
 ### Développement Quotidien
 
@@ -811,7 +811,7 @@ mypy lib/ && bandit -r lib/ && pytest tests/ --cov=lib --cov-fail-under=80
 
 ---
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 ### Problèmes Courants
 
@@ -858,7 +858,7 @@ kill -9 <PID>
 
 ---
 
-## 📖 Documentation Complète
+##  Documentation Complète
 
 Pour plus de détails, consulter:
 
@@ -871,7 +871,7 @@ Pour plus de détails, consulter:
 
 ---
 
-## 📞 Support
+##  Support
 
 Pour toute question:
 1. Consulter la documentation ci-dessus
@@ -883,6 +883,6 @@ Pour toute question:
 **Date:** 30 Octobre 2025
 **Version:** 1.0
 **Auteur:** CoinLegacy Inc. + Claude Code
-**Statut:** ✅ PRODUCTION-READY
+**Statut:**  PRODUCTION-READY
 
-🚀 **HAPPY CODING!** 🚀
+ **HAPPY CODING!** 

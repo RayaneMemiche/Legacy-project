@@ -1,4 +1,4 @@
-# 📦 Catalogue des Composants - AWKWARD LEGACY
+#  Catalogue des Composants - AWKWARD LEGACY
 ## Inventaire Complet du Projet
 
 **Date:** 30 Octobre 2025
@@ -7,7 +7,7 @@
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
 1. [Vue d'Ensemble du Projet](#-vue-densemble-du-projet)
 2. [Modules Bibliothèque Python (lib/)](#-modules-bibliothèque-python-lib)
@@ -22,7 +22,7 @@
 
 ---
 
-## 🎯 Vue d'Ensemble du Projet
+##  Vue d'Ensemble du Projet
 
 ### Métriques Globales
 
@@ -61,7 +61,7 @@
 
 ---
 
-## 📚 Modules Bibliothèque Python (lib/)
+##  Modules Bibliothèque Python (lib/)
 
 ### 1. COUCHE BASE DE DONNÉES
 
@@ -96,7 +96,7 @@
 - `dutil` - Utilitaires BDD
 - `filesystem` - Système de fichiers
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -117,7 +117,7 @@
 
 **Dépendances:** `dataclasses`, `typing`, `enum`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -155,7 +155,7 @@
 - `argon2` - Hashage mots de passe
 - `hmac`, `hashlib`, `secrets`, `re`, `datetime`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -173,7 +173,7 @@
 
 **Dépendances:** `os`, `sys`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -210,7 +210,7 @@
 
 **Dépendances:** `dataclasses`, `enum`, `typing`, `lib.adef`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -230,7 +230,7 @@
 
 **Dépendances:** `dataclasses`, `enum`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -259,7 +259,7 @@
 
 **Dépendances:** `re`, `typing`, `datetime`, `dataclasses`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -282,7 +282,7 @@
 
 **Dépendances:** `typing`, `datetime`, `dataclasses`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -306,7 +306,7 @@
 
 **Dépendances:** `typing`, `math`, `collections`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 **Formules:**
 - Consanguinité: `F = φ(père, mère)`
@@ -332,7 +332,7 @@
 
 **Dépendances:** `typing`, `collections`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 **Algorithme:** BFS/DFS pour identification composantes connexes
 
@@ -358,7 +358,7 @@
 
 **Dépendances:** `re`, `unicodedata`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 **Exemple:**
 ```python
@@ -386,7 +386,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Dépendances:** `datetime`, `re`, `typing`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 **Formats supportés:**
 - `DD/MM/YYYY`
@@ -418,7 +418,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Dépendances:** `struct`, `typing`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -426,36 +426,36 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Module | Lignes | Responsabilité | Statut |
 |--------|--------|----------------|--------|
-| `mutil.py` | 190 | Utilitaires divers | ✅ 100% |
-| `dutil.py` | 68 | Utilitaires BDD | ✅ 100% |
-| `filesystem.py` | 139 | Opérations système fichiers | ✅ 100% |
-| `ansel.py` | 287 | Encodage ANSEL (standard généalogie) | ✅ 100% |
-| `avl.py` | 145 | Arbre AVL (recherche binaire équilibrée) | ✅ 100% |
-| `buff.py` | 52 | Gestion buffers | ✅ 100% |
-| `collection.py` | 114 | Utilitaires collections | ✅ 100% |
-| `event.py` | 106 | Gestion événements personne/famille | ✅ 100% |
-| `futil.py` | 373 | Utilitaires famille | ✅ 100% |
-| `gwcalendar.py` | 226 | Conversions calendrier (Grégorien, Julien, Français, Hébreu) | ✅ 100% |
-| `gwast.py` | 249 | AST pour requêtes GeneWeb | ✅ 100% |
-| `lock.py` | 66 | Verrouillage fichiers accès concurrent | ✅ 100% |
-| `logs.py` | 110 | Utilitaires logging | ✅ 100% |
-| `my_gzip.py` | 50 | Wrapper compression Gzip | ✅ 100% |
-| `outbase.py` | 450 | Export base de données | ✅ 100% |
-| `pqueue.py` | 105 | File priorité | ✅ 100% |
-| `progr_bar.py` | 42 | Barre progression CLI | ✅ 100% |
-| `sosa.py` | 25 | Numérotation Sosa-Stradonitz | ✅ 100% |
-| `geneweb_compat.py` | 82 | Compatibilité GeneWeb | ✅ 100% |
+| `mutil.py` | 190 | Utilitaires divers |  100% |
+| `dutil.py` | 68 | Utilitaires BDD |  100% |
+| `filesystem.py` | 139 | Opérations système fichiers |  100% |
+| `ansel.py` | 287 | Encodage ANSEL (standard généalogie) |  100% |
+| `avl.py` | 145 | Arbre AVL (recherche binaire équilibrée) |  100% |
+| `buff.py` | 52 | Gestion buffers |  100% |
+| `collection.py` | 114 | Utilitaires collections |  100% |
+| `event.py` | 106 | Gestion événements personne/famille |  100% |
+| `futil.py` | 373 | Utilitaires famille |  100% |
+| `gwcalendar.py` | 226 | Conversions calendrier (Grégorien, Julien, Français, Hébreu) |  100% |
+| `gwast.py` | 249 | AST pour requêtes GeneWeb |  100% |
+| `lock.py` | 66 | Verrouillage fichiers accès concurrent |  100% |
+| `logs.py` | 110 | Utilitaires logging |  100% |
+| `my_gzip.py` | 50 | Wrapper compression Gzip |  100% |
+| `outbase.py` | 450 | Export base de données |  100% |
+| `pqueue.py` | 105 | File priorité |  100% |
+| `progr_bar.py` | 42 | Barre progression CLI |  100% |
+| `sosa.py` | 25 | Numérotation Sosa-Stradonitz |  100% |
+| `geneweb_compat.py` | 82 | Compatibilité GeneWeb |  100% |
 
 **Modules Stubs (à implémenter si nécessaire):**
-- `loc.py` (29 lignes) - Localisation/traduction ⚠️
-- `pool.py` (11 lignes) - Pooling objets ⚠️
-- `templ.py` (15 lignes) - Utilitaires templates ⚠️
-- `wserver.py` (28 lignes) - Serveur web ⚠️
-- `config.py` (15 lignes) - Gestion configuration ⚠️
+- `loc.py` (29 lignes) - Localisation/traduction 
+- `pool.py` (11 lignes) - Pooling objets 
+- `templ.py` (15 lignes) - Utilitaires templates 
+- `wserver.py` (28 lignes) - Serveur web 
+- `config.py` (15 lignes) - Gestion configuration 
 
 ---
 
-## 🔌 Composants API (api/)
+##  Composants API (api/)
 
 ### 1. APPLICATION PRINCIPALE
 
@@ -477,7 +477,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Dépendances:** `fastapi`, `fastapi.middleware.cors`, `sys`, `os`, `datetime`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -500,7 +500,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - `gender`: Pattern `^(M|F|U)$`
 - `birth_date`, `death_date`: Type `date`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -511,7 +511,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 **Classes:**
 - `FamilyBase`, `FamilyCreate`, `FamilyUpdate`, `FamilyResponse`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -523,7 +523,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - `SearchRequest` - Recherche multi-critères
 - `SearchResponse` - Résultats recherche
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -536,7 +536,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - `SurnameCount` - Comptage noms
 - `CenturyDistribution` - Distribution par siècle
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -550,7 +550,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - `Token` - Token JWT
 - `UserResponse` - Réponse utilisateur
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -569,7 +569,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 6. `GET /api/persons/{id}/ancestors` - Ancêtres
 7. `GET /api/persons/{id}/descendants` - Descendants
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -584,7 +584,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 4. `PUT /api/families/{id}` - Mettre à jour famille
 5. `DELETE /api/families/{id}` - Supprimer famille
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -596,7 +596,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 1. `POST /api/search` - Recherche multi-critères
 2. `GET /api/search/name` - Recherche par nom
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -609,7 +609,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 2. `GET /api/statistics/surnames` - Top noms famille
 3. `GET /api/statistics/century-distribution` - Distribution naissances par siècle
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -623,7 +623,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 3. `POST /api/auth/logout` - Déconnexion utilisateur
 4. `GET /api/auth/profile` - Profil utilisateur courant
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -642,7 +642,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 6. `get_ancestors(db, person_id, generations)` - Ancêtres
 7. `get_descendants(db, person_id, generations)` - Descendants
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -650,10 +650,10 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Service | Lignes | Responsabilité | Statut |
 |---------|--------|----------------|--------|
-| `family_service.py` | 74 | Logique métier familles | ✅ 100% |
-| `search_service.py` | 108 | Logique métier recherche | ✅ 100% |
-| `stats_service.py` | 155 | Calculs statistiques | ✅ 100% |
-| `auth_service.py` | 125 | Logique authentification | ✅ 100% |
+| `family_service.py` | 74 | Logique métier familles |  100% |
+| `search_service.py` | 108 | Logique métier recherche |  100% |
+| `stats_service.py` | 155 | Calculs statistiques |  100% |
+| `auth_service.py` | 125 | Logique authentification |  100% |
 
 ---
 
@@ -668,11 +668,11 @@ crush_lower("JEAN-PIERRE  de Martin")
 2. `get_current_user(token)` - Dépendance authentification
 3. `require_permission(permission)` - Dépendance autorisation
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
-## 🎨 Interface Frontend (frontend/)
+##  Interface Frontend (frontend/)
 
 ### 1. FICHIERS HTML
 
@@ -699,7 +699,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Modal authentification utilisateur
 - Design mobile-friendly
 
-**Statut:** ✅ Complet (95%)
+**Statut:**  Complet (95%)
 
 ---
 
@@ -707,9 +707,9 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Fichier | Responsabilité | Statut |
 |---------|----------------|--------|
-| `index.html` | Interface basique/originale | ✅ 100% |
-| `comparison.html` | Page comparaison fonctionnalités | ✅ 100% |
-| `geneweb-demo.html` | Démo compatibilité GeneWeb | ✅ 100% |
+| `index.html` | Interface basique/originale |  100% |
+| `comparison.html` | Page comparaison fonctionnalités |  100% |
+| `geneweb-demo.html` | Démo compatibilité GeneWeb |  100% |
 
 ---
 
@@ -788,7 +788,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Chart.js 4.4.0 (CDN)
 - Vanilla JavaScript ES6+ (pas de frameworks)
 
-**Statut:** ✅ Complet (95%)
+**Statut:**  Complet (95%)
 
 ---
 
@@ -796,7 +796,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Responsabilité:** JavaScript basique/original
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -828,7 +828,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 --dark-color: #212529;
 ```
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -849,11 +849,11 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Guide développement
 - Notes sécurité
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
-## 🧪 Tests (tests/)
+##  Tests (tests/)
 
 ### 1. TESTS UNITAIRES (tests/test_*.py)
 
@@ -863,34 +863,34 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Fichier | Lignes | Couverture | Statut |
 |---------|--------|-----------|--------|
-| `test_database.py` | 1,087 | Tests moteur BDD | ✅ 100% |
-| `test_database_coverage.py` | 358 | Couverture supplémentaire | ✅ 100% |
-| `test_security.py` | 633 | Tests module sécurité | ✅ 100% |
-| `test_gedcom_parser.py` | 213 | Tests parser GEDCOM | ✅ 100% |
-| `test_gedcom_exporter.py` | 179 | Tests exporteur GEDCOM | ✅ 100% |
-| `test_consanguinity.py` | 131 | Tests consanguinité | ✅ 100% |
-| `test_connectivity.py` | 129 | Tests connectivité | ✅ 100% |
+| `test_database.py` | 1,087 | Tests moteur BDD |  100% |
+| `test_database_coverage.py` | 358 | Couverture supplémentaire |  100% |
+| `test_security.py` | 633 | Tests module sécurité |  100% |
+| `test_gedcom_parser.py` | 213 | Tests parser GEDCOM |  100% |
+| `test_gedcom_exporter.py` | 179 | Tests exporteur GEDCOM |  100% |
+| `test_consanguinity.py` | 131 | Tests consanguinité |  100% |
+| `test_connectivity.py` | 129 | Tests connectivité |  100% |
 
 #### Tests Structures de Données
 
 | Fichier | Lignes | Statut |
 |---------|--------|--------|
-| `test_adef.py` | 223 | ✅ 100% |
-| `test_gwdef.py` | 379 | ✅ 100% |
-| `test_avl.py` | 168 | ✅ 100% |
-| `test_collection.py` | 130 | ✅ 100% |
-| `test_pqueue.py` | 251 | ✅ 100% |
+| `test_adef.py` | 223 |  100% |
+| `test_gwdef.py` | 379 |  100% |
+| `test_avl.py` | 168 |  100% |
+| `test_collection.py` | 130 |  100% |
+| `test_pqueue.py` | 251 |  100% |
 
 #### Tests Utilitaires
 
 | Fichier | Lignes | Statut |
 |---------|--------|--------|
-| `test_name.py` | 256 | ✅ 100% |
-| `test_date.py` | 166 | ✅ 100% |
-| `test_ansel.py` | 149 | ✅ 100% |
-| `test_mutil.py` | 291 | ✅ 100% |
-| `test_futil.py` | 963 | ✅ 100% |
-| `test_iovalue.py` | 296 | ✅ 100% |
+| `test_name.py` | 256 |  100% |
+| `test_date.py` | 166 |  100% |
+| `test_ansel.py` | 149 |  100% |
+| `test_mutil.py` | 291 |  100% |
+| `test_futil.py` | 963 |  100% |
+| `test_iovalue.py` | 296 |  100% |
 
 **Total Tests Unitaires:** ~50 fichiers, ~8,000+ lignes
 
@@ -902,12 +902,12 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Fichier | Lignes | Responsabilité | Statut |
 |---------|--------|----------------|--------|
-| `test_database_operations.py` | 408 | Opérations BDD end-to-end | ✅ 100% |
-| `test_family_relationships.py` | 243 | Tests relations familiales | ✅ 100% |
-| `test_person_management.py` | 254 | Tests CRUD personnes | ✅ 100% |
-| `test_search_functionality.py` | 216 | Tests fonctionnalité recherche | ✅ 100% |
-| `test_import_export.py` | 354 | Tests import/export GEDCOM | ✅ 100% |
-| `test_functional_base.py` | 410 | Framework tests fonctionnels | ✅ 100% |
+| `test_database_operations.py` | 408 | Opérations BDD end-to-end |  100% |
+| `test_family_relationships.py` | 243 | Tests relations familiales |  100% |
+| `test_person_management.py` | 254 | Tests CRUD personnes |  100% |
+| `test_search_functionality.py` | 216 | Tests fonctionnalité recherche |  100% |
+| `test_import_export.py` | 354 | Tests import/export GEDCOM |  100% |
+| `test_functional_base.py` | 410 | Framework tests fonctionnels |  100% |
 
 **Total Tests Fonctionnels:** 6 fichiers, ~1,900 lignes
 
@@ -917,8 +917,8 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Fichier | Lignes | Responsabilité | Statut |
 |---------|--------|----------------|--------|
-| `test_complete_integration.py` | 842 | Tests intégration système complet | ✅ 100% |
-| `test_integration_suite.py` | 407 | Suite tests intégration | ✅ 100% |
+| `test_complete_integration.py` | 842 | Tests intégration système complet |  100% |
+| `test_integration_suite.py` | 407 | Suite tests intégration |  100% |
 
 **Total Tests Intégration:** 2 fichiers, ~1,250 lignes
 
@@ -928,8 +928,8 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Fichier | Lignes | Responsabilité | Statut |
 |---------|--------|----------------|--------|
-| `test_benchmarks.py` | 614 | Benchmarks opérations clés | ✅ 100% |
-| `locustfile.py` | 646 | Tests charge avec Locust | ✅ 100% |
+| `test_benchmarks.py` | 614 | Benchmarks opérations clés |  100% |
+| `locustfile.py` | 646 | Tests charge avec Locust |  100% |
 
 **Total Tests Performance:** 2 fichiers, ~1,260 lignes
 
@@ -958,7 +958,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Rate limiting
 - Gestion sessions
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -976,7 +976,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Chiffrement au repos
 - Audit logging
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -984,13 +984,13 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Fichier | Lignes | Responsabilité | Statut |
 |---------|--------|----------------|--------|
-| `gwb_generator.py` | 257 | Génération BDD test GeneWeb | ✅ 100% |
-| `test_modules.py` | 134 | Tests import modules | ✅ 100% |
-| `test_performance_simple.py` | 81 | Tests performance simples | ✅ 100% |
+| `gwb_generator.py` | 257 | Génération BDD test GeneWeb |  100% |
+| `test_modules.py` | 134 | Tests import modules |  100% |
+| `test_performance_simple.py` | 81 | Tests performance simples |  100% |
 
 ---
 
-## ⚙️ Configuration et Déploiement
+##  Configuration et Déploiement
 
 ### 1. DOCKER & DÉPLOIEMENT
 
@@ -1006,7 +1006,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Variables environnement
 - Cache layers optimisé
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1022,7 +1022,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - prometheus (métriques)
 - grafana (dashboards)
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1030,7 +1030,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Responsabilité:** Configuration reverse proxy Nginx
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1047,7 +1047,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 4. **Tests sécurité** - scan OWASP
 5. **Build Docker** - image multi-arch
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1063,7 +1063,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - trailing whitespace removal
 - end-of-file fixer
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1102,7 +1102,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - isort 5.13.2
 - mypy 1.7.1
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1114,7 +1114,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Usage:** `./bin/ged2gwb.py input.ged output.gwb --verbose --stats`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1124,7 +1124,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Usage:** `./bin/gwb2ged.py input.gwb output.ged --verbose`
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1132,9 +1132,9 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Script | Responsabilité | Statut |
 |--------|----------------|--------|
-| `run_all_tests.sh` | Exécuter suite tests complète | ✅ 100% |
-| `run_api.sh` | Lancer serveur API | ✅ 100% |
-| `test_api_persons.sh` | Tester endpoints personnes API | ✅ 100% |
+| `run_all_tests.sh` | Exécuter suite tests complète |  100% |
+| `run_api.sh` | Lancer serveur API |  100% |
+| `test_api_persons.sh` | Tester endpoints personnes API |  100% |
 
 ---
 
@@ -1152,7 +1152,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Simulation authentification utilisateur
 - Endpoints RGPD
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
@@ -1160,22 +1160,22 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 **Responsabilité:** Génération base données généalogique démo
 
-**Statut:** ✅ Complet (100%)
+**Statut:**  Complet (100%)
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 ### 1. DOCUMENTATION PROJET (docs/)
 
 | Fichier | Taille | Responsabilité | Statut |
 |---------|--------|----------------|--------|
-| `DEPLOYMENT_GUIDE.md` | 7,000 mots | Guide déploiement production | ✅ 100% |
-| `TEST_POLICY.md` | 6,000 mots | Stratégie et politique tests | ✅ 100% |
-| `RGPD_COMPLIANCE.md` | 8,000 mots | Documentation conformité GDPR | ✅ 100% |
-| `Disability_Standards.md` | 842 lignes | Standards accessibilité (WCAG) | ✅ 100% |
-| `Solution_Presentation.md` | 1,703 lignes | Présentation architecture solution | ✅ 100% |
-| `Components.md` | Ce fichier | Catalogue composants | ✅ 100% |
+| `DEPLOYMENT_GUIDE.md` | 7,000 mots | Guide déploiement production |  100% |
+| `TEST_POLICY.md` | 6,000 mots | Stratégie et politique tests |  100% |
+| `RGPD_COMPLIANCE.md` | 8,000 mots | Documentation conformité GDPR |  100% |
+| `Disability_Standards.md` | 842 lignes | Standards accessibilité (WCAG) |  100% |
+| `Solution_Presentation.md` | 1,703 lignes | Présentation architecture solution |  100% |
+| `Components.md` | Ce fichier | Catalogue composants |  100% |
 
 ---
 
@@ -1183,37 +1183,37 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Fichier | Responsabilité | Statut |
 |---------|----------------|--------|
-| `frontend/README.md` (940 lignes) | Documentation frontend complète | ✅ 100% |
-| `INDEX.md` | Index projet | ✅ 100% |
-| `RECAP_PROJET.md` | Résumé projet | ✅ 100% |
-| `AUDIT_COMPLET.md` | Audit code complet | ✅ 100% |
-| `COMPARAISON_FONCTIONNELLE.md` | Comparaison avec GeneWeb | ✅ 100% |
-| `PRODUCTION_DEPLOYMENT_PLAN.md` | Plan déploiement production | ✅ 100% |
-| `QUICK_START.md` | Guide démarrage rapide | ✅ 100% |
-| `GUIDE_LANCEMENT.md` | Guide lancement (Français) | ✅ 100% |
-| `CONTRIBUTING.md` | Guide contribution | ✅ 100% |
-| `Sujet.md` | Sujet/exigences projet | ✅ 100% |
+| `frontend/README.md` (940 lignes) | Documentation frontend complète |  100% |
+| `INDEX.md` | Index projet |  100% |
+| `RECAP_PROJET.md` | Résumé projet |  100% |
+| `AUDIT_COMPLET.md` | Audit code complet |  100% |
+| `COMPARAISON_FONCTIONNELLE.md` | Comparaison avec GeneWeb |  100% |
+| `PRODUCTION_DEPLOYMENT_PLAN.md` | Plan déploiement production |  100% |
+| `QUICK_START.md` | Guide démarrage rapide |  100% |
+| `GUIDE_LANCEMENT.md` | Guide lancement (Français) |  100% |
+| `CONTRIBUTING.md` | Guide contribution |  100% |
+| `Sujet.md` | Sujet/exigences projet |  100% |
 
 ---
 
-## 📊 Statistiques du Projet
+##  Statistiques du Projet
 
 ### Métriques Code
 
 | Catégorie | Fichiers | Lignes de Code | Statut |
 |-----------|----------|----------------|--------|
-| **Modules Bibliothèque (lib/)** | 48 | ~8,500 | ✅ Complet |
-| **Composants API (api/)** | 20 | ~1,500 | ✅ Complet |
-| **Frontend (frontend/)** | 286 | ~5,000+ | ✅ Complet |
-| **Tests Unitaires** | 50+ | ~8,000+ | ✅ Complet |
-| **Tests Fonctionnels** | 6 | ~1,900 | ✅ Complet |
-| **Tests Intégration** | 2 | ~1,250 | ✅ Complet |
-| **Tests Performance** | 2 | ~1,260 | ✅ Complet |
-| **Tests Sécurité** | 1 | ~1,239 | ✅ Complet |
-| **Tests Conformité** | 1 | ~995 | ✅ Complet |
-| **Scripts & Utilitaires** | 10+ | ~1,500 | ✅ Complet |
-| **Documentation** | 20+ | ~3,000+ | ✅ Complet |
-| **TOTAL** | **132+ Python** | **~28,314** | **✅ Complet** |
+| **Modules Bibliothèque (lib/)** | 48 | ~8,500 |  Complet |
+| **Composants API (api/)** | 20 | ~1,500 |  Complet |
+| **Frontend (frontend/)** | 286 | ~5,000+ |  Complet |
+| **Tests Unitaires** | 50+ | ~8,000+ |  Complet |
+| **Tests Fonctionnels** | 6 | ~1,900 |  Complet |
+| **Tests Intégration** | 2 | ~1,250 |  Complet |
+| **Tests Performance** | 2 | ~1,260 |  Complet |
+| **Tests Sécurité** | 1 | ~1,239 |  Complet |
+| **Tests Conformité** | 1 | ~995 |  Complet |
+| **Scripts & Utilitaires** | 10+ | ~1,500 |  Complet |
+| **Documentation** | 20+ | ~3,000+ |  Complet |
+| **TOTAL** | **132+ Python** | **~28,314** | ** Complet** |
 
 ---
 
@@ -1221,24 +1221,24 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 | Domaine | Statut | Couverture |
 |---------|--------|-----------|
-| **Moteur Base de Données** | ✅ Complet | 100% |
-| **Sécurité & Auth** | ✅ Complet | 100% |
-| **Import/Export GEDCOM** | ✅ Complet | 100% |
-| **Analyse Consanguinité** | ✅ Complet | 100% |
-| **Analyse Connectivité** | ✅ Complet | 100% |
-| **API REST** | ✅ Complet | 100% |
-| **Interface Frontend** | ✅ Complet | 95% |
-| **Fonctionnalité Recherche** | ✅ Complet | 100% |
-| **Statistiques** | ✅ Complet | 100% |
-| **Tests Unitaires** | ✅ Complet | 80%+ |
-| **Tests Intégration** | ✅ Complet | 75%+ |
-| **Tests Sécurité** | ✅ Complet | 85%+ |
-| **Conformité RGPD** | ✅ Complet | 100% |
-| **Documentation** | ✅ Complet | 95% |
+| **Moteur Base de Données** |  Complet | 100% |
+| **Sécurité & Auth** |  Complet | 100% |
+| **Import/Export GEDCOM** |  Complet | 100% |
+| **Analyse Consanguinité** |  Complet | 100% |
+| **Analyse Connectivité** |  Complet | 100% |
+| **API REST** |  Complet | 100% |
+| **Interface Frontend** |  Complet | 95% |
+| **Fonctionnalité Recherche** |  Complet | 100% |
+| **Statistiques** |  Complet | 100% |
+| **Tests Unitaires** |  Complet | 80%+ |
+| **Tests Intégration** |  Complet | 75%+ |
+| **Tests Sécurité** |  Complet | 85%+ |
+| **Conformité RGPD** |  Complet | 100% |
+| **Documentation** |  Complet | 95% |
 
 ---
 
-## 🔗 Dépendances
+##  Dépendances
 
 ### Dépendances Critiques
 
@@ -1259,7 +1259,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 ---
 
-## 🎯 Composants par Criticité
+##  Composants par Criticité
 
 ### Composants Critiques ⭐ (Doivent Fonctionner Parfaitement)
 
@@ -1290,9 +1290,9 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 ---
 
-## 📈 État Global Projet
+##  État Global Projet
 
-### Modules Complètement Terminés ✅
+### Modules Complètement Terminés 
 
 - Moteur base données et persistence
 - Système sécurité et authentification
@@ -1308,7 +1308,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - Conformité RGPD
 - Documentation cœur
 
-### Modules Partiellement Terminés ⚠️
+### Modules Partiellement Terminés 
 
 - `/lib/loc.py` - Localisation (stub, à implémenter)
 - `/lib/pool.py` - Pooling objets (stub)
@@ -1316,7 +1316,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 - `/lib/wserver.py` - Serveur web (stub)
 - `/lib/config.py` - Configuration (stub basique)
 
-### Modules Planifiés/Futurs 🔮
+### Modules Planifiés/Futurs 
 
 - Visualisation arbre D3.js
 - Vue timeline
@@ -1329,7 +1329,7 @@ crush_lower("JEAN-PIERRE  de Martin")
 
 ---
 
-## 📝 Exemples d'Utilisation
+##  Exemples d'Utilisation
 
 ### Ligne de Commande
 
@@ -1406,18 +1406,18 @@ curl "http://localhost:8000/api/consanguinity/kinship?person1=1&person2=2"
 
 ---
 
-## 🎓 Conclusion
+##  Conclusion
 
 Le projet AWKWARD LEGACY est une **modernisation complète et prête pour production de GeneWeb**. Avec **28,314+ lignes de code Python bien testé**, **286 fichiers frontend**, et **documentation extensive**, le projet atteint avec succès son objectif d'amener GeneWeb dans l'ère moderne avec:
 
-- ✅ Fonctionnalité cœur complète
-- ✅ API REST moderne
-- ✅ Belle interface web
-- ✅ Sécurité forte (authentification, chiffrement, RBAC)
-- ✅ Conformité RGPD/GDPR
-- ✅ Suite tests complète (80%+ couverture)
-- ✅ Déploiement prêt production (Docker, CI/CD)
-- ✅ Documentation extensive
+-  Fonctionnalité cœur complète
+-  API REST moderne
+-  Belle interface web
+-  Sécurité forte (authentification, chiffrement, RBAC)
+-  Conformité RGPD/GDPR
+-  Suite tests complète (80%+ couverture)
+-  Déploiement prêt production (Docker, CI/CD)
+-  Documentation extensive
 
 **Statut Global Projet:** **95% Complet** et **Prêt Production**
 
@@ -1427,4 +1427,4 @@ Les 5% restants consistent en améliorations optionnelles (visualisation D3.js, 
 
 **Date de création:** 30 Octobre 2025
 **Version:** 1.0
-**Statut:** ✅ **Production-Ready (95% complet)**
+**Statut:**  **Production-Ready (95% complet)**

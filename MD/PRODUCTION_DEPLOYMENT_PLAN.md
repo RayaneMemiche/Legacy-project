@@ -1,4 +1,4 @@
-# 🚀 Plan de Déploiement Production - AWKWARD LEGACY
+#  Plan de Déploiement Production - AWKWARD LEGACY
 
 ## Table des Matières
 
@@ -19,22 +19,22 @@
 
 ## Vue d'Ensemble
 
-### 📋 Objectifs du Déploiement
+###  Objectifs du Déploiement
 
 - **Date cible**: 1er Novembre 2025
 - **Durée estimée**: 4 semaines
 - **Downtime prévu**: 2 heures (migration finale)
 - **Environnements**: Dev → Staging → Production
 
-### 🎯 Critères de Succès
+###  Critères de Succès
 
-- ✅ Zéro perte de données
-- ✅ Performance ≥ baseline (< 100ms P95)
-- ✅ Disponibilité > 99.9%
-- ✅ Conformité RGPD maintenue
-- ✅ Rollback possible < 15 minutes
+-  Zéro perte de données
+-  Performance ≥ baseline (< 100ms P95)
+-  Disponibilité > 99.9%
+-  Conformité RGPD maintenue
+-  Rollback possible < 15 minutes
 
-### 👥 Équipe de Déploiement
+###  Équipe de Déploiement
 
 | Rôle | Responsable | Contact |
 |------|-------------|---------|
@@ -49,7 +49,7 @@
 
 ## Prérequis
 
-### 🔧 Prérequis Techniques
+###  Prérequis Techniques
 
 #### Infrastructure Cloud (AWS)
 - [ ] Compte AWS avec billing configuré
@@ -68,7 +68,7 @@
 - [ ] CloudWatch pour monitoring
 - [ ] SNS/SQS pour notifications
 
-### 📚 Prérequis Documentation
+###  Prérequis Documentation
 
 - [ ] Architecture diagram validé
 - [ ] Runbooks opérationnels
@@ -76,7 +76,7 @@
 - [ ] Plan de communication
 - [ ] Contacts d'urgence à jour
 
-### ✅ Checklist Pré-Déploiement
+###  Checklist Pré-Déploiement
 
 ```markdown
 ## Security
@@ -102,7 +102,7 @@
 
 ## Architecture de Production
 
-### 🏗️ Architecture Cible
+###  Architecture Cible
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -137,7 +137,7 @@
             └───────────────────────┘
 ```
 
-### 📊 Spécifications des Serveurs
+###  Spécifications des Serveurs
 
 #### Application Servers (ECS)
 ```yaml
@@ -179,7 +179,7 @@ Replication:
 
 ## Phase 1: Préparation
 
-### 📅 Timeline: Semaine 1
+###  Timeline: Semaine 1
 
 #### Jour 1-2: Validation de l'Infrastructure
 
@@ -255,7 +255,7 @@ Resources:
 
 ## Phase 2: Infrastructure
 
-### 📅 Timeline: Semaine 2
+###  Timeline: Semaine 2
 
 #### Configuration Terraform
 
@@ -348,7 +348,7 @@ aws rds describe-db-instances --db-instance-identifier awkward-legacy-db
 
 ## Phase 3: Migration des Données
 
-### 📅 Timeline: Semaine 2-3
+###  Timeline: Semaine 2-3
 
 #### Stratégie de Migration
 
@@ -491,7 +491,7 @@ if __name__ == "__main__":
 
 ## Phase 4: Déploiement
 
-### 📅 Timeline: Semaine 3
+###  Timeline: Semaine 3
 
 #### Déploiement Blue-Green
 
@@ -506,10 +506,10 @@ VERSION="v1.0.0"
 BLUE_ENV="awkward-blue"
 GREEN_ENV="awkward-green"
 
-echo "🚀 Starting Blue-Green Deployment"
+echo " Starting Blue-Green Deployment"
 
 # Step 1: Deploy to Green environment
-echo "📦 Deploying version $VERSION to GREEN environment..."
+echo " Deploying version $VERSION to GREEN environment..."
 
 aws ecs update-service \
   --cluster $GREEN_ENV \
@@ -523,24 +523,24 @@ aws ecs wait services-stable \
   --services awkward-app
 
 # Step 2: Run smoke tests
-echo "🧪 Running smoke tests on GREEN..."
+echo " Running smoke tests on GREEN..."
 
 ./scripts/smoke-tests.sh https://green.awkward-legacy.com
 
 if [ $? -ne 0 ]; then
-  echo "❌ Smoke tests failed! Aborting deployment."
+  echo " Smoke tests failed! Aborting deployment."
   exit 1
 fi
 
 # Step 3: Switch traffic
-echo "🔄 Switching traffic to GREEN environment..."
+echo " Switching traffic to GREEN environment..."
 
 aws elbv2 modify-listener \
   --listener-arn $PROD_LISTENER_ARN \
   --default-actions Type=forward,TargetGroupArn=$GREEN_TARGET_GROUP
 
 # Step 4: Monitor
-echo "📊 Monitoring new deployment..."
+echo " Monitoring new deployment..."
 
 for i in {1..10}; do
   ERROR_RATE=$(aws cloudwatch get-metric-statistics \
@@ -555,7 +555,7 @@ for i in {1..10}; do
     --output text)
 
   if (( $(echo "$ERROR_RATE > 0.01" | bc -l) )); then
-    echo "⚠️  High error rate detected: $ERROR_RATE"
+    echo "  High error rate detected: $ERROR_RATE"
     read -p "Continue deployment? (y/n) " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -567,17 +567,17 @@ for i in {1..10}; do
   sleep 30
 done
 
-echo "✅ Deployment completed successfully!"
+echo " Deployment completed successfully!"
 
 # Step 5: Decommission blue environment
-echo "🔵 Scaling down BLUE environment..."
+echo " Scaling down BLUE environment..."
 
 aws ecs update-service \
   --cluster $BLUE_ENV \
   --service awkward-app \
   --desired-count 0
 
-echo "🎉 Blue-Green deployment completed!"
+echo " Blue-Green deployment completed!"
 ```
 
 #### Configuration Kubernetes (Alternative)
@@ -654,7 +654,7 @@ spec:
 
 ## Phase 5: Validation
 
-### 📅 Timeline: Semaine 3-4
+###  Timeline: Semaine 3-4
 
 #### Tests de Validation
 
@@ -662,7 +662,7 @@ spec:
 #!/bin/bash
 # validation-suite.sh
 
-echo "🧪 Running Production Validation Suite"
+echo " Running Production Validation Suite"
 
 # 1. Health Checks
 echo "→ Health Check Tests"
@@ -695,7 +695,7 @@ python tests/compliance/rgpd_validator.py \
 echo "→ Data Integrity Check"
 python scripts/data_integrity_check.py
 
-echo "✅ All validation tests passed!"
+echo " All validation tests passed!"
 ```
 
 #### Checklist de Validation
@@ -733,7 +733,7 @@ echo "✅ All validation tests passed!"
 
 ## Phase 6: Go-Live
 
-### 📅 D-Day: 1er Novembre 2025
+###  D-Day: 1er Novembre 2025
 
 #### Timeline du Jour J
 
@@ -755,57 +755,57 @@ echo "✅ All validation tests passed!"
 #!/bin/bash
 # go-live.sh
 
-echo "🚀 AWKWARD LEGACY - GO LIVE PROCEDURE"
+echo " AWKWARD LEGACY - GO LIVE PROCEDURE"
 echo "======================================"
 echo "Date: $(date)"
 echo "Operator: $USER"
 
 # Safety check
-read -p "⚠️  This will switch to the new system. Continue? (yes/no) " -r
+read -p "  This will switch to the new system. Continue? (yes/no) " -r
 if [[ ! $REPLY == "yes" ]]; then
     echo "Aborted."
     exit 1
 fi
 
 # Step 1: Enable maintenance mode
-echo "🔧 Enabling maintenance mode..."
+echo " Enabling maintenance mode..."
 kubectl apply -f kubernetes/maintenance-page.yaml
 
 # Step 2: Final backup
-echo "💾 Creating final backup..."
+echo " Creating final backup..."
 ./scripts/backup-production.sh final-backup-$(date +%Y%m%d-%H%M%S)
 
 # Step 3: Stop legacy services
-echo "⏹️  Stopping legacy services..."
+echo "⏹  Stopping legacy services..."
 ssh legacy-server "sudo systemctl stop geneweb"
 
 # Step 4: Final data sync
-echo "🔄 Final data synchronization..."
+echo " Final data synchronization..."
 ./scripts/sync-final-data.sh
 
 # Step 5: DNS Switch
-echo "🌐 Switching DNS..."
+echo " Switching DNS..."
 aws route53 change-resource-record-sets \
   --hosted-zone-id Z123456789 \
   --change-batch file://dns-switch.json
 
 # Step 6: Remove maintenance mode
-echo "✨ Going live..."
+echo " Going live..."
 kubectl delete -f kubernetes/maintenance-page.yaml
 
 # Step 7: Monitoring
-echo "📊 Starting monitoring..."
+echo " Starting monitoring..."
 ./scripts/monitor-go-live.sh
 
-echo "✅ GO-LIVE COMPLETED!"
-echo "🎉 AWKWARD LEGACY is now LIVE!"
+echo " GO-LIVE COMPLETED!"
+echo " AWKWARD LEGACY is now LIVE!"
 ```
 
 ---
 
 ## Phase 7: Post-Déploiement
 
-### 📅 Timeline: Semaine 4+
+###  Timeline: Semaine 4+
 
 #### Monitoring Post-Déploiement
 
@@ -923,7 +923,7 @@ optimizations:
 
 ## Plan de Rollback
 
-### 🔄 Stratégie de Rollback
+###  Stratégie de Rollback
 
 #### Rollback Automatique
 
@@ -940,13 +940,13 @@ for i in {1..300}; do
     LATENCY=$(curl -s http://metrics.local/p95_latency)
 
     if (( $(echo "$ERROR_RATE > $ERROR_THRESHOLD" | bc -l) )); then
-        echo "❌ Error rate exceeded threshold: $ERROR_RATE%"
+        echo " Error rate exceeded threshold: $ERROR_RATE%"
         ./rollback.sh
         exit 1
     fi
 
     if (( $(echo "$LATENCY > $LATENCY_THRESHOLD" | bc -l) )); then
-        echo "❌ Latency exceeded threshold: ${LATENCY}ms"
+        echo " Latency exceeded threshold: ${LATENCY}ms"
         ./rollback.sh
         exit 1
     fi
@@ -954,7 +954,7 @@ for i in {1..300}; do
     sleep 1
 done
 
-echo "✅ No issues detected"
+echo " No issues detected"
 ```
 
 #### Procédure de Rollback Manuel
@@ -963,10 +963,10 @@ echo "✅ No issues detected"
 #!/bin/bash
 # rollback.sh
 
-echo "🔄 INITIATING ROLLBACK PROCEDURE"
+echo " INITIATING ROLLBACK PROCEDURE"
 
 # Step 1: Confirm rollback
-read -p "⚠️  Confirm rollback to previous version? (yes/no) " -r
+read -p "  Confirm rollback to previous version? (yes/no) " -r
 if [[ ! $REPLY == "yes" ]]; then
     exit 1
 fi
@@ -999,7 +999,7 @@ fi
 # Step 6: Remove maintenance
 kubectl delete -f kubernetes/maintenance-page.yaml
 
-echo "✅ Rollback completed"
+echo " Rollback completed"
 
 # Step 7: Notify team
 ./scripts/notify-rollback.sh
@@ -1009,7 +1009,7 @@ echo "✅ Rollback completed"
 
 ## Maintenance et Support
 
-### 🛠️ Plan de Maintenance
+###  Plan de Maintenance
 
 #### Maintenance Planifiée
 
@@ -1090,7 +1090,7 @@ kubectl edit deployment awkward-legacy
 ```
 ```
 
-### 📞 Support Contacts
+###  Support Contacts
 
 | Niveau | Contact | Disponibilité |
 |--------|---------|---------------|
@@ -1100,7 +1100,7 @@ kubectl edit deployment awkward-legacy
 | Security | security@awkward-legacy.com | 24/7 |
 | DPO | dpo@awkward-legacy.com | Business hours |
 
-### 📊 KPIs de Production
+###  KPIs de Production
 
 ```yaml
 SLAs:
@@ -1193,4 +1193,4 @@ gunzip < backup_20251101.sql.gz | \
 
 ---
 
-**🎯 Objectif Final:** Déploiement réussi avec 0 incident critique et 100% de disponibilité pendant la migration.
+** Objectif Final:** Déploiement réussi avec 0 incident critique et 100% de disponibilité pendant la migration.

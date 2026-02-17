@@ -9,7 +9,7 @@ Modernisation d'un système généalogique legacy (GeneWeb, développé en OCaml
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
 1. [Vue d'ensemble](#-vue-densemble)
 2. [Fonctionnalités](#-fonctionnalités)
@@ -24,15 +24,15 @@ Modernisation d'un système généalogique legacy (GeneWeb, développé en OCaml
 
 ---
 
-## 🎯 Vue d'ensemble
+##  Vue d'ensemble
 
 ### Objectif
 
 Rendre le code legacy GeneWeb conforme aux standards actuels tout en:
-- ✅ **PRÉSERVANT** le cœur du code (architecture hybride OCaml-Python)
-- ✅ **TESTANT** rigoureusement le système (80%+ coverage)
-- ✅ **DÉPLOYANT** de manière sécurisée (Docker, CI/CD)
-- ✅ **DOCUMENTANT** complètement (RGPD, déploiement, tests)
+-  **PRÉSERVANT** le cœur du code (architecture hybride OCaml-Python)
+-  **TESTANT** rigoureusement le système (80%+ coverage)
+-  **DÉPLOYANT** de manière sécurisée (Docker, CI/CD)
+-  **DOCUMENTANT** complètement (RGPD, déploiement, tests)
 
 ### Caractéristiques Clés
 
@@ -46,7 +46,7 @@ Rendre le code legacy GeneWeb conforme aux standards actuels tout en:
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
 ### Gestion des Données
 
@@ -58,7 +58,7 @@ Rendre le code legacy GeneWeb conforme aux standards actuels tout en:
 
 ### Fonctionnalités Avancées
 
-#### 🧬 Calcul de Consanguinité
+####  Calcul de Consanguinité
 Calcule les coefficients de parenté et de consanguinité entre individus.
 
 ```python
@@ -70,21 +70,21 @@ consang = calc.calculate_consanguinity('person_id')
 relationship = calc.get_relationship_name('person1_id', 'person2_id')
 ```
 
-#### 🌳 Analyse de Connectivité
+####  Analyse de Connectivité
 Identifie les composantes connexes (lignées distinctes) dans la base.
 
-#### 📥📤 Import/Export GEDCOM
+####  Import/Export GEDCOM
 Support complet du format GEDCOM 5.5.1 pour interopérabilité.
 
-#### 🔍 Recherche Avancée
+####  Recherche Avancée
 Recherche multi-critères avec filtres.
 
-#### 📊 Statistiques
+####  Statistiques
 Analytics détaillées sur les données généalogiques.
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Prérequis
 
@@ -108,7 +108,7 @@ make run-api
 
 ---
 
-## 🚀 Utilisation
+##  Utilisation
 
 ### Démarrer l'API
 
@@ -133,7 +133,7 @@ make run-api
 
 ---
 
-## 🧪 Tests
+##  Tests
 
 ```bash
 # Tous les tests
@@ -147,7 +147,7 @@ make coverage
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 - `docs/DEPLOYMENT_GUIDE.md` - Guide de déploiement (33 KB)
 - `docs/RGPD_COMPLIANCE.md` - Conformité RGPD (52 KB)
@@ -156,13 +156,13 @@ make coverage
 
 ---
 
-## 📝 License
+##  License
 
 GNU General Public License v2.0 (comme GeneWeb original)
 
 ---
 
-## 🔗 Liens
+##  Liens
 
 - **Repository**: https://github.com/BenPali/LegacyProject
 - **GeneWeb original**: https://github.com/geneweb/geneweb

@@ -267,13 +267,13 @@ Chaque défaut est tracé via :
 
 | Période | Objectif | Statut |
 |---------|---------|--------|
-| Q4 2025 | Tests unitaires 80%+ coverage | ✅ Atteint |
-| Q4 2025 | Tests d'intégration | ✅ Atteint |
-| Q4 2025 | Scanner sécurité OWASP | ✅ Atteint |
-| Q1 2026 | Tests de performance/charge | ✅ Atteint |
-| Q1 2026 | Validateur RGPD | ✅ Atteint |
-| Q1 2026 | Tests d'accessibilité WCAG | ✅ Atteint |
-| Q1 2026 | Amélioration accessibilité frontend | ✅ Atteint |
+| Q4 2025 | Tests unitaires 80%+ coverage |  Atteint |
+| Q4 2025 | Tests d'intégration |  Atteint |
+| Q4 2025 | Scanner sécurité OWASP |  Atteint |
+| Q1 2026 | Tests de performance/charge |  Atteint |
+| Q1 2026 | Validateur RGPD |  Atteint |
+| Q1 2026 | Tests d'accessibilité WCAG |  Atteint |
+| Q1 2026 | Amélioration accessibilité frontend |  Atteint |
 | Q2 2026 | Coverage 90% | En cours |
 | Q2 2026 | Tests E2E Selenium | Planifié |
 

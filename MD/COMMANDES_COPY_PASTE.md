@@ -1,12 +1,12 @@
-# 📋 COMMANDES COPY-PASTE - AWKWARD LEGACY
+#  COMMANDES COPY-PASTE - AWKWARD LEGACY
 
 Toutes les commandes prêtes à copier-coller pour lancer le projet.
 
 ---
 
-## 🚀 DÉMARRAGE COMPLET
+##  DÉMARRAGE COMPLET
 
-### 📍 Étape 1: Installer les Dépendances
+###  Étape 1: Installer les Dépendances
 
 **Copier-coller dans le terminal:**
 
@@ -17,7 +17,7 @@ pip3 install flask flask-cors cryptography pyjwt bcrypt argon2-cffi pytest
 
 ---
 
-### 🖥️ Étape 2: Lancer le Backend (Terminal 1)
+###  Étape 2: Lancer le Backend (Terminal 1)
 
 **Ouvrir un NOUVEAU terminal et copier-coller:**
 
@@ -28,15 +28,15 @@ python3 server.py
 
 **Résultat attendu:**
 ```
-🚀 Démarrage du serveur API AWKWARD LEGACY
-📍 API disponible sur: http://localhost:8000
+ Démarrage du serveur API AWKWARD LEGACY
+ API disponible sur: http://localhost:8000
 ```
 
-**⚠️ LAISSER CE TERMINAL OUVERT**
+** LAISSER CE TERMINAL OUVERT**
 
 ---
 
-### 🌐 Étape 3: Lancer le Frontend (Terminal 2)
+###  Étape 3: Lancer le Frontend (Terminal 2)
 
 **Ouvrir un NOUVEAU terminal et copier-coller:**
 
@@ -50,11 +50,11 @@ python3 -m http.server 3000
 Serving HTTP on 0.0.0.0 port 3000
 ```
 
-**⚠️ LAISSER CE TERMINAL OUVERT**
+** LAISSER CE TERMINAL OUVERT**
 
 ---
 
-### 🌍 Étape 4: Ouvrir le Navigateur
+###  Étape 4: Ouvrir le Navigateur
 
 **Copier-coller cette URL dans le navigateur:**
 
@@ -64,9 +64,9 @@ http://localhost:3000
 
 ---
 
-## 🧪 LANCER LES TESTS
+##  LANCER LES TESTS
 
-### 🎯 Option A: Tous les Tests en Une Fois (Terminal 3)
+###  Option A: Tous les Tests en Une Fois (Terminal 3)
 
 **Ouvrir un NOUVEAU terminal et copier-coller:**
 
@@ -77,7 +77,7 @@ cd /Users/rayanememiche/Documents/Taff/Legal/LegacyProject/modernProject
 
 ---
 
-### 🔬 Option B: Tests Individuels
+###  Option B: Tests Individuels
 
 **Ouvrir un terminal et se placer dans le dossier:**
 
@@ -93,10 +93,10 @@ python3 test_modules.py
 
 **Résultat attendu:**
 ```
-✅ Module security importé avec succès
-✅ Hashage/Vérification de mot de passe OK
-✅ JWT création/vérification OK
-✅ Chiffrement/Déchiffrement OK
+ Module security importé avec succès
+ Hashage/Vérification de mot de passe OK
+ JWT création/vérification OK
+ Chiffrement/Déchiffrement OK
 ```
 
 ---
@@ -109,7 +109,7 @@ python3 test_performance_simple.py
 
 **Résultat attendu:**
 ```
-📊 Résultats:
+ Résultats:
   • Throughput: ~600 req/sec
   • Taux de succès: 99%+
   • Latence P95: <100ms
@@ -151,7 +151,7 @@ Score de Sécurité: 85/100
 
 ---
 
-## ✅ VÉRIFICATIONS
+##  VÉRIFICATIONS
 
 ### Vérifier que l'API fonctionne
 
@@ -184,7 +184,7 @@ curl "http://localhost:8000/api/persons/search?query=martin"
 
 ---
 
-## 🛑 ARRÊTER LES SERVEURS
+##  ARRÊTER LES SERVEURS
 
 ### Arrêter le Backend (Terminal 1)
 
@@ -200,7 +200,7 @@ Ctrl + C
 
 ---
 
-## 🔧 DÉPANNAGE
+##  DÉPANNAGE
 
 ### Problème: Port 8000 déjà utilisé
 
@@ -251,7 +251,7 @@ pip3 install pytest
 
 ---
 
-## 📊 CHECKLIST DE LANCEMENT
+##  CHECKLIST DE LANCEMENT
 
 Cocher au fur et à mesure:
 
@@ -263,7 +263,7 @@ Cocher au fur et à mesure:
 
 ---
 
-## 🎬 COMMANDES POUR LA DÉMO
+##  COMMANDES POUR LA DÉMO
 
 ### Démo Complète en 5 Minutes
 
@@ -289,7 +289,7 @@ http://localhost:3000
 
 ---
 
-## 📈 COMMANDES D'INSTALLATION COMPLÈTE
+##  COMMANDES D'INSTALLATION COMPLÈTE
 
 ### Installation de Toutes les Dépendances
 
@@ -317,7 +317,7 @@ pip3 install -r requirements.txt
 
 ---
 
-## 🎯 COMMANDES POUR LES TESTS SPÉCIFIQUES
+##  COMMANDES POUR LES TESTS SPÉCIFIQUES
 
 ### Tests avec Couverture de Code
 
@@ -349,7 +349,7 @@ http://localhost:8089
 
 ---
 
-## 🎓 PRÉPARATION POUR LA DÉFENSE
+##  PRÉPARATION POUR LA DÉFENSE
 
 ### Commande Unique de Démonstration
 
@@ -371,12 +371,12 @@ sleep 2
 # Ouvrir le navigateur (macOS)
 open http://localhost:3000
 
-echo "✅ Tout est lancé !"
+echo " Tout est lancé !"
 ```
 
 ---
 
-## 📞 AIDE RAPIDE
+##  AIDE RAPIDE
 
 ### Voir les Logs du Backend
 
@@ -393,7 +393,7 @@ Ouvrir la console du navigateur: `F12` ou `Cmd+Option+I` (Mac)
 
 ---
 
-## 🎉 FIN
+##  FIN
 
 **Toutes les commandes sont prêtes !**
 
@@ -402,4 +402,4 @@ Pour plus de détails:
 - **Démarrage rapide**: `QUICK_START.md`
 - **Récapitulatif**: `RECAP_PROJET.md`
 
-**Bon courage pour la défense ! 🚀**
+**Bon courage pour la défense ! **

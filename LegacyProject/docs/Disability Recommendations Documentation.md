@@ -1,4 +1,4 @@
-# 🌍 Guide d'Accessibilité - AWKWARD LEGACY
+#  Guide d'Accessibilité - AWKWARD LEGACY
 
 **Date:** 30 Octobre 2025
 **Version:** 1.0
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
 1. [Vue d'Ensemble](#-vue-densemble)
 2. [Principes Fondamentaux](#-principes-fondamentaux)
@@ -21,17 +21,17 @@
 
 ---
 
-## 🎯 Vue d'Ensemble
+##  Vue d'Ensemble
 
 Le projet AWKWARD LEGACY s'engage à fournir une application accessible à **tous les utilisateurs**, indépendamment de leurs capacités physiques, sensorielles ou cognitives.
 
 ### Objectifs d'Accessibilité
 
-- ✅ **Conformité WCAG 2.1 Niveau AA** (minimum)
-- ✅ **Support des technologies d'assistance** (lecteurs d'écran, navigation clavier)
-- ✅ **Design inclusif** pour tous les types de handicaps
-- ✅ **Performance optimale** sur connexions lentes
-- ✅ **Compatibilité multi-appareils** (desktop, mobile, tablette)
+-  **Conformité WCAG 2.1 Niveau AA** (minimum)
+-  **Support des technologies d'assistance** (lecteurs d'écran, navigation clavier)
+-  **Design inclusif** pour tous les types de handicaps
+-  **Performance optimale** sur connexions lentes
+-  **Compatibilité multi-appareils** (desktop, mobile, tablette)
 
 ### Public Cible
 
@@ -44,7 +44,7 @@ Le projet AWKWARD LEGACY s'engage à fournir une application accessible à **tou
 
 ---
 
-## 🌟 Principes Fondamentaux
+##  Principes Fondamentaux
 
 ### Les 4 Piliers POUR (WCAG)
 
@@ -62,7 +62,7 @@ Le contenu doit être suffisamment robuste pour être interprété par tous les 
 
 ---
 
-## 👁️ Accessibilité Visuelle
+##  Accessibilité Visuelle
 
 ### Pour les Personnes Aveugles
 
@@ -333,7 +333,7 @@ body.high-contrast a {
 
 ---
 
-## 🦻 Accessibilité Auditive
+##  Accessibilité Auditive
 
 ### Pour les Personnes Sourdes ou Malentendantes
 
@@ -434,14 +434,14 @@ showNotification('Erreur lors de la sauvegarde', 'error');
     aria-describedby="email-error"
   >
   <span id="email-error" class="error-message" role="alert">
-    ⚠️ Veuillez entrer une adresse email valide
+     Veuillez entrer une adresse email valide
   </span>
 </div>
 ```
 
 ---
 
-## 🖱️ Accessibilité Motrice
+##  Accessibilité Motrice
 
 ### Pour les Personnes avec Handicaps Moteurs
 
@@ -592,23 +592,23 @@ document.addEventListener('mousedown', () => {
 
 ---
 
-## 🧠 Accessibilité Cognitive
+##  Accessibilité Cognitive
 
 ### Pour les Personnes avec Troubles Cognitifs
 
 #### 1. **Clarté et Simplicité**
 
 **Principes:**
-- ✅ Langage simple et direct
-- ✅ Phrases courtes (maximum 20 mots)
-- ✅ Une idée par paragraphe
-- ✅ Structure claire avec titres
-- ✅ Listes à puces pour énumérations
+-  Langage simple et direct
+-  Phrases courtes (maximum 20 mots)
+-  Une idée par paragraphe
+-  Structure claire avec titres
+-  Listes à puces pour énumérations
 
 **Exemple:**
 
 ```html
-<!-- ❌ Mauvais -->
+<!--  Mauvais -->
 <p>
   L'application AWKWARD LEGACY, qui est un système de gestion de bases
   généalogiques moderne développé en Python 3.12 avec Flask comme framework
@@ -617,7 +617,7 @@ document.addEventListener('mousedown', () => {
   au format GEDCOM qui est le standard international.
 </p>
 
-<!-- ✅ Bon -->
+<!--  Bon -->
 <h2>Qu'est-ce qu'AWKWARD LEGACY ?</h2>
 <p>
   AWKWARD LEGACY est un outil de généalogie moderne.
@@ -635,23 +635,23 @@ document.addEventListener('mousedown', () => {
 #### 2. **Messages d'Erreur Compréhensibles**
 
 ```javascript
-// ❌ Mauvais
+//  Mauvais
 "Error 422: Unprocessable Entity. Invalid GEDCOM syntax at line 1247."
 
-// ✅ Bon
+//  Bon
 function showUserFriendlyError(error) {
   const messages = {
     'gedcom_invalid': {
       title: 'Fichier non valide',
       message: 'Le fichier GEDCOM contient des erreurs.',
       action: 'Vérifiez que le fichier provient d\'un logiciel de généalogie.',
-      icon: '⚠️'
+      icon: ''
     },
     'file_too_large': {
       title: 'Fichier trop volumineux',
       message: 'Le fichier dépasse la taille maximum de 10 MB.',
       action: 'Essayez de diviser votre arbre en plusieurs fichiers.',
-      icon: '📦'
+      icon: ''
     }
   };
 
@@ -659,7 +659,7 @@ function showUserFriendlyError(error) {
     title: 'Une erreur est survenue',
     message: 'Veuillez réessayer dans quelques instants.',
     action: 'Si le problème persiste, contactez le support.',
-    icon: '❌'
+    icon: ''
   };
 
   return `
@@ -745,7 +745,7 @@ function confirmDelete() {
 
 ---
 
-## 📜 Standards et Conformité
+##  Standards et Conformité
 
 ### WCAG 2.1 Niveau AA
 
@@ -753,21 +753,21 @@ function confirmDelete() {
 
 | Critère | Niveau | Description | Status |
 |---------|--------|-------------|--------|
-| **1.1.1** | A | Contenu non textuel | ✅ |
-| **1.3.1** | A | Information et relations | ✅ |
-| **1.4.3** | AA | Contraste minimum (4.5:1) | ✅ |
-| **1.4.4** | AA | Redimensionnement du texte | ✅ |
-| **1.4.5** | AA | Texte sous forme d'image | ✅ |
-| **2.1.1** | A | Clavier | ✅ |
-| **2.1.2** | A | Pas de piège au clavier | ✅ |
-| **2.4.3** | A | Parcours du focus | ✅ |
-| **2.4.7** | AA | Focus visible | ✅ |
-| **3.1.1** | A | Langue de la page | ✅ |
-| **3.2.3** | AA | Navigation cohérente | ✅ |
-| **3.3.1** | A | Identification des erreurs | ✅ |
-| **3.3.2** | A | Étiquettes ou instructions | ✅ |
-| **4.1.1** | A | Analyse syntaxique | ✅ |
-| **4.1.2** | A | Nom, rôle et valeur | ✅ |
+| **1.1.1** | A | Contenu non textuel |  |
+| **1.3.1** | A | Information et relations |  |
+| **1.4.3** | AA | Contraste minimum (4.5:1) |  |
+| **1.4.4** | AA | Redimensionnement du texte |  |
+| **1.4.5** | AA | Texte sous forme d'image |  |
+| **2.1.1** | A | Clavier |  |
+| **2.1.2** | A | Pas de piège au clavier |  |
+| **2.4.3** | A | Parcours du focus |  |
+| **2.4.7** | AA | Focus visible |  |
+| **3.1.1** | A | Langue de la page |  |
+| **3.2.3** | AA | Navigation cohérente |  |
+| **3.3.1** | A | Identification des erreurs |  |
+| **3.3.2** | A | Étiquettes ou instructions |  |
+| **4.1.1** | A | Analyse syntaxique |  |
+| **4.1.2** | A | Nom, rôle et valeur |  |
 
 ### RGAA 4.1 (France)
 
@@ -800,7 +800,7 @@ Conformité avec Section 508 pour les projets gouvernementaux US.
 
 ---
 
-## 🛠️ Implémentation Technique
+##  Implémentation Technique
 
 ### Configuration Flask
 
@@ -856,7 +856,7 @@ def index():
   <link rel="stylesheet" href="/static/css/accessible.css">
 
   <!-- Pas de zoom désactivé -->
-  <!-- ❌ INTERDIT: <meta name="viewport" content="user-scalable=no"> -->
+  <!--  INTERDIT: <meta name="viewport" content="user-scalable=no"> -->
 </head>
 
 <body>
@@ -1039,7 +1039,7 @@ window.a11y = a11y;
 
 ---
 
-## 🧪 Tests et Validation
+##  Tests et Validation
 
 ### Outils de Test Automatisés
 
@@ -1178,7 +1178,7 @@ describe('Accessibility Tests', () => {
 
 ---
 
-## ✅ Checklist de Conformité
+##  Checklist de Conformité
 
 ### Avant Chaque Release
 
@@ -1237,7 +1237,7 @@ describe('Accessibility Tests', () => {
 
 ---
 
-## 📚 Ressources et Formation
+##  Ressources et Formation
 
 ### Documentation Officielle
 
@@ -1266,7 +1266,7 @@ describe('Accessibility Tests', () => {
 
 ---
 
-## 📞 Contact et Support
+##  Contact et Support
 
 ### Signaler un Problème d'Accessibilité
 
@@ -1289,4 +1289,4 @@ Nous proposons:
 **Version du document:** 1.0
 **Prochaine révision:** Janvier 2026
 
-✅ **AWKWARD LEGACY - Accessible pour tous**
+ **AWKWARD LEGACY - Accessible pour tous**

@@ -707,7 +707,7 @@ cat > scripts/deploy.sh << 'EOF'
 
 set -e
 
-echo "🚀 Déploiement AWKWARD LEGACY..."
+echo " Déploiement AWKWARD LEGACY..."
 
 # Couleurs
 RED='\033[0;31m'
@@ -717,20 +717,20 @@ NC='\033[0m' # No Color
 
 # Fonctions
 function error() {
-    echo -e "${RED}❌ $1${NC}"
+    echo -e "${RED} $1${NC}"
     exit 1
 }
 
 function success() {
-    echo -e "${GREEN}✅ $1${NC}"
+    echo -e "${GREEN} $1${NC}"
 }
 
 function warning() {
-    echo -e "${YELLOW}⚠️  $1${NC}"
+    echo -e "${YELLOW}  $1${NC}"
 }
 
 # Vérifier les prérequis
-echo "🔍 Vérification des prérequis..."
+echo " Vérification des prérequis..."
 command -v docker >/dev/null 2>&1 || error "Docker requis mais non installé"
 command -v docker-compose >/dev/null 2>&1 || error "Docker Compose requis mais non installé"
 success "Prérequis OK"
@@ -742,7 +742,7 @@ fi
 success "Fichier .env présent"
 
 # Backup de la version actuelle
-echo "💾 Sauvegarde de la version actuelle..."
+echo " Sauvegarde de la version actuelle..."
 if [ -d "/var/lib/awkward-legacy/db" ]; then
     ./scripts/backup.sh
     success "Backup effectué"
@@ -751,30 +751,30 @@ else
 fi
 
 # Arrêter les conteneurs existants
-echo "🛑 Arrêt des conteneurs existants..."
+echo " Arrêt des conteneurs existants..."
 docker-compose down || warning "Aucun conteneur à arrêter"
 
 # Pull du code
-echo "📥 Pull des dernières modifications..."
+echo " Pull des dernières modifications..."
 git pull origin main || error "Échec du pull Git"
 success "Code à jour"
 
 # Construire les images
-echo "🔨 Construction des images Docker..."
+echo " Construction des images Docker..."
 docker-compose build --no-cache || error "Échec de la construction"
 success "Images construites"
 
 # Démarrer les services
-echo "▶️  Démarrage des services..."
+echo "  Démarrage des services..."
 docker-compose up -d || error "Échec du démarrage"
 success "Services démarrés"
 
 # Attendre que les services soient prêts
-echo "⏳ Attente du démarrage des services..."
+echo " Attente du démarrage des services..."
 sleep 10
 
 # Health check
-echo "🏥 Vérification de santé..."
+echo " Vérification de santé..."
 for i in {1..30}; do
     if curl -f http://localhost:8080/health >/dev/null 2>&1; then
         success "Application opérationnelle"
@@ -788,16 +788,16 @@ for i in {1..30}; do
 done
 
 # Afficher le statut
-echo "📊 Statut des conteneurs:"
+echo " Statut des conteneurs:"
 docker-compose ps
 
 # Afficher les logs récents
-echo "📋 Logs récents:"
+echo " Logs récents:"
 docker-compose logs --tail=50
 
 echo ""
-success "🎉 Déploiement terminé!"
-echo "📌 Application disponible sur:"
+success " Déploiement terminé!"
+echo " Application disponible sur:"
 echo "   - http://localhost:8080"
 echo "   - https://awkward-legacy.com"
 echo ""
@@ -823,31 +823,31 @@ BACKUP_DIR="/var/lib/awkward-legacy/backups"
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_NAME="backup_${DATE}"
 
-echo "💾 Backup AWKWARD LEGACY - ${DATE}"
+echo " Backup AWKWARD LEGACY - ${DATE}"
 
 # Créer le répertoire de backup
 mkdir -p "${BACKUP_DIR}"
 
 # Backup de la base de données
-echo "📁 Backup de la base de données..."
+echo " Backup de la base de données..."
 if [ -d "/var/lib/awkward-legacy/db" ]; then
     tar -czf "${BACKUP_DIR}/${BACKUP_NAME}_db.tar.gz" \
         -C /var/lib/awkward-legacy db/
-    echo "✅ Base de données sauvegardée"
+    echo " Base de données sauvegardée"
 else
-    echo "⚠️  Aucune base de données à sauvegarder"
+    echo "  Aucune base de données à sauvegarder"
 fi
 
 # Backup de la configuration
-echo "⚙️  Backup de la configuration..."
+echo "  Backup de la configuration..."
 if [ -f ".env" ]; then
     cp .env "${BACKUP_DIR}/${BACKUP_NAME}.env"
-    echo "✅ Configuration sauvegardée"
+    echo " Configuration sauvegardée"
 fi
 
 # Chiffrer le backup (optionnel)
 if command -v openssl >/dev/null 2>&1; then
-    echo "🔐 Chiffrement du backup..."
+    echo " Chiffrement du backup..."
     tar -czf - "${BACKUP_DIR}/${BACKUP_NAME}"* | \
         openssl enc -aes-256-cbc -salt -pbkdf2 \
         -out "${BACKUP_DIR}/${BACKUP_NAME}.tar.gz.enc" \
@@ -857,23 +857,23 @@ if command -v openssl >/dev/null 2>&1; then
     rm -f "${BACKUP_DIR}/${BACKUP_NAME}_db.tar.gz"
     rm -f "${BACKUP_DIR}/${BACKUP_NAME}.env"
 
-    echo "✅ Backup chiffré"
+    echo " Backup chiffré"
 fi
 
 # Supprimer les backups de plus de 90 jours
-echo "🧹 Nettoyage des anciens backups..."
+echo " Nettoyage des anciens backups..."
 find "${BACKUP_DIR}" -name "backup_*.tar.gz*" -mtime +90 -delete
-echo "✅ Nettoyage effectué"
+echo " Nettoyage effectué"
 
 # Upload vers S3 (si configuré)
 if [ -n "${AWS_S3_BUCKET}" ]; then
-    echo "☁️  Upload vers S3..."
+    echo "  Upload vers S3..."
     aws s3 cp "${BACKUP_DIR}/${BACKUP_NAME}.tar.gz.enc" \
         "s3://${AWS_S3_BUCKET}/backups/" \
-        --server-side-encryption AES256 || echo "⚠️  Upload S3 échoué"
+        --server-side-encryption AES256 || echo "  Upload S3 échoué"
 fi
 
-echo "✅ Backup terminé: ${BACKUP_NAME}"
+echo " Backup terminé: ${BACKUP_NAME}"
 EOF
 
 chmod +x scripts/backup.sh
@@ -901,16 +901,16 @@ BACKUP_FILE="$1"
 # Si "latest", prendre le plus récent
 if [ "$BACKUP_FILE" == "latest" ]; then
     BACKUP_FILE=$(ls -t "${BACKUP_DIR}"/backup_*.tar.gz.enc | head -1)
-    echo "📌 Utilisation du backup le plus récent: $(basename ${BACKUP_FILE})"
+    echo " Utilisation du backup le plus récent: $(basename ${BACKUP_FILE})"
 fi
 
 # Vérifier que le fichier existe
 if [ ! -f "${BACKUP_DIR}/${BACKUP_FILE}" ]; then
-    echo "❌ Backup non trouvé: ${BACKUP_FILE}"
+    echo " Backup non trouvé: ${BACKUP_FILE}"
     exit 1
 fi
 
-echo "⚠️  ATTENTION: Cette opération va écraser les données actuelles!"
+echo "  ATTENTION: Cette opération va écraser les données actuelles!"
 read -p "Continuer? (yes/no): " confirm
 if [ "$confirm" != "yes" ]; then
     echo "Restauration annulée"
@@ -918,36 +918,36 @@ if [ "$confirm" != "yes" ]; then
 fi
 
 # Arrêter l'application
-echo "🛑 Arrêt de l'application..."
+echo " Arrêt de l'application..."
 docker-compose down || systemctl stop awkward-legacy || true
 
 # Déchiffrer le backup
-echo "🔓 Déchiffrement du backup..."
+echo " Déchiffrement du backup..."
 openssl enc -aes-256-cbc -d -pbkdf2 \
     -in "${BACKUP_DIR}/${BACKUP_FILE}" \
     -pass pass:"${BACKUP_ENCRYPTION_KEY:-defaultkey}" | \
     tar -xzf - -C /tmp/
 
 # Restaurer la base de données
-echo "📂 Restauration de la base de données..."
+echo " Restauration de la base de données..."
 rm -rf /var/lib/awkward-legacy/db
 tar -xzf /tmp/backup_*_db.tar.gz -C /var/lib/awkward-legacy/
 
 # Restaurer la configuration
 if [ -f "/tmp/backup_*.env" ]; then
-    echo "⚙️  Restauration de la configuration..."
+    echo "  Restauration de la configuration..."
     cp /tmp/backup_*.env .env.restored
-    echo "⚠️  Configuration restaurée dans .env.restored (à vérifier)"
+    echo "  Configuration restaurée dans .env.restored (à vérifier)"
 fi
 
 # Nettoyer
 rm -rf /tmp/backup_*
 
 # Redémarrer l'application
-echo "▶️  Redémarrage de l'application..."
+echo "  Redémarrage de l'application..."
 docker-compose up -d || systemctl start awkward-legacy
 
-echo "✅ Restauration terminée!"
+echo " Restauration terminée!"
 EOF
 
 chmod +x scripts/restore.sh
@@ -1083,7 +1083,7 @@ sudo apt-get upgrade -y
 
 # Vérifier si redémarrage nécessaire
 if [ -f /var/run/reboot-required ]; then
-    echo "⚠️  Redémarrage nécessaire"
+    echo "  Redémarrage nécessaire"
     cat /var/run/reboot-required.pkgs
 fi
 
@@ -1285,19 +1285,19 @@ echo "=== AWKWARD LEGACY - Health Check ==="
 
 # Application
 echo -n "Application: "
-curl -sf http://localhost:8080/health >/dev/null && echo "✅ OK" || echo "❌ DOWN"
+curl -sf http://localhost:8080/health >/dev/null && echo " OK" || echo " DOWN"
 
 # Docker
 echo -n "Docker: "
-docker ps | grep awkward-legacy-web >/dev/null && echo "✅ OK" || echo "❌ DOWN"
+docker ps | grep awkward-legacy-web >/dev/null && echo " OK" || echo " DOWN"
 
 # Nginx
 echo -n "Nginx: "
-docker ps | grep awkward-legacy-nginx >/dev/null && echo "✅ OK" || echo "❌ DOWN"
+docker ps | grep awkward-legacy-nginx >/dev/null && echo " OK" || echo " DOWN"
 
 # Base de données
 echo -n "Database: "
-[ -f /var/lib/awkward-legacy/db ] && echo "✅ OK" || echo "⚠️  Missing"
+[ -f /var/lib/awkward-legacy/db ] && echo " OK" || echo "  Missing"
 
 # Disque
 echo "Disk usage:"
@@ -1378,7 +1378,7 @@ watch -n 10 './scripts/check-health.sh'
 #!/bin/bash
 # rollback.sh
 
-echo "🔄 Rollback vers version précédente..."
+echo " Rollback vers version précédente..."
 
 # Arrêter la version actuelle
 docker-compose down
@@ -1401,7 +1401,7 @@ docker-compose up -d
 # Vérifier
 ./scripts/check-health.sh
 
-echo "✅ Rollback terminé"
+echo " Rollback terminé"
 ```
 
 ### 9.2 Rollback avec restauration complète

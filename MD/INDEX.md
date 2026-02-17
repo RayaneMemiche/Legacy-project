@@ -1,53 +1,53 @@
-# 📚 INDEX - AWKWARD LEGACY
+#  INDEX - AWKWARD LEGACY
 
 Bienvenue dans le projet AWKWARD LEGACY ! Ce fichier vous guide vers tous les documents importants.
 
 ---
 
-## 🚀 DÉMARRAGE RAPIDE
+##  DÉMARRAGE RAPIDE
 
 **Vous voulez lancer le projet en 5 minutes ?**
 
-👉 **[QUICK_START.md](QUICK_START.md)**
+ **[QUICK_START.md](QUICK_START.md)**
 
 **Vous voulez des commandes copy-paste ?**
 
-👉 **[COMMANDES_COPY_PASTE.md](COMMANDES_COPY_PASTE.md)**
+ **[COMMANDES_COPY_PASTE.md](COMMANDES_COPY_PASTE.md)**
 
 **Vous voulez un guide détaillé ?**
 
-👉 **[GUIDE_LANCEMENT.md](GUIDE_LANCEMENT.md)**
+ **[GUIDE_LANCEMENT.md](GUIDE_LANCEMENT.md)**
 
 ---
 
-## 📋 DOCUMENTATION PRINCIPALE
+##  DOCUMENTATION PRINCIPALE
 
-### 🎯 Vue d'Ensemble
+###  Vue d'Ensemble
 - **[RECAP_PROJET.md](RECAP_PROJET.md)** - Récapitulatif complet du projet (recommandé)
 - **[Sujet.md](Sujet.md)** - Sujet original du projet
 - **[TODO_ACTIONS.md](TODO_ACTIONS.md)** - Plan d'action 7 jours
 
-### 🛠️ Guides Pratiques
+###  Guides Pratiques
 - **[QUICK_START.md](QUICK_START.md)** ⭐ - Démarrage rapide (5 min)
 - **[GUIDE_LANCEMENT.md](GUIDE_LANCEMENT.md)** ⭐ - Guide complet de lancement
 - **[COMMANDES_COPY_PASTE.md](COMMANDES_COPY_PASTE.md)** ⭐ - Toutes les commandes prêtes
 
-### 🔒 Sécurité & Conformité
+###  Sécurité & Conformité
 - **[SECURITY.md](SECURITY.md)** - Politique de sécurité
 - **[LegacyProject/modernProject/docs/RGPD_COMPLIANCE.md](LegacyProject/modernProject/docs/RGPD_COMPLIANCE.md)** - Conformité RGPD
 
-### 🤝 Contribution
+###  Contribution
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Guide de contribution
 
-### 🚢 Déploiement
+###  Déploiement
 - **[PRODUCTION_DEPLOYMENT_PLAN.md](PRODUCTION_DEPLOYMENT_PLAN.md)** - Plan de déploiement production
 
-### 🎓 Présentation
+###  Présentation
 - **[presentation_slides.md](presentation_slides.md)** - Slides de présentation
 
 ---
 
-## 📊 RAPPORTS JOURNALIERS
+##  RAPPORTS JOURNALIERS
 
 Suivez l'évolution du projet jour par jour :
 
@@ -60,7 +60,7 @@ Suivez l'évolution du projet jour par jour :
 
 ---
 
-## 🎨 FRONTEND
+##  FRONTEND
 
 ### Documentation Frontend
 - **[LegacyProject/modernProject/frontend/README.md](LegacyProject/modernProject/frontend/README.md)** - Guide frontend complet
@@ -73,7 +73,7 @@ Suivez l'évolution du projet jour par jour :
 
 ---
 
-## 🔧 BACKEND
+##  BACKEND
 
 ### Serveur API
 - **[LegacyProject/modernProject/server.py](LegacyProject/modernProject/server.py)** - Serveur Flask
@@ -86,7 +86,7 @@ Suivez l'évolution du projet jour par jour :
 
 ---
 
-## 🧪 TESTS
+##  TESTS
 
 ### Scripts de Tests
 - **[LegacyProject/modernProject/run_all_tests.sh](LegacyProject/modernProject/run_all_tests.sh)** ⭐ - Lancer tous les tests
@@ -101,7 +101,7 @@ Suivez l'évolution du projet jour par jour :
 
 ---
 
-## 📖 DOCUMENTATION TECHNIQUE
+##  DOCUMENTATION TECHNIQUE
 
 ### Tests
 - `LegacyProject/modernProject/docs/TEST_POLICY.md` - Politique de tests (6000 mots)
@@ -114,7 +114,7 @@ Suivez l'évolution du projet jour par jour :
 
 ---
 
-## 🐳 INFRASTRUCTURE
+##  INFRASTRUCTURE
 
 ### Docker
 - `LegacyProject/modernProject/Dockerfile` - Image Docker
@@ -130,7 +130,7 @@ Suivez l'évolution du projet jour par jour :
 
 ---
 
-## 🎯 PAR CAS D'USAGE
+##  PAR CAS D'USAGE
 
 ### Je veux démarrer le projet
 1. **[QUICK_START.md](QUICK_START.md)** - Démarrage en 5 min
@@ -160,12 +160,12 @@ Suivez l'évolution du projet jour par jour :
 
 ---
 
-## 📊 STRUCTURE DU PROJET
+##  STRUCTURE DU PROJET
 
 ```
 Legal/
 │
-├── 📚 DOCUMENTATION PRINCIPALE
+├──  DOCUMENTATION PRINCIPALE
 │   ├── INDEX.md                          ⭐ Ce fichier
 │   ├── QUICK_START.md                    ⭐ Démarrage rapide
 │   ├── GUIDE_LANCEMENT.md                ⭐ Guide complet
@@ -178,7 +178,7 @@ Legal/
 │   ├── PRODUCTION_DEPLOYMENT_PLAN.md
 │   └── presentation_slides.md
 │
-├── 📊 RAPPORTS JOURNALIERS
+├──  RAPPORTS JOURNALIERS
 │   ├── JOUR1_RAPPORT.md
 │   ├── jour2_rapport.md
 │   ├── jour3_rapport.md
@@ -186,20 +186,20 @@ Legal/
 │   ├── jour5_rapport.md
 │   └── jour6_rapport.md
 │
-├── 🌍 GENEWEB (Projet Original OCaml)
+├──  GENEWEB (Projet Original OCaml)
 │   └── geneweb/
 │
-└── 🚀 LEGACY PROJECT (Modernisation Python)
+└──  LEGACY PROJECT (Modernisation Python)
     └── LegacyProject/
         └── modernProject/
             │
-            ├── 🖥️ BACKEND
+            ├──  BACKEND
             │   ├── server.py             ⭐ Serveur API Flask
             │   ├── requirements.txt
             │   └── lib/
             │       └── security.py
             │
-            ├── 🌐 FRONTEND
+            ├──  FRONTEND
             │   └── frontend/
             │       ├── index.html        ⭐ Interface web
             │       ├── app.js
@@ -207,7 +207,7 @@ Legal/
             │       ├── config.json
             │       └── README.md
             │
-            ├── 🧪 TESTS
+            ├──  TESTS
             │   ├── run_all_tests.sh      ⭐ Tous les tests
             │   ├── test_modules.py
             │   ├── test_performance_simple.py
@@ -217,20 +217,20 @@ Legal/
             │       ├── compliance/
             │       └── security/
             │
-            ├── 📖 DOCUMENTATION
+            ├──  DOCUMENTATION
             │   └── docs/
             │       ├── TEST_POLICY.md
             │       ├── RGPD_COMPLIANCE.md
             │       └── DEPLOYMENT_GUIDE.md
             │
-            ├── 🐳 INFRASTRUCTURE
+            ├──  INFRASTRUCTURE
             │   ├── Dockerfile
             │   ├── docker-compose.yml
             │   ├── nginx.conf
             │   ├── scripts/
             │   └── monitoring/
             │
-            └── ⚙️ CONFIGURATION
+            └──  CONFIGURATION
                 ├── .pre-commit-config.yaml
                 ├── .pylintrc
                 ├── .dockerignore
@@ -239,7 +239,7 @@ Legal/
 
 ---
 
-## 🎯 FICHIERS ESSENTIELS MARQUÉS ⭐
+##  FICHIERS ESSENTIELS MARQUÉS ⭐
 
 Les fichiers les plus importants sont marqués d'une étoile ⭐ :
 
@@ -254,7 +254,7 @@ Les fichiers les plus importants sont marqués d'une étoile ⭐ :
 
 ---
 
-## 🎓 POUR LA DÉFENSE
+##  POUR LA DÉFENSE
 
 ### Documents à Préparer
 1. **[RECAP_PROJET.md](RECAP_PROJET.md)** - Vue d'ensemble
@@ -275,7 +275,7 @@ Les fichiers les plus importants sont marqués d'une étoile ⭐ :
 
 ---
 
-## 📞 AIDE
+##  AIDE
 
 ### Questions Fréquentes
 
@@ -296,7 +296,7 @@ Les fichiers les plus importants sont marqués d'une étoile ⭐ :
 
 ---
 
-## 📈 STATISTIQUES DU PROJET
+##  STATISTIQUES DU PROJET
 
 - **Fichiers créés**: 60+
 - **Lignes de code**: 12000+
@@ -308,7 +308,7 @@ Les fichiers les plus importants sont marqués d'une étoile ⭐ :
 
 ---
 
-## ✅ CHECKLIST RAPIDE
+##  CHECKLIST RAPIDE
 
 Avant la défense, vérifier que :
 
@@ -321,7 +321,7 @@ Avant la défense, vérifier que :
 
 ---
 
-## 🎉 CONCLUSION
+##  CONCLUSION
 
 **Ce projet est complet et prêt pour la défense !**
 
@@ -330,10 +330,10 @@ Pour toute question ou problème :
 2. Vérifiez la section Dépannage
 3. Relisez **[RECAP_PROJET.md](RECAP_PROJET.md)**
 
-**Bonne chance ! 🚀**
+**Bonne chance ! **
 
 ---
 
 **Dernière mise à jour**: 23 Octobre 2025
-**Statut**: ✅ Prêt pour défense
+**Statut**:  Prêt pour défense
 **Version**: 1.0.0

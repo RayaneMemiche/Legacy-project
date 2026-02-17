@@ -2,7 +2,7 @@
 
 Ce guide explique comment démarrer le frontend, le backend et lancer tous les tests du projet AWKWARD LEGACY.
 
-## 📋 Table des Matières
+##  Table des Matières
 
 1. [Prérequis](#prérequis)
 2. [Installation](#installation)
@@ -13,7 +13,7 @@ Ce guide explique comment démarrer le frontend, le backend et lancer tous les t
 
 ---
 
-## 🔧 Prérequis
+##  Prérequis
 
 ### Backend (Python)
 - Python 3.8+
@@ -32,7 +32,7 @@ Ce guide explique comment démarrer le frontend, le backend et lancer tous les t
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### 1. Installer les dépendances Python
 
@@ -56,12 +56,12 @@ pip install -r requirements.txt
 
 ```bash
 # Vérifier les modules Python
-python3 -c "import sys; sys.path.append('lib'); from security import SecurityManager; print('✅ Module security OK')"
+python3 -c "import sys; sys.path.append('lib'); from security import SecurityManager; print(' Module security OK')"
 ```
 
 ---
 
-## 🚀 Lancement du Backend
+##  Lancement du Backend
 
 ### Option 1: Backend Flask (Recommandé)
 
@@ -206,9 +206,9 @@ def get_recent_activity():
     return jsonify(activities)
 
 if __name__ == '__main__':
-    print("🚀 Démarrage du serveur API AWKWARD LEGACY...")
-    print("📍 API disponible sur: http://localhost:8000")
-    print("🔗 Frontend à lancer sur: http://localhost:3000")
+    print(" Démarrage du serveur API AWKWARD LEGACY...")
+    print(" API disponible sur: http://localhost:8000")
+    print(" Frontend à lancer sur: http://localhost:3000")
     app.run(host='0.0.0.0', port=8000, debug=True)
 ```
 
@@ -239,7 +239,7 @@ make
 
 ---
 
-## 🌐 Lancement du Frontend
+##  Lancement du Frontend
 
 ### Option 1: Serveur Python (Recommandé pour le développement)
 
@@ -291,7 +291,7 @@ server {
 
 ---
 
-## 🧪 Lancement des Tests
+##  Lancement des Tests
 
 ### Tests Complets (Tous les tests)
 
@@ -307,9 +307,9 @@ python3 test_modules.py
 ```
 
 **Ce script lance :**
-- ✅ Tests du module Security
-- ✅ Vérification des fichiers de configuration
-- ✅ Vérification des rapports
+-  Tests du module Security
+-  Vérification des fichiers de configuration
+-  Vérification des rapports
 
 ---
 
@@ -448,7 +448,7 @@ open htmlcov/index.html
 
 ---
 
-## 📊 Commandes de Test Complètes
+##  Commandes de Test Complètes
 
 ### Script de Test Global
 
@@ -458,7 +458,7 @@ Créer un script `run_all_tests.sh`:
 #!/bin/bash
 
 echo "======================================"
-echo "🧪 AWKWARD LEGACY - Tests Complets"
+echo " AWKWARD LEGACY - Tests Complets"
 echo "======================================"
 
 # Activer l'environnement virtuel
@@ -466,32 +466,32 @@ source venv/bin/activate
 
 # 1. Tests des modules
 echo ""
-echo "1️⃣  Tests des Modules..."
+echo "1  Tests des Modules..."
 python3 test_modules.py
 
 # 2. Tests d'intégration
 echo ""
-echo "2️⃣  Tests d'Intégration..."
+echo "2  Tests d'Intégration..."
 python3 -m pytest tests/integration/ -v
 
 # 3. Tests de performance
 echo ""
-echo "3️⃣  Tests de Performance..."
+echo "3  Tests de Performance..."
 python3 test_performance_simple.py
 
 # 4. Tests RGPD
 echo ""
-echo "4️⃣  Tests de Conformité RGPD..."
+echo "4  Tests de Conformité RGPD..."
 python3 tests/compliance/rgpd_validator.py
 
 # 5. Tests de sécurité
 echo ""
-echo "5️⃣  Tests de Sécurité..."
+echo "5  Tests de Sécurité..."
 python3 tests/security/security_scanner.py
 
 echo ""
 echo "======================================"
-echo "✅ Tests terminés!"
+echo " Tests terminés!"
 echo "======================================"
 ```
 
@@ -504,7 +504,7 @@ chmod +x run_all_tests.sh
 
 ---
 
-## 🔍 Vérification de l'Installation
+##  Vérification de l'Installation
 
 ### Vérifier que tout fonctionne
 
@@ -513,13 +513,13 @@ chmod +x run_all_tests.sh
 python3 --version
 
 # 2. Vérifier les modules Python
-python3 -c "import sys; sys.path.append('LegacyProject/modernProject/lib'); from security import SecurityManager; print('✅ OK')"
+python3 -c "import sys; sys.path.append('LegacyProject/modernProject/lib'); from security import SecurityManager; print(' OK')"
 
 # 3. Vérifier Flask
-python3 -c "import flask; print('✅ Flask OK')"
+python3 -c "import flask; print(' Flask OK')"
 
 # 4. Vérifier pytest
-python3 -c "import pytest; print('✅ pytest OK')"
+python3 -c "import pytest; print(' pytest OK')"
 
 # 5. Tester l'API
 curl http://localhost:8000/api/health
@@ -527,7 +527,7 @@ curl http://localhost:8000/api/health
 
 ---
 
-## 🐛 Dépannage
+##  Dépannage
 
 ### Problème: Module non trouvé
 
@@ -570,7 +570,7 @@ source venv/bin/activate
 
 ---
 
-## 📁 Structure des Commandes par Terminal
+##  Structure des Commandes par Terminal
 
 ### Terminal 1: Backend
 
@@ -597,7 +597,7 @@ source venv/bin/activate
 
 ---
 
-## ✅ Checklist de Lancement
+##  Checklist de Lancement
 
 - [ ] Environnement virtuel créé et activé
 - [ ] Dépendances Python installées
@@ -611,7 +611,7 @@ source venv/bin/activate
 
 ---
 
-## 🎯 URLs à Retenir
+##  URLs à Retenir
 
 | Service | URL | Description |
 |---------|-----|-------------|
@@ -622,7 +622,7 @@ source venv/bin/activate
 
 ---
 
-## 📞 Support
+##  Support
 
 En cas de problème, vérifier :
 1. Les logs du backend (terminal 1)
@@ -630,4 +630,4 @@ En cas de problème, vérifier :
 3. La console Python pour les tests
 4. Les fichiers de rapport générés
 
-Bonne chance avec votre défense ! 🚀
+Bonne chance avec votre défense ! 

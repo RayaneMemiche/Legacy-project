@@ -1,4 +1,4 @@
-# 🚀 PLAN D'ACTION DÉTAILLÉ - PROJET AWKWARD LEGACY
+#  PLAN D'ACTION DÉTAILLÉ - PROJET AWKWARD LEGACY
 
 > **Date limite de défense : 20-24 octobre**
 > **Temps restant : 3-7 jours**
@@ -6,16 +6,16 @@
 
 ---
 
-## 📊 ÉTAT ACTUEL DU PROJET
+##  ÉTAT ACTUEL DU PROJET
 
-### ✅ Ce qui est DÉJÀ FAIT
+###  Ce qui est DÉJÀ FAIT
 - [x] Wrapper Python des modules OCaml (39 modules)
 - [x] Tests unitaires (39 fichiers de tests)
 - [x] Makefile avec rules obligatoires (re, clean, fclean)
 - [x] CI/CD basique avec GitHub Actions
 - [x] Structure de projet claire (lib/tests)
 
-### ❌ Ce qui MANQUE CRITIQUEMENT
+###  Ce qui MANQUE CRITIQUEMENT
 - [ ] Tests fonctionnels (0%)
 - [ ] Tests d'intégration (0%)
 - [ ] Tests de performance (0%)
@@ -27,9 +27,9 @@
 
 ---
 
-## 🔴 TÂCHES CRITIQUES (OBLIGATOIRES POUR LA DÉFENSE)
+##  TÂCHES CRITIQUES (OBLIGATOIRES POUR LA DÉFENSE)
 
-### 📅 JOUR 1 : Tests Fonctionnels
+###  JOUR 1 : Tests Fonctionnels
 **Objectif : Créer au minimum 10 tests end-to-end**
 
 #### MATIN (4h)
@@ -96,7 +96,7 @@
 
 ---
 
-### 📅 JOUR 2 : Tests d'Intégration et Performance
+###  JOUR 2 : Tests d'Intégration et Performance
 
 #### MATIN (4h) - Tests d'Intégration
 1. **Créer les tests d'intégration**
@@ -176,7 +176,7 @@
 
 ---
 
-### 📅 JOUR 3 : Documentation Critique
+###  JOUR 3 : Documentation Critique
 
 #### MATIN (4h) - Documentation de Tests
 1. **Créer la politique de tests**
@@ -397,7 +397,7 @@
 
 ---
 
-### 📅 JOUR 4 : Infrastructure Docker
+###  JOUR 4 : Infrastructure Docker
 
 #### MATIN (4h) - Dockerisation
 1. **Créer le Dockerfile**
@@ -524,7 +524,7 @@
 
    set -e
 
-   echo "🚀 Déploiement AWKWARD LEGACY..."
+   echo " Déploiement AWKWARD LEGACY..."
 
    # Vérifier les prérequis
    command -v docker >/dev/null 2>&1 || { echo "Docker requis"; exit 1; }
@@ -549,13 +549,13 @@
    # Afficher les logs
    docker-compose logs --tail=50
 
-   echo "✅ Déploiement terminé!"
-   echo "📌 Application disponible sur http://localhost:8080"
+   echo " Déploiement terminé!"
+   echo " Application disponible sur http://localhost:8080"
    ```
 
 ---
 
-### 📅 JOUR 5 : Sécurité et Standards
+###  JOUR 5 : Sécurité et Standards
 
 #### MATIN (4h) - Sécurité
 1. **Créer le module de sécurité**
@@ -768,7 +768,7 @@
 
 ---
 
-### 📅 JOUR 6 : Finalisation et Tests
+###  JOUR 6 : Finalisation et Tests
 
 #### MATIN (4h) - Accessibilité et Améliorations
 1. **Ajouter l'accessibilité**
@@ -888,7 +888,7 @@
    #!/bin/bash
    # validate.sh
 
-   echo "🔍 Validation finale du projet AWKWARD LEGACY"
+   echo " Validation finale du projet AWKWARD LEGACY"
 
    # Vérifier les fichiers obligatoires
    FILES=(
@@ -905,9 +905,9 @@
 
    for file in "${FILES[@]}"; do
        if [ -f "$file" ]; then
-           echo "✅ $file présent"
+           echo " $file présent"
        else
-           echo "❌ $file MANQUANT!"
+           echo " $file MANQUANT!"
            exit 1
        fi
    done
@@ -915,9 +915,9 @@
    # Vérifier les rules du Makefile
    for rule in "re" "clean" "fclean"; do
        if grep -q "^$rule:" Makefile; then
-           echo "✅ Rule '$rule' présente"
+           echo " Rule '$rule' présente"
        else
-           echo "❌ Rule '$rule' MANQUANTE!"
+           echo " Rule '$rule' MANQUANTE!"
            exit 1
        fi
    done
@@ -928,7 +928,7 @@
    INTEG_TESTS=$(find modernProject/tests/integration -name "*.py" | wc -l)
    PERF_TESTS=$(find modernProject/tests/performance -name "*.py" | wc -l)
 
-   echo "📊 Statistiques des tests:"
+   echo " Statistiques des tests:"
    echo "  - Tests unitaires: $UNIT_TESTS"
    echo "  - Tests fonctionnels: $FUNC_TESTS"
    echo "  - Tests d'intégration: $INTEG_TESTS"
@@ -937,14 +937,14 @@
    # Vérifier la couverture
    coverage run -m pytest
    COVERAGE=$(coverage report | grep TOTAL | awk '{print $4}')
-   echo "📈 Coverage: $COVERAGE"
+   echo " Coverage: $COVERAGE"
 
-   echo "✨ Validation terminée!"
+   echo " Validation terminée!"
    ```
 
 ---
 
-### 📅 JOUR 7 : Polish Final et Préparation Défense
+###  JOUR 7 : Polish Final et Préparation Défense
 
 #### MATIN (4h)
 1. **Créer le README complet**
@@ -957,12 +957,12 @@
    [![OCaml 4.14+](https://img.shields.io/badge/ocaml-4.14+-orange.svg)]
    [![License](https://img.shields.io/badge/license-MIT-green.svg)]
 
-   ## 📖 Description
+   ##  Description
 
    AWKWARD LEGACY est une modernisation du système de généalogie GeneWeb,
    préservant le cœur OCaml tout en l'enveloppant dans une interface Python moderne.
 
-   ## 🚀 Quick Start
+   ##  Quick Start
 
    ```bash
    # Clone
@@ -976,16 +976,16 @@
    http://localhost:8080
    ```
 
-   ## 📋 Fonctionnalités
+   ##  Fonctionnalités
 
-   - ✅ Gestion d'arbres généalogiques
-   - ✅ Import/Export GEDCOM
-   - ✅ Calcul de consanguinité
-   - ✅ Interface web moderne
-   - ✅ API REST documentée
-   - ✅ Conformité RGPD
+   -  Gestion d'arbres généalogiques
+   -  Import/Export GEDCOM
+   -  Calcul de consanguinité
+   -  Interface web moderne
+   -  API REST documentée
+   -  Conformité RGPD
 
-   ## 🧪 Tests
+   ##  Tests
 
    ```bash
    make test           # Tous les tests
@@ -995,7 +995,7 @@
    make coverage       # Rapport de couverture
    ```
 
-   ## 📚 Documentation
+   ##  Documentation
 
    - [Guide de Déploiement](docs/DEPLOYMENT_GUIDE.md)
    - [Politique de Tests](docs/TEST_POLICY.md)
@@ -1003,14 +1003,14 @@
    - [Sécurité](SECURITY.md)
    - [Contribution](CONTRIBUTING.md)
 
-   ## 🔒 Sécurité
+   ##  Sécurité
 
    - Chiffrement AES-256
    - JWT Authentication
    - Rate Limiting
    - HTTPS obligatoire
 
-   ## 📊 Architecture
+   ##  Architecture
 
    ```
    awkward-legacy/
@@ -1025,11 +1025,11 @@
    └── scripts/           # Scripts de déploiement
    ```
 
-   ## 🤝 Équipe
+   ##  Équipe
 
    Projet EPITECH - CoinLegacy Inc.
 
-   ## 📄 License
+   ##  License
 
    MIT License - Voir [LICENSE](LICENSE)
    ```
@@ -1172,16 +1172,16 @@
 
 ---
 
-## 📈 MÉTRIQUES DE SUCCÈS
+##  MÉTRIQUES DE SUCCÈS
 
 ### Objectifs à atteindre :
-- ✅ **Tests** : 4 types (unitaire, fonctionnel, intégration, performance)
-- ✅ **Coverage** : > 80%
-- ✅ **Documentation** : 5 documents minimum
-- ✅ **Déploiement** : Docker + Guide
-- ✅ **Sécurité** : Auth + Chiffrement
-- ✅ **RGPD** : Documentation complète
-- ✅ **Standards** : Linting + Conventions
+-  **Tests** : 4 types (unitaire, fonctionnel, intégration, performance)
+-  **Coverage** : > 80%
+-  **Documentation** : 5 documents minimum
+-  **Déploiement** : Docker + Guide
+-  **Sécurité** : Auth + Chiffrement
+-  **RGPD** : Documentation complète
+-  **Standards** : Linting + Conventions
 
 ### Commandes utiles :
 ```bash
@@ -1203,7 +1203,7 @@ docker-compose up -d
 
 ---
 
-## 🎯 CONCLUSION
+##  CONCLUSION
 
 Ce plan d'action vous permettra de passer de 18% à 70-80% de conformité en 7 jours.
 Chaque étape est détaillée avec le code exact à implémenter.
@@ -1215,4 +1215,4 @@ Chaque étape est détaillée avec le code exact à implémenter.
 4. Documenter au fur et à mesure
 5. Commiter régulièrement
 
-Bonne chance pour votre défense ! 🚀
+Bonne chance pour votre défense ! 

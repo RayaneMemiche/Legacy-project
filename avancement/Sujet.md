@@ -24,7 +24,7 @@ Rendre ce code conforme aux standards actuels tout en :
 - **ÉVITANT** la destruction de l'infrastructure
 
 ### Contraintes Critiques
-⚠️ **ATTENTION** : Réécrire ou détruire le code entraînera votre licenciement. C'est une pièce d'histoire à restaurer, pas à reconstruire.
+ **ATTENTION** : Réécrire ou détruire le code entraînera votre licenciement. C'est une pièce d'histoire à restaurer, pas à reconstruire.
 
 ## Spécifications Techniques
 
@@ -100,12 +100,12 @@ Rendre ce code conforme aux standards actuels tout en :
 ## Points Critiques à Retenir
 
 ### Philosophie du Projet
-- ✅ **RESTAURER** le code legacy
-- ✅ **TESTER** exhaustivement
-- ✅ **SÉCURISER** le déploiement
-- ✅ **DOCUMENTER** tous les processus
-- ❌ **NE PAS RÉÉCRIRE** from scratch
-- ❌ **NE PAS DÉTRUIRE** l'infrastructure existante
+-  **RESTAURER** le code legacy
+-  **TESTER** exhaustivement
+-  **SÉCURISER** le déploiement
+-  **DOCUMENTER** tous les processus
+-  **NE PAS RÉÉCRIRE** from scratch
+-  **NE PAS DÉTRUIRE** l'infrastructure existante
 
 ### Priorités
 1. **Qualité** : Tests rigoureux et documentation complète

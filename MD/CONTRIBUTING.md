@@ -1,4 +1,4 @@
-# 🤝 Guide de Contribution - AWKWARD LEGACY
+#  Guide de Contribution - AWKWARD LEGACY
 
 ## Table des matières
 
@@ -21,22 +21,22 @@ Merci de votre intérêt pour contribuer à **AWKWARD LEGACY**! Ce projet vise �
 
 Nous accueillons les contributions de tous niveaux d'expérience et nous nous engageons à fournir un environnement accueillant et inclusif.
 
-### 🎯 Types de Contributions Recherchées
+###  Types de Contributions Recherchées
 
-- 🐛 **Bug fixes** : Corrections de bugs et problèmes
-- ✨ **Nouvelles fonctionnalités** : Ajout de fonctionnalités utiles
-- 📝 **Documentation** : Amélioration et traduction de la documentation
-- 🧪 **Tests** : Ajout de tests unitaires, d'intégration ou de performance
-- 🎨 **UI/UX** : Amélioration de l'interface utilisateur
-- 🌍 **Traductions** : Support de nouvelles langues
-- ♿ **Accessibilité** : Amélioration de l'accessibilité
-- 🔒 **Sécurité** : Identification et correction de failles
+-  **Bug fixes** : Corrections de bugs et problèmes
+-  **Nouvelles fonctionnalités** : Ajout de fonctionnalités utiles
+-  **Documentation** : Amélioration et traduction de la documentation
+-  **Tests** : Ajout de tests unitaires, d'intégration ou de performance
+-  **UI/UX** : Amélioration de l'interface utilisateur
+-  **Traductions** : Support de nouvelles langues
+-  **Accessibilité** : Amélioration de l'accessibilité
+-  **Sécurité** : Identification et correction de failles
 
 ---
 
 ## Code de Conduite
 
-### 🌟 Nos Valeurs
+###  Nos Valeurs
 
 - **Respect** : Traiter chacun avec respect et dignité
 - **Inclusion** : Accueillir les contributeurs de tous horizons
@@ -44,14 +44,14 @@ Nous accueillons les contributions de tous niveaux d'expérience et nous nous en
 - **Excellence** : Viser la qualité dans tout ce que nous faisons
 - **Apprentissage** : Encourager l'apprentissage continu
 
-### ⛔ Comportements Inacceptables
+###  Comportements Inacceptables
 
 - Harcèlement ou discrimination sous toute forme
 - Commentaires offensants ou trolling
 - Publication d'informations privées sans consentement
 - Conduite non professionnelle ou inappropriée
 
-### 📢 Signalement
+###  Signalement
 
 Si vous observez un comportement inapproprié, contactez : conduct@awkward-legacy.com
 
@@ -59,7 +59,7 @@ Si vous observez un comportement inapproprié, contactez : conduct@awkward-legac
 
 ## Comment Contribuer
 
-### 🔍 Avant de Commencer
+###  Avant de Commencer
 
 1. **Vérifiez les issues existantes**
    - Recherchez si votre problème/idée existe déjà
@@ -74,7 +74,7 @@ Si vous observez un comportement inapproprié, contactez : conduct@awkward-legac
    - [ARCHITECTURE.md](LegacyProject/docs/ARCHITECTURE.md) - Architecture technique
    - [API_DOCUMENTATION.md](LegacyProject/docs/API_DOCUMENTATION.md) - Documentation API
 
-### 🚀 Quick Start
+###  Quick Start
 
 ```bash
 # 1. Fork le repository sur GitHub
@@ -111,7 +111,7 @@ git push origin feature/ma-super-feature
 
 ## Environnement de Développement
 
-### 📋 Prérequis
+###  Prérequis
 
 - **Python** : 3.9 ou supérieur
 - **OCaml** : 4.14 (pour le core GeneWeb)
@@ -120,7 +120,7 @@ git push origin feature/ma-super-feature
 - **Docker** : 20.10+ (optionnel mais recommandé)
 - **Git** : 2.30+
 
-### 🛠️ Installation Locale
+###  Installation Locale
 
 #### Méthode 1 : Installation Complète
 
@@ -196,7 +196,7 @@ docker-compose logs
 # http://localhost:8000
 ```
 
-### 🔧 Configuration IDE
+###  Configuration IDE
 
 #### VS Code (Recommandé)
 
@@ -237,7 +237,7 @@ Extensions recommandées :
 
 ## Standards de Code
 
-### 🐍 Python
+###  Python
 
 #### Style Guide
 
@@ -323,7 +323,7 @@ def process_data(
     pass
 ```
 
-### 🐪 OCaml
+###  OCaml
 
 ```ocaml
 (* Conventions pour le code OCaml *)
@@ -350,7 +350,7 @@ end
 val find_ancestors : person_record -> int -> person_record list
 ```
 
-### 📝 Commits
+###  Commits
 
 Nous utilisons [Conventional Commits](https://www.conventionalcommits.org/):
 
@@ -381,7 +381,7 @@ chore(deps): mise à jour de Django vers 4.2
 ci: ajout du workflow GitHub Actions
 ```
 
-### 📏 Limites de Complexité
+###  Limites de Complexité
 
 - **Complexité Cyclomatique** : Max 15 par fonction
 - **Complexité Cognitive** : Max 20 par fonction
@@ -394,7 +394,7 @@ ci: ajout du workflow GitHub Actions
 
 ## Process de Contribution
 
-### 📊 Workflow Git
+###  Workflow Git
 
 ```mermaid
 graph LR
@@ -410,7 +410,7 @@ graph LR
     I -->|Approved| J[Merge]
 ```
 
-### 🌿 Branches
+###  Branches
 
 - `main` : Branche stable de production
 - `develop` : Branche de développement
@@ -419,7 +419,7 @@ graph LR
 - `hotfix/*` : Corrections urgentes en production
 - `release/*` : Préparation des releases
 
-### 📋 Pull Request Process
+###  Pull Request Process
 
 1. **Préparez votre PR**
    ```bash
@@ -473,7 +473,7 @@ graph LR
    Fixes #456
    ```
 
-### ⏱️ Temps de Réponse
+### ⏱ Temps de Réponse
 
 - **Première réponse** : < 48 heures
 - **Review initiale** : < 1 semaine
@@ -483,7 +483,7 @@ graph LR
 
 ## Tests
 
-### 🧪 Types de Tests
+###  Types de Tests
 
 #### Tests Unitaires
 ```python
@@ -539,13 +539,13 @@ class TestUserAPI(TestCase):
         assert response.status_code == 200
 ```
 
-### 🎯 Coverage Minimum
+###  Coverage Minimum
 
 - **Global** : 80%
 - **Nouveaux fichiers** : 90%
 - **Code critique** : 95%
 
-### 🚀 Lancer les Tests
+###  Lancer les Tests
 
 ```bash
 # Tests unitaires
@@ -577,7 +577,7 @@ pytest -m "not slow"
 
 ## Documentation
 
-### 📚 Types de Documentation
+###  Types de Documentation
 
 1. **Code Documentation**
    - Docstrings pour toutes les fonctions publiques
@@ -599,14 +599,14 @@ pytest -m "not slow"
    - Guides de contribution
    - Décisions techniques (ADR)
 
-### ✍️ Style de Documentation
+###  Style de Documentation
 
 - **Clair et concis** : Évitez le jargon inutile
 - **Exemples** : Incluez des exemples pratiques
 - **À jour** : Mettez à jour avec le code
 - **Multilingue** : Français et Anglais minimum
 
-### 🌍 Traductions
+###  Traductions
 
 Les traductions sont gérées via des fichiers PO/POT :
 
@@ -623,7 +623,7 @@ python manage.py compilemessages
 
 ## Revue de Code
 
-### 👀 Checklist de Review
+###  Checklist de Review
 
 #### Architecture & Design
 - [ ] Le design est-il approprié pour le problème?
@@ -661,9 +661,9 @@ python manage.py compilemessages
 - [ ] La documentation utilisateur est-elle à jour?
 - [ ] Les changements d'API sont-ils documentés?
 
-### 💬 Donner du Feedback
+###  Donner du Feedback
 
-#### ✅ Bon Feedback
+####  Bon Feedback
 ```
 "Cette fonction pourrait être simplifiée en utilisant une list comprehension :
 ```python
@@ -679,12 +679,12 @@ result = [item.value for item in items if item.is_valid()]
 Cela rendrait le code plus pythonique et plus lisible."
 ```
 
-#### ❌ Mauvais Feedback
+####  Mauvais Feedback
 ```
 "Ce code est nul, refais tout."
 ```
 
-### 🎯 Principes de Review
+###  Principes de Review
 
 1. **Soyez constructif** : Proposez des solutions
 2. **Soyez spécifique** : Pointez les lignes exactes
@@ -696,7 +696,7 @@ Cela rendrait le code plus pythonique et plus lisible."
 
 ## Releases
 
-### 📦 Versioning
+###  Versioning
 
 Nous suivons [Semantic Versioning](https://semver.org/):
 
@@ -709,7 +709,7 @@ MAJOR.MINOR.PATCH
 └───── MAJOR: Breaking changes
 ```
 
-### 🚀 Release Process
+###  Release Process
 
 1. **Préparation**
    ```bash
@@ -752,7 +752,7 @@ MAJOR.MINOR.PATCH
    - Tests de smoke
    - Déploiement production
 
-### 📝 Changelog
+###  Changelog
 
 Format du CHANGELOG.md :
 
@@ -784,16 +784,16 @@ Format du CHANGELOG.md :
 
 ---
 
-## 🆘 Obtenir de l'Aide
+##  Obtenir de l'Aide
 
-### 📬 Canaux de Communication
+###  Canaux de Communication
 
 - **GitHub Issues** : Pour les bugs et feature requests
 - **Discussions** : Pour les questions générales
 - **Discord** : [discord.gg/awkward-legacy](https://discord.gg/awkward-legacy)
 - **Email** : dev@awkward-legacy.com
 
-### 📖 Ressources
+###  Ressources
 
 #### Documentation Officielle
 - [Documentation Utilisateur](https://docs.awkward-legacy.com)
@@ -809,7 +809,7 @@ Format du CHANGELOG.md :
 - [Code Examples](examples/)
 - [Plugin Template](templates/plugin/)
 
-### 🎓 Formation
+###  Formation
 
 Pour les nouveaux contributeurs :
 1. Lisez le [README](README.md)
@@ -819,9 +819,9 @@ Pour les nouveaux contributeurs :
 
 ---
 
-## 🏆 Reconnaissance
+##  Reconnaissance
 
-### 🌟 Hall of Fame
+###  Hall of Fame
 
 Nous reconnaissons nos contributeurs dans :
 - [CONTRIBUTORS.md](CONTRIBUTORS.md)
@@ -829,7 +829,7 @@ Nous reconnaissons nos contributeurs dans :
 - Release notes
 - Site web du projet
 
-### 🎁 Swag & Récompenses
+###  Swag & Récompenses
 
 Les contributeurs réguliers peuvent recevoir :
 - T-shirts AWKWARD LEGACY
@@ -839,13 +839,13 @@ Les contributeurs réguliers peuvent recevoir :
 
 ---
 
-## 📜 License
+##  License
 
 En contribuant à AWKWARD LEGACY, vous acceptez que vos contributions soient sous la même [license MIT](LICENSE) que le projet.
 
 ---
 
-## 🤔 FAQ
+##  FAQ
 
 ### Q: Je suis débutant, puis-je contribuer?
 **R:** Absolument! Cherchez les issues tagguées `good first issue` ou `beginner friendly`. N'hésitez pas à demander de l'aide.
@@ -868,7 +868,7 @@ En contribuant à AWKWARD LEGACY, vous acceptez que vos contributions soient sou
 
 ---
 
-## 📊 Métriques de Contribution
+##  Métriques de Contribution
 
 Nous suivons ces métriques pour améliorer le process :
 - **Temps moyen de première réponse** : < 48h
@@ -878,11 +878,11 @@ Nous suivons ces métriques pour améliorer le process :
 
 ---
 
-## ✨ Merci!
+##  Merci!
 
 Merci de prendre le temps de contribuer à AWKWARD LEGACY. Chaque contribution, grande ou petite, est appréciée et nous aide à construire un meilleur outil pour la communauté généalogique.
 
-**Happy Coding!** 🚀
+**Happy Coding!** 
 
 ---
 

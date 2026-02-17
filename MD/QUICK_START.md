@@ -1,13 +1,13 @@
-# 🚀 QUICK START - AWKWARD LEGACY
+#  QUICK START - AWKWARD LEGACY
 
 Guide rapide pour démarrer le projet en 5 minutes.
 
-## 📋 Prérequis
+##  Prérequis
 
 - Python 3.8+
 - Navigateur web moderne
 
-## ⚡ Démarrage Rapide (3 terminaux)
+##  Démarrage Rapide (3 terminaux)
 
 ### Terminal 1: Backend API
 
@@ -24,8 +24,8 @@ python3 server.py
 
 **Résultat attendu:**
 ```
-🚀 Démarrage du serveur API AWKWARD LEGACY...
-📍 API disponible sur: http://localhost:8000
+ Démarrage du serveur API AWKWARD LEGACY...
+ API disponible sur: http://localhost:8000
 ```
 
 ### Terminal 2: Frontend Web
@@ -53,12 +53,12 @@ cd /Users/rayanememiche/Documents/Taff/Legal/LegacyProject/modernProject
 ./run_all_tests.sh
 ```
 
-## 🌐 Accéder à l'Application
+##  Accéder à l'Application
 
 1. **Frontend**: Ouvrir http://localhost:3000 dans le navigateur
 2. **API**: http://localhost:8000/api/health
 
-## ✅ Vérification Rapide
+##  Vérification Rapide
 
 ```bash
 # Tester l'API
@@ -68,7 +68,7 @@ curl http://localhost:8000/api/health
 # {"status":"healthy","service":"AWKWARD LEGACY API",...}
 ```
 
-## 🧪 Lancer les Tests Rapidement
+##  Lancer les Tests Rapidement
 
 ### Option 1: Tous les tests
 ```bash
@@ -93,14 +93,14 @@ python3 test_performance_simple.py
 python3 -m pytest tests/integration/ -v
 ```
 
-## 📊 Résultats Attendus
+##  Résultats Attendus
 
 ### Tests des Modules
 ```
-✅ Module importé avec succès
-✅ Hashage/Vérification de mot de passe OK
-✅ JWT création/vérification OK
-✅ Chiffrement/Déchiffrement OK
+ Module importé avec succès
+ Hashage/Vérification de mot de passe OK
+ JWT création/vérification OK
+ Chiffrement/Déchiffrement OK
 ```
 
 ### Tests de Performance
@@ -111,14 +111,14 @@ Taux de succès: 99%
 Latence P95: < 100ms
 ```
 
-## 🔧 Dépendances Minimales
+##  Dépendances Minimales
 
 ```bash
 # Installer les dépendances essentielles
 pip3 install flask flask-cors pytest cryptography pyjwt bcrypt argon2-cffi
 ```
 
-## 📁 Structure des Fichiers Importants
+##  Structure des Fichiers Importants
 
 ```
 Legal/
@@ -138,7 +138,7 @@ Legal/
             └── config.json     # Configuration
 ```
 
-## 🐛 Problèmes Courants
+##  Problèmes Courants
 
 ### Port déjà utilisé
 ```bash
@@ -158,7 +158,7 @@ export PYTHONPATH="${PYTHONPATH}:$(pwd)/lib"
 - Vérifier que le frontend est sur port 3000
 - Redémarrer les deux serveurs
 
-## 📝 Utilisation du Frontend
+##  Utilisation du Frontend
 
 1. **Page d'accueil**: Vue d'ensemble et statistiques
 2. **Recherche**: Trouver des personnes par nom, date, lieu
@@ -170,7 +170,7 @@ export PYTHONPATH="${PYTHONPATH}:$(pwd)/lib"
 - Créer un compte test
 - Se connecter avec les identifiants
 
-## 🎯 Endpoints API Principaux
+##  Endpoints API Principaux
 
 | Endpoint | Méthode | Description |
 |----------|---------|-------------|
@@ -182,22 +182,22 @@ export PYTHONPATH="${PYTHONPATH}:$(pwd)/lib"
 | `/api/statistics` | GET | Statistiques globales |
 | `/api/tree/<id>` | GET | Arbre généalogique |
 
-## 📞 Aide
+##  Aide
 
 - Documentation complète: `GUIDE_LANCEMENT.md`
 - Tests détaillés: `./run_all_tests.sh -v`
 - Logs backend: Voir Terminal 1
 - Logs frontend: Console du navigateur (F12)
 
-## ✨ Fonctionnalités Testées
+##  Fonctionnalités Testées
 
-- ✅ Authentification JWT
-- ✅ Recherche de personnes
-- ✅ Visualisation d'arbres
-- ✅ Statistiques
-- ✅ Conformité RGPD
-- ✅ Sécurité OWASP
-- ✅ Performance (600+ req/sec)
+-  Authentification JWT
+-  Recherche de personnes
+-  Visualisation d'arbres
+-  Statistiques
+-  Conformité RGPD
+-  Sécurité OWASP
+-  Performance (600+ req/sec)
 
 ---
 

@@ -115,10 +115,10 @@ make lint
 ```
 
 **Critères de passage:**
-- ✅ Tous les tests unitaires passent
-- ✅ Couverture ≥ 75%
-- ✅ Pas d'erreur de linting
-- ✅ Pas de régression détectée
+-  Tous les tests unitaires passent
+-  Couverture ≥ 75%
+-  Pas d'erreur de linting
+-  Pas de régression détectée
 
 ### 2.2 Avant chaque pull request
 
@@ -134,10 +134,10 @@ make security-check
 ```
 
 **Critères de validation:**
-- ✅ Suite de tests complète (unitaire + intégration)
-- ✅ Tests fonctionnels passent
-- ✅ Pas de vulnérabilités détectées
-- ✅ Documentation à jour
+-  Suite de tests complète (unitaire + intégration)
+-  Tests fonctionnels passent
+-  Pas de vulnérabilités détectées
+-  Documentation à jour
 
 ### 2.3 Avant chaque release
 
@@ -156,11 +156,11 @@ make validate
 ```
 
 **Critères de release:**
-- ✅ Tous les tests passent (unitaire, intégration, fonctionnel, performance)
-- ✅ Performance conforme aux SLA
-- ✅ Pas de régression de performance
-- ✅ Documentation complète
-- ✅ CHANGELOG mis à jour
+-  Tous les tests passent (unitaire, intégration, fonctionnel, performance)
+-  Performance conforme aux SLA
+-  Pas de régression de performance
+-  Documentation complète
+-  CHANGELOG mis à jour
 
 ### 2.4 Tests en production (monitoring)
 
@@ -234,10 +234,10 @@ curl http://localhost:8080/metrics
    ```
 
 **Critères de succès:**
-- ✅ Toutes les personnes créées avec succès
-- ✅ Relations familiales correctes
-- ✅ Calcul de consanguinité précis
-- ✅ Export/Import GEDCOM sans perte de données
+-  Toutes les personnes créées avec succès
+-  Relations familiales correctes
+-  Calcul de consanguinité précis
+-  Export/Import GEDCOM sans perte de données
 
 ---
 
@@ -281,10 +281,10 @@ curl http://localhost:8080/metrics
    ```
 
 **Critères de succès:**
-- ✅ Import en moins de 10 secondes
-- ✅ 100% des données importées
-- ✅ Détection de doublons fonctionnelle
-- ✅ Intégrité référentielle maintenue
+-  Import en moins de 10 secondes
+-  100% des données importées
+-  Détection de doublons fonctionnelle
+-  Intégrité référentielle maintenue
 
 ---
 
@@ -321,10 +321,10 @@ curl http://localhost:8080/metrics
    - Nombre de requêtes/seconde
 
 **Critères de succès:**
-- ✅ Temps de réponse moyen < 500ms
-- ✅ Taux d'erreur < 1%
-- ✅ Pas de crash système
-- ✅ Mémoire stable (pas de fuite)
+-  Temps de réponse moyen < 500ms
+-  Taux d'erreur < 1%
+-  Pas de crash système
+-  Mémoire stable (pas de fuite)
 
 ---
 
@@ -739,22 +739,22 @@ pytest tests/accessibility/ -v
 ### 9.1 Roadmap des tests
 
 #### Q4 2025
-- ✅ Tests unitaires (80% coverage)
-- ✅ Tests d'intégration
-- ✅ Tests de performance
-- ✅ Tests de sécurité automatisés (OWASP Top 10)
+-  Tests unitaires (80% coverage)
+-  Tests d'intégration
+-  Tests de performance
+-  Tests de sécurité automatisés (OWASP Top 10)
 
 #### Q1 2026
-- ✅ Tests d'accessibilité (WCAG 2.1 AA)
-- ✅ Amélioration accessibilité frontend (skip links, ARIA, sémantique)
-- ✅ Validateur RGPD complet
-- 🔄 Amélioration coverage à 90%
+-  Tests d'accessibilité (WCAG 2.1 AA)
+-  Amélioration accessibilité frontend (skip links, ARIA, sémantique)
+-  Validateur RGPD complet
+-  Amélioration coverage à 90%
 
 #### Q2 2026
-- 🔜 Tests E2E avec Selenium
-- 🔜 Tests de mutation
-- 🔜 Tests de compatibilité navigateurs
-- 🔜 Tests d'internationalisation
+-  Tests E2E avec Selenium
+-  Tests de mutation
+-  Tests de compatibilité navigateurs
+-  Tests d'internationalisation
 
 ### 9.2 Métriques d'amélioration
 

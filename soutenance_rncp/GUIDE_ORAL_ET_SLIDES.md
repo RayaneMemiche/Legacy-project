@@ -84,7 +84,6 @@ Deuxieme niveau : le pre-PR. Quand on pousse une branche, le pipeline CI/CD GitH
 
 Troisieme niveau : le pre-release. Avant chaque merge vers main, on ajoute les tests de performance avec Locust -- montee en charge jusqu'a 500 utilisateurs simultanement --, l'audit de securite OWASP complet, et la verification zero regression.
 
-Quatrieme niveau : en production, monitoring avec health checks et logs centralises pour verifier la disponibilite et les temps de reponse en continu.
 
 Ce protocole est entierement reel et fonctionnel : ci.yml pour le pipeline et .pre-commit-config.yaml pour les hooks sont dans le repo."
 

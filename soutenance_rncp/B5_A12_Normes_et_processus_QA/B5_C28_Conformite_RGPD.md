@@ -239,11 +239,11 @@ class DataSecurity:
 ### 2.7 Responsabilité (Accountability)
 
 **Documentation obligatoire:**
-- ✅ Registre des activités de traitement
-- ✅ Analyse d'impact (PIA) si nécessaire
-- ✅ Politique de confidentialité
-- ✅ Procédures de gestion des violations
-- ✅ Formation du personnel
+-  Registre des activités de traitement
+-  Analyse d'impact (PIA) si nécessaire
+-  Politique de confidentialité
+-  Procédures de gestion des violations
+-  Formation du personnel
 
 ---
 
@@ -298,7 +298,7 @@ class DataSecurity:
 
 ### 3.2 Données sensibles
 
-**⚠️ Attention:** Les données généalogiques peuvent révéler:
+** Attention:** Les données généalogiques peuvent révéler:
 - Origine ethnique
 - Convictions religieuses
 - Santé (dans certains cas)
@@ -357,10 +357,10 @@ class SensitiveDataHandler:
 ### 4.2 Gestion du consentement
 
 **Caractéristiques du consentement valide:**
-- ✅ Libre (aucune contrainte)
-- ✅ Spécifique (par finalité)
-- ✅ Éclairé (information complète)
-- ✅ Univoque (action positive)
+-  Libre (aucune contrainte)
+-  Spécifique (par finalité)
+-  Éclairé (information complète)
+-  Univoque (action positive)
 
 **Implémentation:**
 ```python
@@ -1194,10 +1194,10 @@ def anonymize_and_delete_user(user):
 **Politique:** Minimiser les transferts hors UE
 
 **Si transfert nécessaire:**
-- ✅ Clauses contractuelles types (CCT) de la Commission Européenne
-- ✅ Garanties appropriées (Privacy Shield si applicable)
-- ✅ Consentement explicite de l'utilisateur
-- ✅ Évaluation des risques (TIA - Transfer Impact Assessment)
+-  Clauses contractuelles types (CCT) de la Commission Européenne
+-  Garanties appropriées (Privacy Shield si applicable)
+-  Consentement explicite de l'utilisateur
+-  Évaluation des risques (TIA - Transfer Impact Assessment)
 
 **Implémentation:**
 ```python
@@ -1601,10 +1601,10 @@ class DataBreach(models.Model):
 ### 10.2 Analyse d'impact (PIA/DPIA)
 
 **Quand réaliser une PIA:**
-- ✅ Traitement de données sensibles à grande échelle
-- ✅ Profilage automatisé
-- ✅ Surveillance systématique
-- ✅ Nouvelles technologies
+-  Traitement de données sensibles à grande échelle
+-  Profilage automatisé
+-  Surveillance systématique
+-  Nouvelles technologies
 
 **Template PIA:**
 ```markdown
@@ -1662,7 +1662,7 @@ class DataBreach(models.Model):
 **Recommandations:**
 [Liste des recommandations]
 
-**Validation DPO:** ☐ Approuvé ☐ Rejeté
+**Validation DPO:**  Approuvé  Rejeté
 **Date:** [Date]
 **Signature:**
 ```
