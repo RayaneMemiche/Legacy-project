@@ -65,7 +65,7 @@ La stratégie QA est conçue selon 3 principes directeurs :
 | **PEP 8 / PEP 257** | Style de code Python | Standards de la communauté Python |
 | **Semantic Versioning** | Versionnage | Convention de nommage des versions |
 
-### 2.2 Normes d'accessibilité (C28.2)
+### 2.2 Normes d'accessibilité
 
 L'accessibilité numérique est **intégrée comme exigence de premier plan** dans notre stratégie QA, conformément aux obligations légales (loi n° 2005-102 du 11 février 2005, décret n° 2019-768, RGAA 4.1) et au référentiel WCAG 2.1 niveau AA.
 
@@ -193,7 +193,7 @@ Chaque modification de code fait l'objet d'une revue selon les critères suivant
 | **Conformité** | `tests/compliance/rgpd_validator.py` | Valider conformité RGPD | Custom Python |
 | **Accessibilité** | `tests/accessibility/` | Valider conformité WCAG 2.1 AA | Custom Python |
 
-### 4.3 Justification des choix de frameworks (C26.2)
+### 4.3 Justification des choix de frameworks
 
 | Outil | Justification du choix |
 |-------|----------------------|
@@ -336,7 +336,7 @@ La conformité RGPD est validée par le module `tests/compliance/rgpd_validator.
 - Gestion du consentement : retrait, journalisation
 - Notification de violation : procédure 72h
 
-### 9.2 Accessibilité numérique (C28.2)
+### 9.2 Accessibilité numérique
 
 La conformité accessibilité est intégrée à **chaque étape du processus qualité** :
 

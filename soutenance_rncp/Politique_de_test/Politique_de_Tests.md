@@ -13,7 +13,7 @@
 
 La stratégie de tests d'AWKWARD LEGACY vise à garantir la qualité, la fiabilité et la maintenabilité du système tout en préservant l'intégrité du code legacy OCaml. Notre approche repose sur une pyramide de tests équilibrée.
 
-### Justification de la stratégie (C25.2)
+### Justification de la stratégie
 
 La pyramide de tests a été choisie pour les raisons suivantes :
 
@@ -588,7 +588,7 @@ open htmlcov/index.html
 
 ## 7. Outils et Infrastructure de Tests
 
-### 7.1 Outils de test et justification des choix (C26.1, C26.2)
+### 7.1 Outils de test et justification des choix
 
 | Outil | Usage | Version | Justification du choix |
 |-------|-------|---------|----------------------|
@@ -714,7 +714,7 @@ def test_person_creation_with_all_fields():
 
 ## 9. Évolution et Amélioration Continue
 
-### 9.0 Tests d'Accessibilité (C28.2)
+### 9.0 Tests d'Accessibilité
 
 Les tests d'accessibilité font partie intégrante du protocole de tests, conformément aux exigences WCAG 2.1 AA et à la stratégie d'assurance qualité.
 

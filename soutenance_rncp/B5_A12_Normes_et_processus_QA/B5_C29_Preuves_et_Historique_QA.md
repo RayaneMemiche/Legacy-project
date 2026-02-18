@@ -10,10 +10,10 @@
 
 Ce document fournit les **preuves concrètes** de la mise en oeuvre de la stratégie d'assurance qualité décrite dans `QA_STRATEGY.md`. Il recense :
 
-- Les résultats d'exécution des tests (C29.2)
-- Les défauts détectés et corrigés (C29.3)
-- L'historique des modifications liées à la qualité (C29.3)
-- Les rapports d'audit (C29.2)
+- Les résultats d'exécution des tests
+- Les défauts détectés et corrigés
+- L'historique des modifications liées à la qualité
+- Les rapports d'audit
 
 ---
 
@@ -80,7 +80,7 @@ RAPPORT D'ACCESSIBILITÉ WCAG 2.1 AA
 
 ---
 
-## 3. Historique des Corrections QA (C29.3)
+## 3. Historique des Corrections QA
 
 Ce chapitre documente les défauts trouvés par le processus QA et les correctifs appliqués, avec références aux commits git.
 
@@ -154,7 +154,7 @@ Ce chapitre documente les défauts trouvés par le processus QA et les correctif
 
 ---
 
-## 4. Preuves d'Artefacts QA (C29.2)
+## 4. Preuves d'Artefacts QA
 
 ### 4.1 Rapports de couverture
 
@@ -212,7 +212,7 @@ Le pipeline CI/CD (`.github/workflows/ci.yml`) exécute automatiquement :
 
 ---
 
-## 5. Historique Git des Modifications Qualité (C29.3)
+## 5. Historique Git des Modifications Qualité
 
 L'historique complet des commits liés à la qualité :
 

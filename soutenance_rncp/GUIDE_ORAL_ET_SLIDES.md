@@ -25,7 +25,7 @@ Le defi technique est double : d'une part, migrer un code OCaml complexe vers Py
 
 ---
 
-## SLIDE 2 : C25.1 - Documentation politique de tests (~2 min)
+## SLIDE 2 : Documentation politique de tests (~2 min)
 
 ### Ce que tu dois DIRE :
 
@@ -41,7 +41,7 @@ Au total, cette documentation represente plus de 2600 lignes reparties en trois 
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C25.1 - Documentation complete de la politique de tests"
+- [ ] Titre : "Documentation complete de la politique de tests"
 - [ ] Critere RNCP affiche (en italique ou encadre) : "Le dossier du candidat presente une documentation complete..."
 - [ ] Tableau avec 3 lignes : Politique de Tests (805 lignes), Methodologie (435 lignes), Inventaire (1431 lignes)
 - [ ] Chiffre "2671 lignes" mis en avant (gros, en couleur)
@@ -49,7 +49,7 @@ Au total, cette documentation represente plus de 2600 lignes reparties en trois 
 
 ---
 
-## SLIDE 3 : C25.2 - Justification strategie (~2 min)
+## SLIDE 3 : Justification strategie (~2 min)
 
 ### Ce que tu dois DIRE :
 
@@ -63,7 +63,7 @@ La troisieme justification est technique. Migrer d'OCaml vers Python, c'est pass
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C25.2 - Justification des choix de la politique de tests"
+- [ ] Titre : "Justification des choix de la politique de tests"
 - [ ] Critere RNCP affiche
 - [ ] Schema de pyramide de tests avec 5 niveaux et les pourcentages
 - [ ] Mention "Etude NIST : cout x1 en test unitaire vs x100 en production"
@@ -72,7 +72,7 @@ La troisieme justification est technique. Migrer d'OCaml vers Python, c'est pass
 
 ---
 
-## SLIDE 4 : C26.1 - Protocole adapte (~2 min)
+## SLIDE 4 : Protocole adapte (~2 min)
 
 ### Ce que tu dois DIRE :
 
@@ -89,7 +89,7 @@ Ce protocole est entierement reel et fonctionnel : ci.yml pour le pipeline et .p
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C26.1 - Protocole de test multi-niveaux"
+- [ ] Titre : "Protocole de test multi-niveaux"
 - [ ] Critere RNCP affiche
 - [ ] Tableau a 4 colonnes : Niveau | Declencheur | Outils | Criteres de passage
 - [ ] 4 lignes : Pre-commit (41 hooks), Pre-PR (5 jobs CI/CD), Pre-release (audit), Production (monitoring)
@@ -98,7 +98,7 @@ Ce protocole est entierement reel et fonctionnel : ci.yml pour le pipeline et .p
 
 ---
 
-## SLIDE 5 : C26.2 - Choix d'outils (~2 min)
+## SLIDE 5 : Choix d'outils (~2 min)
 
 ### Ce que tu dois DIRE :
 
@@ -116,7 +116,7 @@ Et MyPy pour le typage statique, ce qui est particulierement pertinent dans notr
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C26.2 - 10 outils selectionnes et justifies"
+- [ ] Titre : "10 outils selectionnes et justifies"
 - [ ] Critere RNCP affiche
 - [ ] Tableau a 3 colonnes : Outil | Usage | Justification
 - [ ] 10 lignes d'outils avec leurs justifications courtes
@@ -124,7 +124,7 @@ Et MyPy pour le typage statique, ce qui est particulierement pertinent dans notr
 
 ---
 
-## SLIDE 6 : C27.1 - Coherence protocole/code (~2 min 30)
+## SLIDE 6 : Coherence protocole/code (~2 min 30)
 
 ### Ce que tu dois DIRE :
 
@@ -146,7 +146,7 @@ Au total, 55 fichiers de tests et environ 14 000 lignes de code de test. Le prot
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C27.1 - 1023 tests passants couvrant tout le protocole"
+- [ ] Titre : "1023 tests passants couvrant tout le protocole"
 - [ ] Critere RNCP affiche
 - [ ] Tableau de resultats : 5 categories avec Tests | Passes | Echoues | Skippes
 - [ ] Ligne Total en gras : 1042 | 1023 | 1 | 18
@@ -155,7 +155,7 @@ Au total, 55 fichiers de tests et environ 14 000 lignes de code de test. Le prot
 
 ---
 
-## SLIDE 7 : C27.2 - Couverture (~2 min)
+## SLIDE 7 : Couverture (~2 min)
 
 ### Ce que tu dois DIRE :
 
@@ -171,7 +171,7 @@ Ce qui est important aussi, c'est la progression. J'ai 10 rapports de couverture
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C27.2 - 81% de couverture de code"
+- [ ] Titre : "81% de couverture de code"
 - [ ] Critere RNCP affiche
 - [ ] Graphique en barres horizontales ou tableau montrant les modules et leurs % (au moins les 10-15 principaux)
 - [ ] Mention "Objectif fixe : 80% - Atteint : 81%"
@@ -181,7 +181,7 @@ Ce qui est important aussi, c'est la progression. J'ai 10 rapports de couverture
 
 ---
 
-## SLIDE 8 : C28.1 - Strategie QA (~2 min)
+## SLIDE 8 : Strategie QA (~2 min)
 
 ### Ce que tu dois DIRE :
 
@@ -195,7 +195,7 @@ Troisieme pilier : des KPIs mesurables et un tableau de bord qualite. Les object
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C28.1 - Strategie QA multi-dimensionnelle"
+- [ ] Titre : "Strategie QA multi-dimensionnelle"
 - [ ] Critere RNCP affiche
 - [ ] Schema en etoile ou cercle avec les 5 normes : ISO 25010, OWASP, WCAG, RGPD, PEP 8
 - [ ] 3 principes fondateurs listes (Prevention, Automatisation, Multi-dimensionnel)
@@ -204,7 +204,7 @@ Troisieme pilier : des KPIs mesurables et un tableau de bord qualite. Les object
 
 ---
 
-## SLIDE 9 : C28.2 - Accessibilite (~2 min 30)
+## SLIDE 9 : Accessibilite (~2 min 30)
 
 ### Ce que tu dois DIRE :
 
@@ -220,7 +220,7 @@ Apres corrections, j'ai ecrit 39 tests d'accessibilite automatises, repartis en 
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C28.2 - Conformite WCAG 2.1 AA : 39/39 tests"
+- [ ] Titre : "Conformite WCAG 2.1 AA : 39/39 tests"
 - [ ] Critere RNCP affiche
 - [ ] Tableau Avant/Apres avec 9 lignes (skip links, HTML5, ARIA, reduced-motion, etc.)
 - [ ] Score : "45-50% -> 100% sur criteres testes"
@@ -231,7 +231,7 @@ Apres corrections, j'ai ecrit 39 tests d'accessibilite automatises, repartis en 
 
 ---
 
-## SLIDE 10 : C29.1 - Justification QA (~1 min 30)
+## SLIDE 10 : Justification QA (~1 min 30)
 
 ### Ce que tu dois DIRE :
 
@@ -245,7 +245,7 @@ Argument technique. Migrer d'OCaml vers Python, c'est un risque de regression ma
 
 ### Ce que la slide doit CONTENIR (checklist Gamma) :
 
-- [ ] Titre : "C29.1 - Pertinence de la strategie d'assurance qualite"
+- [ ] Titre : "Pertinence de la strategie d'assurance qualite"
 - [ ] Critere RNCP affiche
 - [ ] 3 blocs visuels distincts : Economique, Domaine, Technique
 - [ ] Chaque bloc avec un chiffre cle :

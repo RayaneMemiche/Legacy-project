@@ -16,9 +16,9 @@ Ajoute le contexte en bas : "Projet de modernisation d'un logiciel de genealogie
 
 ---
 
-## Slide 2 : C25.1 - Documentation de la politique de tests
+## Slide 2 : Documentation de la politique de tests
 
-**Titre :** C25.1 - Documentation complete de la politique de tests
+**Titre :** Documentation complete de la politique de tests
 **Critere RNCP :** "Le dossier du candidat presente une documentation complete presentant la politique de test mise en oeuvre en coherence avec les attendus lies au projet"
 
 **Contenu :**
@@ -37,9 +37,9 @@ Ajoute le contexte en bas : "Projet de modernisation d'un logiciel de genealogie
 
 ---
 
-## Slide 3 : C25.2 - Justification de la strategie de tests
+## Slide 3 : Justification de la strategie de tests
 
-**Titre :** C25.2 - Justification des choix de la politique de tests
+**Titre :** Justification des choix de la politique de tests
 **Critere RNCP :** "Le candidat est capable de defendre les choix realises au cours de la definition de sa politique de test"
 
 **Contenu - Pyramide de tests justifiee :**
@@ -57,9 +57,9 @@ Schema d'une pyramide de tests avec 5 niveaux :
 
 ---
 
-## Slide 4 : C26.1 - Protocole de test adapte
+## Slide 4 : Protocole de test adapte
 
-**Titre :** C26.1 - Protocole de test multi-niveaux
+**Titre :** Protocole de test multi-niveaux
 **Critere RNCP :** "Le protocole de test fait appel a des composants existants adaptes aux cas d'usage et repondant aux exigences definies dans la politique de test"
 
 **Contenu - 4 niveaux de verification :**
@@ -77,9 +77,9 @@ Schema en 4 colonnes :
 
 ---
 
-## Slide 5 : C26.2 - Justification des choix d'outils
+## Slide 5 : Justification des choix d'outils
 
-**Titre :** C26.2 - 10 outils selectionnes et justifies
+**Titre :** 10 outils selectionnes et justifies
 **Critere RNCP :** "Le candidat est en mesure d'argumenter de la pertinence des choix de composants existants"
 
 **Tableau des 10 outils avec justification :**
@@ -99,9 +99,9 @@ Schema en 4 colonnes :
 
 ---
 
-## Slide 6 : C27.1 - Coherence protocole et code
+## Slide 6 : Coherence protocole et code
 
-**Titre :** C27.1 - 1023 tests passants couvrant tout le protocole
+**Titre :** 1023 tests passants couvrant tout le protocole
 **Critere RNCP :** "Le code de la solution contient l'ensemble des tests correspondant au protocole decrit"
 
 **Contenu :**
@@ -124,9 +124,9 @@ Schema en 4 colonnes :
 
 ---
 
-## Slide 7 : C27.2 - Couverture exhaustive des tests
+## Slide 7 : Couverture exhaustive des tests
 
-**Titre :** C27.2 - 81% de couverture de code
+**Titre :** 81% de couverture de code
 **Critere RNCP :** "L'implementation des tests couvre de maniere exhaustive les scenarios qu'ils decrivent"
 
 **Contenu :**
@@ -157,9 +157,9 @@ Graphique en barres horizontales montrant la couverture par module :
 
 ---
 
-## Slide 8 : C28.1 - Strategie d'assurance qualite
+## Slide 8 : Strategie d'assurance qualite
 
-**Titre :** C28.1 - Strategie QA multi-dimensionnelle
+**Titre :** Strategie QA multi-dimensionnelle
 **Critere RNCP :** "Le dossier contient une reference documentaire decrivant une strategie d'assurance qualite coherente"
 
 **Contenu :**
@@ -182,9 +182,9 @@ Schema en etoile ou en cercle avec 5 branches :
 
 ---
 
-## Slide 9 : C28.2 - Accessibilite numerique
+## Slide 9 : Accessibilite numerique
 
-**Titre :** C28.2 - Conformite WCAG 2.1 AA : 39/39 tests
+**Titre :** Conformite WCAG 2.1 AA : 39/39 tests
 **Critere RNCP :** "La strategie d'assurance qualite integre les normes d'accessibilite numerique pour les personnes en situation de handicap"
 
 **Contenu :**
@@ -207,9 +207,9 @@ Schema en etoile ou en cercle avec 5 branches :
 
 ---
 
-## Slide 10 : C29.1 - Justification de la strategie QA
+## Slide 10 : Justification de la strategie QA
 
-**Titre :** C29.1 - Pertinence de la strategie d'assurance qualite
+**Titre :** Pertinence de la strategie d'assurance qualite
 **Critere RNCP :** "Le candidat est capable d'exposer la pertinence de la strategie d'assurance qualite qu'il a elabore"
 
 **Contenu :**
@@ -233,9 +233,9 @@ Schema en etoile ou en cercle avec 5 branches :
 
 ---
 
-## Slide 11 : C29.2 - Preuves du processus QA
+## Slide 11 : Preuves du processus QA
 
-**Titre :** C29.2 - Preuves tangibles du processus qualite
+**Titre :** Preuves tangibles du processus qualite
 **Critere RNCP :** "Le dossier contient les preuves prouvant les actions mettant en oeuvre la strategie decrite"
 
 **Contenu :**
@@ -259,9 +259,9 @@ Push -> Lint (Black, Flake8, Bandit) -> Tests (Python 3.10/3.11/3.12 + coverage)
 
 ---
 
-## Slide 12 : C29.3 - Corrections issues du processus QA
+## Slide 12 : Corrections issues du processus QA
 
-**Titre :** C29.3 - 5 corrections tracees par le processus qualite
+**Titre :** 5 corrections tracees par le processus qualite
 **Critere RNCP :** "Le candidat est capable de montrer que les correctifs exiges par l'application de la strategie d'assurance qualite ont ete mis en oeuvre"
 
 **Contenu :**
